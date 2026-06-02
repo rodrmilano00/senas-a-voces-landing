@@ -81,6 +81,12 @@ export const TEAM = [
     bio: 'Lingüista y educadora sorda. Lidera el diseño curricular basado en evidencia.',
     initial: 'V',
   },
+  {
+    name: 'Mateo Navarro',
+    role: 'LÃ­der de Producto',
+    bio: 'DiseÃ±ador de experiencias inclusivas. Convierte investigaciÃ³n con usuarios en herramientas claras.',
+    initial: 'M',
+  },
 ]
 
 export const CONTACT_DETAILS = [

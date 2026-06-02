@@ -53,8 +53,9 @@ html.dark {
   --color-primary: var(--primary);
   --color-primary-bright: var(--primary-bright);
 
-  --font-sans: 'DM Sans', system-ui, sans-serif;
-  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-serif: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 @layer base {
@@ -75,7 +76,8 @@ html.dark {
   h2,
   h3,
   h4 {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
+    font-weight: 800;
     line-height: 1.1;
   }
 }

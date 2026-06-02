@@ -74,12 +74,12 @@ export default function Team() {
           />
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {TEAM.map((m, i) => (
             <article
               key={m.name}
               ref={(el) => (cardsRef.current[i] = el)}
-              className="relative overflow-hidden rounded-3xl border border-[var(--card-border)] bg-[var(--card-bg)] p-10 text-center"
+              className="relative flex min-h-[320px] flex-col items-center overflow-hidden rounded-3xl border border-[var(--card-border)] bg-[var(--card-bg)] p-8 text-center"
             >
               <div
                 ref={(el) => (avatarsRef.current[i] = el)}

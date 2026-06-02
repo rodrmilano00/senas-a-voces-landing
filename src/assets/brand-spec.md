@@ -1,4 +1,4 @@
-# Señas a Voces Academy — Brand Spec
+# Senas a Voces Academy - Brand Spec
 
 Extracted from logo: two hands in "A" configuration (LSM letter A) with book-waves emerging.
 
@@ -12,23 +12,28 @@ Extracted from logo: two hands in "A" configuration (LSM letter A) with book-wav
 | `--fg` | `#083D48` | Primary text (petroleum blue) |
 | `--muted` | `#5A7A82` | Secondary text |
 | `--border` | `#D6E0E3` | Subtle borders |
-| `--accent` | `#EC9960` | Soft Orange — CTAs, highlights |
-| `--primary` | `#0D5C6F` | Deep Teal — links, icons, branding |
+| `--accent` | `#EC9960` | Soft orange for CTAs and highlights |
+| `--primary` | `#0D5C6F` | Deep teal for links, icons, branding |
 
 ### Dark Mode
 | Token | Hex | Role |
 |-------|-----|------|
-| `--bg` | `#083D48` | Petroleum Blue main background |
+| `--bg` | `#083D48` | Petroleum blue main background |
 | `--surface` | `#0A4A57` | Elevated surfaces |
 | `--fg` | `#E8F0F2` | Primary text (light) |
 | `--muted` | `#8AAFB8` | Secondary text |
 | `--border` | `#1A6070` | Subtle borders |
-| `--accent` | `#EC9960` | Soft Orange — CTAs (same) |
+| `--accent` | `#EC9960` | Soft orange for CTAs and highlights |
 | `--primary` | `#3AABBF` | Brighter teal for dark bg contrast |
 
 ## Typography
-- **Display:** 'DM Serif Display', Georgia, serif — headlines
-- **Body:** 'DM Sans', system-ui, sans-serif — paragraphs, UI
+- **Display:** 'Plus Jakarta Sans', system-ui, sans-serif (700, 800)
+- **Body:** 'Plus Jakarta Sans', system-ui, sans-serif (400, 500, 600)
+- **Mono:** 'JetBrains Mono', ui-monospace, monospace
+
+## Logo Contrast
+- On light surfaces, use the logo over white or ivory with a subtle ring/shadow.
+- On dark surfaces, keep the logo on a white contrast plate so the deep teal wordmark stays legible.
 
 ## Layout Posture
 - Generous whitespace (gap-16, py-32)

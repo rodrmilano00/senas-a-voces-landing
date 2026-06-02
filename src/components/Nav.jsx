@@ -19,11 +19,14 @@ export default function Nav({ dark, setDark }) {
       }`}
     >
       <div className="container-page flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3.5">
+        <a
+          href="#"
+          className="flex items-center gap-3.5 rounded-2xl bg-white/90 px-3 py-2 shadow-[0_10px_30px_rgba(8,61,72,0.08)] ring-1 ring-black/5 backdrop-blur-sm transition-transform hover:scale-[1.015] dark:bg-white/95 dark:ring-white/15"
+        >
           <img
             src={LOGO_SRC}
             alt="Señas a Voces Academy"
-            className="h-24 w-auto dark:[filter:brightness(1.6)_contrast(1.2)_saturate(1.1)]"
+            className="-my-4 h-28 w-auto [filter:contrast(1.08)_saturate(1.05)] sm:h-32"
           />
         </a>
         <div className="flex items-center gap-8">
