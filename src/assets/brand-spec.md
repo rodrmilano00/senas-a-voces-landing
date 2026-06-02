@@ -32,8 +32,8 @@ Extracted from logo: two hands in "A" configuration (LSM letter A) with book-wav
 - **Mono:** 'JetBrains Mono', ui-monospace, monospace
 
 ## Logo Contrast
-- On light surfaces, use the logo over white or ivory with a subtle ring/shadow.
-- On dark surfaces, keep the logo on a white contrast plate so the deep teal wordmark stays legible.
+- On light surfaces, use the full-color logo directly over ivory or light backgrounds.
+- On dark surfaces, switch the logo to white with a CSS filter so it stays legible without a white plate.
 
 ## Layout Posture
 - Generous whitespace (gap-16, py-32)

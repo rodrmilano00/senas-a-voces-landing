@@ -5,9 +5,14 @@ export default function Nav({ dark, setDark }) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => setScrolled(window.scrollY > Math.min(360, window.innerHeight * 0.42))
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
   }, [])
 
   return (
@@ -21,12 +26,17 @@ export default function Nav({ dark, setDark }) {
       <div className="container-page flex items-center justify-between">
         <a
           href="#"
-          className="flex items-center gap-3.5 rounded-2xl bg-white/90 px-3 py-2 shadow-[0_10px_30px_rgba(8,61,72,0.08)] ring-1 ring-black/5 backdrop-blur-sm transition-transform hover:scale-[1.015] dark:bg-white/95 dark:ring-white/15"
+          tabIndex={scrolled ? 0 : -1}
+          className={`flex items-center gap-3.5 transition-[opacity,transform,filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.015] ${
+            scrolled
+              ? 'pointer-events-auto translate-y-0 scale-100 opacity-100 blur-0'
+              : 'pointer-events-none -translate-y-4 scale-95 opacity-0 blur-[2px]'
+          }`}
         >
           <img
             src={LOGO_SRC}
             alt="Señas a Voces Academy"
-            className="-my-4 h-28 w-auto [filter:contrast(1.08)_saturate(1.05)] sm:h-32"
+            className="-my-7 h-40 w-auto [filter:contrast(1.08)_saturate(1.05)_drop-shadow(0_8px_22px_rgba(8,61,72,0.12))] dark:[filter:brightness(0)_invert(1)_drop-shadow(0_8px_22px_rgba(0,0,0,0.25))] sm:h-44"
           />
         </a>
         <div className="flex items-center gap-8">

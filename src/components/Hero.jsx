@@ -104,7 +104,7 @@ export default function Hero() {
             ref={logoRef}
             src={LOGO_SRC}
             alt="Logo Señas a Voces"
-            className="h-auto w-[clamp(440px,44vw,680px)] rounded-[28px] bg-white/88 p-6 shadow-[0_24px_80px_rgba(8,61,72,0.14)] ring-1 ring-black/5 [filter:contrast(1.08)_saturate(1.05)] backdrop-blur-sm dark:bg-white/95 dark:shadow-[0_24px_80px_rgba(0,0,0,0.28)] dark:ring-white/15"
+            className="h-auto w-[clamp(440px,44vw,680px)] [filter:contrast(1.08)_saturate(1.05)_drop-shadow(0_24px_60px_rgba(13,92,111,0.16))] dark:[filter:brightness(0)_invert(1)_drop-shadow(0_24px_60px_rgba(0,0,0,0.28))]"
           />
         </div>
       </div>
