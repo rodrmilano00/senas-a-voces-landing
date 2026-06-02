@@ -89,4 +89,5 @@ export const CONTACT_DETAILS = [
   { icon: '📞', text: '+52 55 1234 5678' },
 ]
 
-export const LOGO_SRC = '/logo.svg'
+import logoImg from '../assets/mpwyqir4-Señas-a-Voces-AC-LOGO.png'
+export const LOGO_SRC = logoImg
