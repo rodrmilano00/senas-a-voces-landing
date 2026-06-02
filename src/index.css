@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+
+/* Class-based dark mode driven by `html.dark` */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Design tokens ─── */
+:root {
+  --bg: #faf7ed;
+  --surface: #ffffff;
+  --fg: #083d48;
+  --muted: #5a7a82;
+  --border-c: #d6e0e3;
+  --accent: #ec9960;
+  --primary: #0d5c6f;
+  --primary-bright: #0d5c6f;
+
+  --card-bg: rgba(255, 255, 255, 0.6);
+  --card-border: rgba(13, 92, 111, 0.1);
+  --glass: rgba(255, 255, 255, 0.35);
+
+  --shadow-sm: 0 2px 8px rgba(8, 61, 72, 0.06);
+  --shadow-md: 0 8px 32px rgba(8, 61, 72, 0.08);
+  --shadow-lg: 0 16px 48px rgba(8, 61, 72, 0.1);
+}
+
+html.dark {
+  --bg: #083d48;
+  --surface: #0a4a57;
+  --fg: #e8f0f2;
+  --muted: #8aafb8;
+  --border-c: #1a6070;
+  --accent: #ec9960;
+  --primary: #3aabbf;
+  --primary-bright: #5cc4d6;
+
+  --card-bg: rgba(10, 74, 87, 0.6);
+  --card-border: rgba(58, 171, 191, 0.15);
+  --glass: rgba(10, 74, 87, 0.4);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+/* ─── Expose tokens to Tailwind utilities ─── */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-border: var(--border-c);
+  --color-accent: var(--accent);
+  --color-primary: var(--primary);
+  --color-primary-bright: var(--primary-bright);
+
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition:
+      background 0.5s ease,
+      color 0.5s ease;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    line-height: 1.1;
+  }
+}
+
+@layer utilities {
+  /* Section container */
+  .container-page {
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: clamp(24px, 4vw, 80px);
+  }
+}
