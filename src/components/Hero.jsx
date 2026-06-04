@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+﻿import { useEffect, useRef } from 'react'
 import { gsap } from '../lib/gsap'
 import { LOGO_SRC } from '../lib/content'
 import Button from './Button'
@@ -78,7 +78,7 @@ export default function Hero() {
       <div className="container-page relative z-[2] grid w-full grid-cols-1 items-center gap-20 lg:grid-cols-2">
         <div className="max-w-[600px]">
           <Eyebrow ref={eyebrowRef} className="mb-6">
-            Lengua de Señas Mexicana + Inteligencia Artificial
+            Lengua de SeÃ±as Mexicana + Inteligencia Artificial
           </Eyebrow>
           <h1 ref={titleRef} className="mb-6 text-[clamp(48px,6vw,80px)] text-fg">
             Donde las manos <span className="text-primary">encuentran voz</span>
@@ -91,11 +91,11 @@ export default function Hero() {
             comunidad que transforma vidas.
           </p>
           <div ref={ctaRef} className="flex flex-wrap items-center gap-4">
-            <Button variant="primary" magnetic>
-              Comenzar ahora <span>→</span>
+            <Button variant="muted" disabled>
+              Próximamente
             </Button>
-            <Button variant="secondary">
-              Conocer más <span>↓</span>
+            <Button href="#productos" variant="secondary">
+              Conocer más <span>--</span>
             </Button>
           </div>
         </div>
@@ -104,7 +104,7 @@ export default function Hero() {
           <img
             ref={logoRef}
             src={LOGO_SRC}
-            alt="Logo Señas a Voces"
+            alt="Logo SeÃ±as a Voces"
             className="h-auto w-[clamp(520px,50vw,780px)] [filter:contrast(1.08)_saturate(1.05)_drop-shadow(0_24px_60px_rgba(13,92,111,0.16))] dark:[filter:brightness(0)_invert(1)_drop-shadow(0_24px_60px_rgba(0,0,0,0.28))]"
           />
         </div>
@@ -112,3 +112,4 @@ export default function Hero() {
     </section>
   )
 }
+
