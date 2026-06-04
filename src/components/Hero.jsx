@@ -43,7 +43,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-screen items-center overflow-hidden pt-[120px] pb-20"
+      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-[120px] pb-20"
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
@@ -90,7 +90,7 @@ export default function Hero() {
             Aprende LSM con tecnología de vanguardia. Guantes inteligentes, IA en tiempo real y una
             comunidad que transforma vidas.
           </p>
-          <div ref={ctaRef} className="flex items-center gap-4">
+          <div ref={ctaRef} className="flex flex-wrap items-center gap-4">
             <Button variant="primary" magnetic>
               Comenzar ahora <span>→</span>
             </Button>
@@ -99,12 +99,13 @@ export default function Hero() {
             </Button>
           </div>
         </div>
+
         <div className="relative flex items-center justify-center">
           <img
             ref={logoRef}
             src={LOGO_SRC}
             alt="Logo Señas a Voces"
-            className="h-auto w-[clamp(440px,44vw,680px)] [filter:contrast(1.08)_saturate(1.05)_drop-shadow(0_24px_60px_rgba(13,92,111,0.16))] dark:[filter:brightness(0)_invert(1)_drop-shadow(0_24px_60px_rgba(0,0,0,0.28))]"
+            className="h-auto w-[clamp(520px,50vw,780px)] [filter:contrast(1.08)_saturate(1.05)_drop-shadow(0_24px_60px_rgba(13,92,111,0.16))] dark:[filter:brightness(0)_invert(1)_drop-shadow(0_24px_60px_rgba(0,0,0,0.28))]"
           />
         </div>
       </div>

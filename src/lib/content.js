@@ -64,27 +64,27 @@ export const TESTIMONIALS = [
 
 export const TEAM = [
   {
-    name: 'Sofía Mendoza',
-    role: 'CEO & Co-fundadora',
-    bio: 'Ingeniera en IA con 10 años en tecnología asistiva. Apasionada por la inclusión.',
+    name: 'Mario Chaidez',
+    role: 'Alianzas y Programación',
+    bio: 'Estudiante de Ingeniería en Tecnologías Computacionales, especializado en desarrollo de software y programación.',
     initial: 'S',
   },
   {
-    name: 'Diego Castillo',
-    role: 'CTO & Co-fundador',
-    bio: 'Experto en hardware wearable y procesamiento de señales. Creador del guante LSM.',
+    name: 'César Castillo',
+    role: 'Diseño y prototipado',
+    bio: 'Estudiante de Ingeniería Mecatrónica, especializado en diseño de productos y prototipado.',
     initial: 'D',
   },
   {
-    name: 'Valentina Reyes',
-    role: 'Directora de Educación',
-    bio: 'Lingüista y educadora sorda. Lidera el diseño curricular basado en evidencia.',
+    name: 'César Luna',
+    role: 'Diseño y prototipado',
+    bio: 'Estudiante de Ingeniería Mecatrónica, especializado en testing de productos y prototipado.',
     initial: 'V',
   },
   {
-    name: 'Mateo Navarro',
-    role: 'LÃ­der de Producto',
-    bio: 'DiseÃ±ador de experiencias inclusivas. Convierte investigaciÃ³n con usuarios en herramientas claras.',
+    name: 'Emiliano Acuña',
+    role: 'Marketing y Relaciones Públicas',
+    bio: 'Estudiante de Ingeniería en Tecnologías Computacionales, especializado en diseño y producción.',
     initial: 'M',
   },
 ]

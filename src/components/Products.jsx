@@ -1,12 +1,23 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '../lib/gsap'
 import { PRODUCTS } from '../lib/content'
+import { PHOTOS } from '../lib/media'
 import SectionHeading from './SectionHeading'
 
 export default function Products() {
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
   const cardsRef = useRef([])
+  const cards = [
+    {
+      ...PRODUCTS[1],
+      wide: true,
+      media: PHOTOS.platform,
+      mediaAlt: 'Captura de la plataforma de aprendizaje Señas a Voces',
+    },
+    { ...PRODUCTS[0], wide: false },
+    { ...PRODUCTS[2], wide: false },
+  ]
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -60,7 +71,7 @@ export default function Products() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
-          {PRODUCTS.map((card, i) => (
+          {cards.map((card, i) => (
             <article
               key={card.title}
               ref={(el) => (cardsRef.current[i] = el)}
@@ -77,9 +88,13 @@ export default function Products() {
                 {card.tag}
               </span>
               {card.wide && (
-                <div className="relative mt-6 flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-2xl bg-[linear-gradient(135deg,color-mix(in_oklch,var(--primary)_8%,var(--bg)),var(--bg))]">
-                  <div className="absolute inset-0 rounded-2xl bg-[linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.02))]" />
-                  <div className="text-[64px] opacity-30">✋</div>
+                <div className="relative mt-6 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-[var(--card-border)] bg-surface shadow-[var(--shadow-md)]">
+                  <img
+                    src={card.media}
+                    alt={card.mediaAlt}
+                    className="h-full w-full object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.04),rgba(13,92,111,0.08))]" />
                 </div>
               )}
             </article>

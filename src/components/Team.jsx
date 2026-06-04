@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '../lib/gsap'
 import { TEAM } from '../lib/content'
+import { PHOTOS } from '../lib/media'
 import SectionHeading from './SectionHeading'
 
 export default function Team() {
@@ -39,7 +40,7 @@ export default function Team() {
       const avatar = avatarsRef.current[i]
       const onEnter = () => {
         gsap.to(card, { scale: 1.03, duration: 0.4, ease: 'power3.out' })
-        gsap.to(avatar, { scale: 1.1, duration: 0.4, ease: 'power3.out' })
+        gsap.to(avatar, { scale: 1.08, duration: 0.4, ease: 'power3.out' })
       }
       const onLeave = () => {
         gsap.to(card, { scale: 1, duration: 0.5, ease: 'elastic.out(1,0.5)' })
@@ -79,14 +80,14 @@ export default function Team() {
             <article
               key={m.name}
               ref={(el) => (cardsRef.current[i] = el)}
-              className="relative flex min-h-[320px] flex-col items-center overflow-hidden rounded-3xl border border-[var(--card-border)] bg-[var(--card-bg)] p-8 text-center"
+              className="relative flex min-h-[340px] flex-col items-center overflow-hidden rounded-3xl border border-[var(--card-border)] bg-[var(--card-bg)] p-8 text-center"
             >
-              <div
+              <img
                 ref={(el) => (avatarsRef.current[i] = el)}
-                className="mx-auto mb-5 grid h-20 w-20 place-items-center rounded-full bg-[linear-gradient(135deg,var(--primary),color-mix(in_oklch,var(--primary)_60%,var(--accent)))] font-serif text-[28px] font-bold text-white"
-              >
-                {m.initial}
-              </div>
+                src={PHOTOS.team[i]}
+                alt={`Foto de ${m.name}`}
+                className="mx-auto mb-5 h-28 w-28 rounded-full border-4 border-surface object-cover object-[50%_24%] shadow-[0_12px_32px_rgba(8,61,72,0.12)]"
+              />
               <h3 className="mb-1 text-xl">{m.name}</h3>
               <div className="mb-3 text-sm font-medium text-accent">{m.role}</div>
               <p className="text-sm leading-[1.6] text-muted">{m.bio}</p>

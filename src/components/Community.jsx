@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { gsap } from '../lib/gsap'
 import { TESTIMONIALS } from '../lib/content'
+import { PHOTOS } from '../lib/media'
 import SectionHeading from './SectionHeading'
 
 export default function Community() {
@@ -10,7 +11,6 @@ export default function Community() {
   const nodesRef = useRef([])
 
   const nodes = useMemo(() => {
-    // Deterministic pseudo-random so node positions stay stable across renders.
     const rand = (n) => {
       const x = Math.sin(n * 99.13) * 43758.5453
       return x - Math.floor(x)
@@ -21,6 +21,12 @@ export default function Community() {
       accent: i % 4 === 0,
     }))
   }, [])
+  const acronym = [
+    ['S', 'Señas', 'from-accent to-[#f4cf9e]', '-rotate-3'],
+    ['A', 'a', 'from-[#d6ddd8] to-primary', 'rotate-2'],
+    ['V', 'Voces', 'from-primary-bright to-fg', '-rotate-1'],
+    ['A', 'Academy', 'from-fg to-primary-bright', 'rotate-3'],
+  ]
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -80,16 +86,47 @@ export default function Community() {
           />
         </div>
 
-        <div className="relative mb-16 h-[320px] overflow-hidden rounded-3xl bg-[linear-gradient(135deg,color-mix(in_oklch,var(--primary)_5%,var(--bg)),var(--bg))]">
+        <div className="relative mb-16 h-[440px] overflow-hidden rounded-3xl bg-[linear-gradient(135deg,color-mix(in_oklch,var(--primary)_5%,var(--bg)),var(--bg))] shadow-[var(--shadow-sm)]">
+          <div className="absolute inset-x-5 top-20 bottom-8 grid grid-cols-2 gap-5 md:grid-cols-4">
+            {PHOTOS.community.map((photo, i) => (
+              <div
+                key={photo}
+                className={`relative z-20 ${
+                  i % 2 === 1 ? 'translate-y-8' : ''
+                }`}
+              >
+                <div className="pointer-events-none absolute inset-x-0 -top-12 z-40 flex flex-col items-center">
+                  <span
+                    className={`bg-gradient-to-br ${acronym[i][2]} bg-clip-text text-[clamp(58px,5.8vw,94px)] font-extrabold leading-none tracking-[0.02em] text-transparent opacity-95 drop-shadow-[0_14px_24px_rgba(8,61,72,0.28)] ${acronym[i][3]}`}
+                  >
+                    {acronym[i][0]}
+                  </span>
+                  <span className="-mt-2 rounded-full border border-white/55 bg-[rgba(8,61,72,0.68)] px-4 py-1 text-[clamp(10px,0.78vw,13px)] font-extrabold tracking-[0.08em] text-white shadow-[0_8px_20px_rgba(0,0,0,0.18)] backdrop-blur-md">
+                    {acronym[i][1]}
+                  </span>
+                </div>
+                <div className="h-full overflow-hidden rounded-[22px] border border-white/80 bg-surface p-1 shadow-[0_18px_48px_rgba(8,61,72,0.12)]">
+                  <img
+                    src={photo}
+                    alt="Integrante de la comunidad Señas a Voces"
+                    className="h-full w-full rounded-[18px] object-cover object-[50%_42%] contrast-[1.06] saturate-[1.12]"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-16 bg-[linear-gradient(90deg,var(--bg),transparent)] opacity-65" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-16 bg-[linear-gradient(-90deg,var(--bg),transparent)] opacity-65" />
           {nodes.map((n, i) => (
             <span
               key={i}
               ref={(el) => (nodesRef.current[i] = el)}
-              className={`absolute h-3 w-3 rounded-full opacity-60 ${n.accent ? 'bg-accent' : 'bg-primary'}`}
+              className={`absolute z-10 h-3 w-3 rounded-full opacity-45 ${n.accent ? 'bg-accent' : 'bg-primary'}`}
               style={{ left: n.left, top: n.top }}
             />
           ))}
-          <svg className="pointer-events-none absolute inset-0 h-full w-full">
+          <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full">
             {nodes.slice(0, -1).map((n, i) => {
               const next = nodes[i + 1]
               return (
