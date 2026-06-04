@@ -6,11 +6,20 @@ export default function Footer() {
           © 2026 Señas a Voces Academy. Todos los derechos reservados.
         </div>
         <div className="flex gap-6">
-          {['Privacidad', 'Términos', 'Redes'].map((label) => (
-            <a key={label} href="#" className="text-sm text-muted transition-colors hover:text-primary">
-              {label}
-            </a>
-          ))}
+          <a href="#" className="text-sm text-muted transition-colors hover:text-primary">
+            Privacidad
+          </a>
+          <a href="#" className="text-sm text-muted transition-colors hover:text-primary">
+            Términos
+          </a>
+          <a
+            href="https://www.instagram.com/senasavocesac/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm text-muted transition-colors hover:text-primary"
+          >
+            Redes
+          </a>
         </div>
       </div>
     </footer>

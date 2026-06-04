@@ -9,20 +9,20 @@ export const NAV_LINKS = [
 
 export const PRODUCTS = [
   {
-    icon: '🧤',
+    icon: 'GT',
     title: 'Guante Traductor LSM',
     desc: 'Hardware wearable que captura movimiento de manos en tiempo real y lo traduce a texto y voz con precisión milimétrica.',
     tag: 'Hardware + IA',
     wide: true,
   },
   {
-    icon: '🎓',
+    icon: 'PA',
     title: 'Plataforma de Aprendizaje',
     desc: 'Curso interactivo con IA que adapta el contenido a tu ritmo. Practica con cámara y recibe retroalimentación instantánea.',
     tag: 'Software IA',
   },
   {
-    icon: '👩‍🏫',
+    icon: 'TD',
     title: 'Teacher Dashboard',
     desc: 'Herramientas para profesores: seguimiento de progreso, planes personalizados y analíticas de aprendizaje por estudiante.',
     tag: 'EdTech',
