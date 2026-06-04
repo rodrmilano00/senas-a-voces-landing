@@ -90,9 +90,9 @@ export const TEAM = [
 ]
 
 export const CONTACT_DETAILS = [
-  { icon: '✉', text: 'hola@senasavoces.mx' },
-  { icon: '📍', text: 'Ciudad de México, MX' },
-  { icon: '📞', text: '+52 55 1234 5678' },
+  { icon: '✉', text: 'senasavocesac@gmail.com' },
+  { icon: '📍', text: 'Hermosillo, Sonora, MX' },
+  { icon: '📞', text: '+52 645 115 9917' },
 ]
 
 import logoImg from '../assets/mpwyqir4-Señas-a-Voces-AC-LOGO.png'
