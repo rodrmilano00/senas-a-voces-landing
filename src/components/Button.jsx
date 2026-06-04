@@ -6,16 +6,20 @@ const VARIANTS = {
     'bg-accent text-white shadow-[0_4px_24px_rgba(236,153,96,0.35)] hover:scale-[1.04] hover:shadow-[0_8px_32px_rgba(236,153,96,0.45)]',
   secondary:
     'border-[1.5px] border-primary bg-transparent text-primary hover:bg-primary hover:text-white',
+  muted:
+    'bg-gray-300 text-gray-600 shadow-none hover:scale-100 hover:shadow-none disabled:cursor-not-allowed disabled:opacity-80 dark:bg-gray-700 dark:text-gray-300',
 }
 
 export default function Button({
   variant = 'primary',
   magnetic = false,
   className = '',
+  href,
   children,
   ...props
 }) {
   const ref = useRef(null)
+  const Component = href ? 'a' : 'button'
 
   useEffect(() => {
     if (!magnetic) return
@@ -41,12 +45,14 @@ export default function Button({
   }, [magnetic])
 
   return (
-    <button
+    <Component
       ref={ref}
+      href={href}
       className={`inline-flex cursor-pointer items-center gap-2 rounded-full px-9 py-4 text-base font-semibold transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${VARIANTS[variant]} ${className}`}
+      {...(!href ? { type: 'button' } : {})}
       {...props}
     >
       {children}
-    </button>
+    </Component>
   )
 }

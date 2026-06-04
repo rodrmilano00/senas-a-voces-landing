@@ -85,7 +85,7 @@ export default function Products() {
               <h3 className="mb-3 text-2xl">{card.title}</h3>
               <p className="text-[15px] leading-[1.7] text-muted">{card.desc}</p>
               <span className="mt-4 inline-block rounded-full bg-accent/12 px-3.5 py-1.5 text-xs font-semibold tracking-[0.08em] text-accent uppercase">
-                {card.tag}
+                Próximamente
               </span>
               {card.wide && (
                 <div className="relative mt-6 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-[var(--card-border)] bg-surface shadow-[var(--shadow-md)]">
