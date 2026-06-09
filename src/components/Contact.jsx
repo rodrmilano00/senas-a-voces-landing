@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { gsap } from '../lib/gsap'
 import { CONTACT_DETAILS } from '../lib/content'
 import Eyebrow from './Eyebrow'
@@ -7,6 +8,8 @@ const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT
 
 const FIELD_CLASS =
   'w-full border-0 border-b-[1.5px] border-border bg-transparent py-3.5 text-base text-fg outline-none transition-colors focus:border-primary'
+
+const CONTACT_ICONS = [Mail, MapPin, Phone]
 
 export default function Contact() {
   const sectionRef = useRef(null)
@@ -81,7 +84,11 @@ export default function Contact() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="contacto" className="py-[140px]">
+    <section
+      ref={sectionRef}
+      id="contacto"
+      className="pt-[clamp(72px,7vw,88px)] pb-[clamp(96px,9vw,120px)]"
+    >
       <div className="container-page grid items-start gap-20 md:grid-cols-2">
         <div ref={infoRef}>
           <Eyebrow className="mb-4">Contacto</Eyebrow>
@@ -90,14 +97,18 @@ export default function Contact() {
             ¿Tienes preguntas? ¿Quieres implementar Señas a Voces en tu institucion? Estamos aqui
             para ti.
           </p>
-          {CONTACT_DETAILS.map((d) => (
-            <div key={d.text} className="mb-4 flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-base text-primary">
-                {d.icon}
+          {CONTACT_DETAILS.map((d, i) => {
+            const Icon = CONTACT_ICONS[i] || Mail
+
+            return (
+              <div key={d.text} className="mb-4 flex items-center gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-base text-primary">
+                  <Icon size={18} strokeWidth={2.2} aria-hidden="true" />
+                </div>
+                <div className="text-[15px] text-fg">{d.text}</div>
               </div>
-              <div className="text-[15px] text-fg">{d.text}</div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         <form

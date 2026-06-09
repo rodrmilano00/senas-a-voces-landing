@@ -78,7 +78,7 @@ export default function Hero() {
       <div className="container-page relative z-[2] grid w-full grid-cols-1 items-center gap-20 lg:grid-cols-2">
         <div className="max-w-[600px]">
           <Eyebrow ref={eyebrowRef} className="mb-6">
-            Lengua de SeÃ±as Mexicana + Inteligencia Artificial
+            Lengua de Señas Mexicana + Inteligencia Artificial
           </Eyebrow>
           <h1 ref={titleRef} className="mb-6 text-[clamp(48px,6vw,80px)] text-fg">
             Donde las manos <span className="text-primary">encuentran voz</span>
