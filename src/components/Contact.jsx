@@ -101,12 +101,12 @@ export default function Contact() {
             const Icon = CONTACT_ICONS[i] || Mail
 
             return (
-              <div key={d.text} className="mb-4 flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-base text-primary">
-                  <Icon size={18} strokeWidth={2.2} aria-hidden="true" />
-                </div>
-                <div className="text-[15px] text-fg">{d.text}</div>
+            <div key={d.text} className="mb-4 flex items-center gap-3">
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-base text-primary">
+                <Icon size={18} strokeWidth={2.2} aria-hidden="true" />
               </div>
+              <div className="text-[15px] text-fg">{d.text}</div>
+            </div>
             )
           })}
         </div>
@@ -127,7 +127,7 @@ export default function Contact() {
               className={FIELD_CLASS}
               type="text"
               name="name"
-              placeholder="Tu nombre"
+              placeholder="Nombre"
               autoComplete="name"
               required
             />
@@ -140,7 +140,7 @@ export default function Contact() {
               className={FIELD_CLASS}
               type="email"
               name="email"
-              placeholder="tu@email.com"
+              placeholder="ejemplo@email.com"
               autoComplete="email"
               required
             />
