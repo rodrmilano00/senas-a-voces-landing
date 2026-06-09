@@ -5,9 +5,9 @@ const VARIANTS = {
   primary:
     'bg-accent text-white shadow-[0_4px_24px_rgba(236,153,96,0.35)] hover:scale-[1.04] hover:shadow-[0_8px_32px_rgba(236,153,96,0.45)]',
   secondary:
-    'border-[1.5px] border-primary bg-transparent text-primary hover:bg-primary hover:text-white',
+    'border-[1.5px] border-primary bg-transparent text-primary hover:bg-primary hover:text-white dark:border-primary-bright/80 dark:bg-white/[0.03] dark:text-[#d8f7ff] dark:hover:bg-primary-bright dark:hover:text-[#062b33]',
   muted:
-    'bg-gray-300 text-gray-600 shadow-none hover:scale-100 hover:shadow-none disabled:cursor-not-allowed disabled:opacity-80 dark:bg-gray-700 dark:text-gray-300',
+    'bg-gray-300 text-gray-600 shadow-none hover:scale-100 hover:shadow-none disabled:cursor-not-allowed disabled:opacity-100 dark:border dark:border-accent/35 dark:bg-accent/18 dark:text-[#ffd9c2]',
 }
 
 export default function Button({
