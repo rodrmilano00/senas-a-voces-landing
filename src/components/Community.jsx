@@ -7,7 +7,7 @@ import SectionHeading from './SectionHeading'
 export default function Community() {
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
-  const trackRef = useRef(null)
+  const testimonialsRef = useRef([])
   const nodesRef = useRef([])
 
   const nodes = useMemo(() => {
@@ -52,27 +52,29 @@ export default function Community() {
         })
       })
 
-      const track = trackRef.current
-      if (track) {
-        const totalWidth = track.scrollWidth - track.parentElement.offsetWidth
-        gsap.to(track, {
-          x: -totalWidth,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: track.parentElement,
-            start: 'top 80%',
-            end: `+=${totalWidth}`,
-            scrub: 1,
-          },
+      testimonialsRef.current.forEach((card, i) => {
+        if (!card) return
+        gsap.from(card, {
+          opacity: 0,
+          y: 36,
+          scale: 0.98,
+          duration: 0.7,
+          ease: 'power3.out',
+          delay: i * 0.06,
+          scrollTrigger: { trigger: card, start: 'top 88%' },
         })
-      }
+      })
     }, sectionRef)
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <section ref={sectionRef} id="comunidad" className="relative overflow-hidden py-[140px]">
+    <section
+      ref={sectionRef}
+      id="comunidad"
+      className="relative overflow-hidden pt-[clamp(72px,7vw,88px)] pb-[clamp(72px,8vw,96px)]"
+    >
       <div className="container-page relative z-[2]">
         <div ref={headingRef}>
           <SectionHeading
@@ -145,19 +147,23 @@ export default function Community() {
           </svg>
         </div>
 
-        <div className="relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-[2] w-20 bg-[linear-gradient(90deg,var(--bg),transparent)]" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-[2] w-20 bg-[linear-gradient(-90deg,var(--bg),transparent)]" />
-          <div ref={trackRef} className="flex w-max gap-6">
+        <div className="relative">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
             {TESTIMONIALS.map((t, i) => (
               <figure
                 key={i}
-                className="w-[360px] shrink-0 rounded-[20px] border border-[var(--card-border)] bg-[var(--card-bg)] p-8 backdrop-blur-[8px]"
+                ref={(el) => (testimonialsRef.current[i] = el)}
+                className={`group relative min-h-[220px] overflow-hidden rounded-[20px] border border-[var(--card-border)] bg-[var(--card-bg)] p-7 backdrop-blur-[8px] transition-[background-color,border-color] duration-500 hover:border-primary/20 hover:bg-[color-mix(in_oklch,var(--primary)_4%,var(--card-bg))] sm:p-8 ${
+                  i < 2 ? 'lg:col-span-3' : 'lg:col-span-2'
+                }`}
               >
-                <blockquote className="mb-5 text-[15px] leading-[1.7] text-fg italic">
+                <div className="pointer-events-none absolute right-6 top-5 text-6xl font-black leading-none text-primary/5 transition-colors duration-500 group-hover:text-primary/10">
+                  "
+                </div>
+                <blockquote className="relative mb-6 text-[clamp(15px,1.5vw,18px)] leading-[1.7] text-fg italic">
                   {t.text}
                 </blockquote>
-                <figcaption className="flex items-center gap-3">
+                <figcaption className="relative flex items-center gap-3">
                   <div className="grid h-10 w-10 place-items-center rounded-full bg-[color-mix(in_oklch,var(--primary)_15%,var(--bg))] text-base font-bold text-primary">
                     {t.initial}
                   </div>

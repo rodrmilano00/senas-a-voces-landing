@@ -61,7 +61,7 @@ export default function Team() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="equipo" className="py-[140px]">
+    <section ref={sectionRef} id="equipo" className="py-[clamp(72px,8vw,96px)]">
       <div className="container-page">
         <div ref={headingRef}>
           <SectionHeading
