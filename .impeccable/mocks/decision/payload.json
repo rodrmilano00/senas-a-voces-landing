@@ -1,0 +1,49 @@
+{
+  "title": "Elige la estructura de la página",
+  "question": "El mundo visual es el del portafolio. Esto decide la composición y el recorrido del scroll. Bloquea una, ajusta con un comentario o pide otra mano.",
+  "options": [
+    {
+      "id": "cuaderno",
+      "kind": "assigned",
+      "kicker": "THE ROLL",
+      "label": "El portafolio que se hojea",
+      "lineage": "El propio portafolio de evidencias, página por página",
+      "thesis": "Cada sección es una hoja del portafolio que se apila sobre la anterior mientras haces scroll.",
+      "palette": ["#faf7ed", "#044c62", "#0d9ac5", "#ffa431"],
+      "materials": ["hojas crema apiladas", "ondas cian en las esquinas", "fotos con marco de color"],
+      "viewport": "Portada: logo grande, 'Donde las manos encuentran voz' y la ola cian; la siguiente hoja asoma abajo con 'El problema'.",
+      "risk": "Las hojas apiladas pueden sentirse repetitivas si cada una no tiene su propia escala y ritmo.",
+      "comp": ".impeccable/mocks/decision/cuaderno.webp",
+      "html": ".impeccable/mocks/decision/cuaderno.html"
+    },
+    {
+      "id": "trayectoria",
+      "kind": "dealt",
+      "label": "Una línea que dibuja la historia",
+      "lineage": "La línea punteada de 'Nuestra Trayectoria' del portafolio",
+      "thesis": "Una sola línea punteada se dibuja con el scroll de arriba abajo y conecta cada capítulo, del Hackathon a Puerto Rico.",
+      "palette": ["#faf7ed", "#044c62", "#0d9ac5", "#ffa431"],
+      "materials": ["trazo punteado animado", "nodos cian", "fotos flotando en parallax a los lados"],
+      "viewport": "Titular grande a la izquierda; la línea arranca en un nodo junto a la foto del equipo y baja serpenteando fuera de cuadro.",
+      "risk": "Si la línea se vuelve decoración y no ordena el contenido, se pierde la claridad.",
+      "comp": ".impeccable/mocks/decision/trayectoria.webp",
+      "html": ".impeccable/mocks/decision/trayectoria.html"
+    },
+    {
+      "id": "prensa",
+      "kind": "dealt",
+      "label": "Muro de evidencias",
+      "lineage": "Las páginas de 'Visibilidad en medios' y 'Galería'",
+      "thesis": "La primera pantalla es un collage en parallax de fotos reales y titulares de prensa que se separa al hacer scroll para revelar quiénes somos.",
+      "palette": ["#faf7ed", "#044c62", "#0d9ac5", "#ffa431"],
+      "materials": ["fotos con marcos de color del portafolio", "recortes de titulares", "capas en profundidad"],
+      "viewport": "Collage de 6 a 8 fotos y titulares a distintas profundidades alrededor del titular central.",
+      "risk": "Las fotos del PDF son de baja resolución; con mucho tamaño se ven suaves.",
+      "comp": ".impeccable/mocks/decision/prensa.webp",
+      "html": ".impeccable/mocks/decision/prensa.html"
+    }
+  ],
+  "reroll": true,
+  "buildPath": { "value": "code" },
+  "steer": true
+}

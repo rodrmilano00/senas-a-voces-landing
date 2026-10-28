@@ -4,13 +4,33 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Señas a Voces Academy — Aprende LSM con IA</title>
+    <title>Señas a Voces Academy · Lengua de Señas Mexicana con tecnología</title>
+    <meta
+      name="description"
+      content="Plataforma para aprender Lengua de Señas Mexicana, guante traductor de señas a voz e intérprete en vivo para instituciones. Hecho en Hermosillo, Sonora."
+    />
+    <meta name="theme-color" content="#044c62" />
+    <meta property="og:title" content="Señas a Voces Academy" />
+    <meta
+      property="og:description"
+      content="Donde las manos encuentran voz. Tecnología creada en Hermosillo para acercar a la comunidad sorda y la oyente."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://senasavocesac.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=League+Spartan:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script>
+      // Apply the saved or system theme before first paint to avoid a flash.
+      try {
+        const saved = localStorage.getItem('sav-theme')
+        const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches
+        document.documentElement.classList.toggle('dark', dark)
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
