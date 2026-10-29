@@ -20,16 +20,21 @@ export default function BuildSheet() {
   return (
     <Sheet
       id="construimos"
-      title="Lo que construimos"
+      variant={2}
+      title="El ecosistema"
       intro="Tres soluciones que atacan la brecha desde tres ángulos, todas validadas con la comunidad sorda: traducir en el momento, atender en ventanilla y aprender la lengua."
     >
       <article className="mt-16 grid items-center gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-        <DepthImage
-          src={PHOTOS.glove}
-          alt="Diagrama del primer prototipo del guante traductor con sensores de flexión en cada dedo y salida a voz"
-          className="aspect-[4/3] rounded-[20px] bg-[#0b0f12] sm:aspect-[16/11]"
-          imgClassName="object-[50%_30%]"
-        />
+        <figure className="rounded-[20px] bg-[#f8f8f3] p-4 shadow-[0_2px_4px_rgb(4_40_52/0.05),0_24px_48px_-28px_rgb(4_40_52/0.35)] ring-1 ring-line sm:p-6">
+          <img
+            src={PHOTOS.glove}
+            alt="Dibujo del guante traductor: sensores flex en cada dedo, cables a un ESP32 que lee los valores y una bocina que dice “¡Gracias!”"
+            width="964"
+            height="496"
+            loading="lazy"
+            className="w-full"
+          />
+        </figure>
         <div>
           <h3 className="text-[clamp(32px,3.6vw,52px)] text-fg">{GLOVE.name}</h3>
           <Status>{GLOVE.status}</Status>
@@ -63,8 +68,8 @@ export default function BuildSheet() {
           <Status>{LIVE.status}</Status>
           <p className="mt-4 max-w-[46ch] text-[17px] leading-[1.65] text-muted">{LIVE.desc}</p>
           <p className="mt-6 max-w-[46ch] text-[15px] leading-[1.6] text-muted">
-            No reemplazamos a los intérpretes: ampliamos el acceso en los momentos donde ellos no
-            están presentes.
+            Señas a Voces no reemplaza a los intérpretes: amplía el acceso en los momentos donde
+            ellos no están presentes.
           </p>
         </div>
       </article>

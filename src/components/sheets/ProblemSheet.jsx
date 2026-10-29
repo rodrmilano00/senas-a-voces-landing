@@ -10,6 +10,7 @@ export default function ProblemSheet() {
   return (
     <Sheet
       id="problema"
+      variant={1}
       title="El problema"
       intro="En México, más de 2.3 millones de personas viven con discapacidad auditiva o dificultades graves para oír. Solo alrededor de 300,000 usan la Lengua de Señas Mexicana, reconocida como lengua nacional, y la mayoría oyente no la conoce."
     >
@@ -31,7 +32,7 @@ export default function ProblemSheet() {
                 Viven con discapacidad auditiva
               </span>
             </span>
-            <span className="text-xs">Cada punto representa unas 23,000 personas.</span>
+            <span className="text-sm">Cada punto representa unas 23,000 personas.</span>
           </figcaption>
           <p className="mt-12 border-t border-line pt-8 text-[17px] leading-[1.65] text-muted">
             <strong className="block font-display text-[clamp(30px,2.8vw,40px)] leading-none font-bold text-petrol dark:text-cyan">

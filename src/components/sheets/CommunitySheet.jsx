@@ -1,15 +1,10 @@
-import { useRef } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
-import { PRESS, PRESS_HEADLINES, SOCIAL_REACH, TESTIMONIALS } from '../../lib/content'
+import { motion, useReducedMotion } from 'motion/react'
+import { CONTACT, PRESS, PRESS_HEADLINES, SOCIAL_REACH, TESTIMONIALS } from '../../lib/content'
 import { PHOTOS } from '../../lib/media'
 import Sheet from './Sheet'
 import DepthImage from '../DepthImage'
 
 const [FEATURED, ...QUOTES] = TESTIMONIALS
-// Each clipping column drifts at its own rate; the tilt is how a cutting lands on a desk.
-const COLUMN_DRIFT = [40, -50, 70]
-const TILT = ['-1.5deg', '1deg', '-0.5deg', '1.5deg', '-1deg']
-
 function QuoteMark({ className = '' }) {
   return (
     <svg viewBox="0 0 32 24" aria-hidden="true" className={`fill-amber ${className}`}>
@@ -18,35 +13,46 @@ function QuoteMark({ className = '' }) {
   )
 }
 
+// Five headlines and the social reach fill an even 3 x 2 grid. Cards rise
+// into place as a set when the grid scrolls in; nothing is hidden by default.
 function Clippings() {
-  const ref = useRef(null)
   const still = useReducedMotion()
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const ys = [
-    useTransform(scrollYProgress, [0, 1], still ? [0, 0] : [COLUMN_DRIFT[0], -COLUMN_DRIFT[0]]),
-    useTransform(scrollYProgress, [0, 1], still ? [0, 0] : [COLUMN_DRIFT[1], -COLUMN_DRIFT[1]]),
-    useTransform(scrollYProgress, [0, 1], still ? [0, 0] : [COLUMN_DRIFT[2], -COLUMN_DRIFT[2]]),
-  ]
-  const columns = [[], [], []]
-  PRESS_HEADLINES.forEach((h, i) => columns[i % 3].push({ ...h, i }))
+  const rise = (i) => ({
+    initial: still ? false : { y: 36, rotate: i % 2 ? 1.5 : -1.5 },
+    whileInView: { y: 0, rotate: 0 },
+    viewport: { once: true, margin: '0px 0px -12% 0px' },
+    transition: { type: 'spring', duration: 0.8, bounce: 0.2, delay: (i % 3) * 0.06 },
+  })
 
   return (
-    <div ref={ref} className="mt-12 grid gap-5 md:grid-cols-3">
-      {columns.map((col, c) => (
-        <motion.ul key={c} style={{ y: ys[c] }} className={`grid content-start gap-5 ${c === 1 ? 'md:mt-16' : ''}`}>
-          {col.map((h) => (
-            <li
-              key={h.outlet}
-              style={{ rotate: TILT[h.i] }}
-              className="rounded-[10px] bg-surface p-6 shadow-[0_2px_4px_rgb(4_40_52/0.06),0_18px_36px_-20px_rgb(4_40_52/0.35)] ring-1 ring-line"
-            >
-              <p className="text-sm font-bold text-petrol dark:text-cyan">{h.outlet}</p>
-              <p className="mt-2 font-display text-[22px] leading-[1.15] font-bold text-fg">“{h.title}”</p>
-            </li>
-          ))}
-        </motion.ul>
+    <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {PRESS_HEADLINES.map((h, i) => (
+        <motion.li
+          key={h.outlet}
+          {...rise(i)}
+          className="flex flex-col rounded-[14px] bg-surface p-7 shadow-[0_2px_4px_rgb(4_40_52/0.06),0_18px_36px_-22px_rgb(4_40_52/0.35)] ring-1 ring-line"
+        >
+          <p className="text-sm font-bold text-petrol dark:text-cyan">{h.outlet}</p>
+          <p className="mt-3 font-display text-[22px] leading-[1.18] font-bold text-fg">“{h.title}”</p>
+        </motion.li>
       ))}
-    </div>
+      <motion.li {...rise(PRESS_HEADLINES.length)} className="flex flex-col justify-between rounded-[14px] bg-band p-7 text-band-fg">
+        <a href={CONTACT.instagramHref} target="_blank" rel="noreferrer" className="text-sm font-bold underline decoration-band-line underline-offset-4 hover:decoration-amber">
+          {CONTACT.instagram}
+        </a>
+        <dl className="mt-6 grid grid-cols-2 gap-4">
+          {SOCIAL_REACH.map((r) => (
+            <div key={r.label}>
+              <dt className="sr-only">{r.label}</dt>
+              <dd>
+                <span className="block font-display text-[clamp(32px,3vw,42px)] leading-none font-bold">{r.value}</span>
+                <span className="mt-1.5 block text-sm text-band-muted">{r.label}</span>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </motion.li>
+    </ul>
   )
 }
 
@@ -54,8 +60,9 @@ export default function CommunitySheet() {
   return (
     <Sheet
       id="comunidad"
+      variant={2}
       title="Con la comunidad, no solo para ella"
-      intro="Con Roberto Labrada, líder del colectivo Señas del Desierto, validamos el diseño y funcionamiento de cada uno de nuestros productos."
+      intro="Con Roberto Labrada, líder del colectivo Señas del Desierto, el equipo valida el diseño y el funcionamiento de cada producto."
     >
       <div className="mt-14 grid gap-6 lg:grid-cols-12">
         <figure className="relative lg:col-span-7">
@@ -96,22 +103,9 @@ export default function CommunitySheet() {
       <div className="mt-[clamp(96px,12vw,160px)]">
         <h3 className="text-[clamp(32px,3.6vw,52px)] text-petrol dark:text-fg">Visibilidad en medios</h3>
         <p className="mt-4 max-w-[56ch] text-[17px] leading-[1.65] text-muted">
-          También nos entrevistaron en {PRESS.join(', ')}.
+          Además, el equipo fue entrevistado en {PRESS.join(', ')}.
         </p>
         <Clippings />
-        <dl className="mt-16 flex flex-wrap gap-x-14 gap-y-6 border-t border-line pt-8">
-          {SOCIAL_REACH.map((s) => (
-            <div key={s.label}>
-              <dt className="sr-only">{s.label}</dt>
-              <dd>
-                <span className="block font-display text-[clamp(36px,3.6vw,48px)] leading-none font-bold text-petrol dark:text-cyan">
-                  {s.value}
-                </span>
-                <span className="mt-1.5 block text-sm text-muted">{s.label}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </Sheet>
   )

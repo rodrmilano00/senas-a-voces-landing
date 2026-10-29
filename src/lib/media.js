@@ -10,7 +10,7 @@ import liveTest from '../assets/evidencias/prueba-traductor-en-vivo.jpg'
 import enactusMx from '../assets/evidencias/enactus-mexico.jpg'
 import enactusPr from '../assets/evidencias/enactus-puerto-rico.jpg'
 import hackathon from '../assets/evidencias/smartcity-hackathon.jpg'
-import glove from '../assets/evidencias/guante-prototipo.jpg'
+import gloveDrawing from '../assets/evidencias/guante-dibujo.png'
 import media from '../assets/evidencias/entrevista-medios.jpg'
 import kickoff from '../assets/evidencias/conferencia-kickoff.jpg'
 import logoEnactus from '../assets/evidencias/logo-enactus.png'
@@ -33,7 +33,7 @@ export const PHOTOS = {
   showcase,
   workshop,
   liveTest,
-  glove,
+  glove: gloveDrawing,
   kickoff,
 }
 
@@ -47,7 +47,7 @@ export const SCREENS = {
 // Keyed by MILESTONES[].photo
 export const MILESTONE_PHOTOS = {
   hackathon,
-  glove,
+  glove: gloveDrawing,
   workshop,
   enactusMx,
   enactusPr,

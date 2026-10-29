@@ -6,6 +6,7 @@ import { TEAM_PHOTOS } from '../../lib/media'
 import { useCoverProgress } from './coverProgress'
 import Button from '../Button'
 import Portrait from '../Portrait'
+import BackdropShapes from '../BackdropShapes'
 import WaveLines from '../WaveLines'
 
 const LEAD = 0 // Emiliano, cyan
@@ -48,6 +49,7 @@ export default function CoverSheet() {
       aria-labelledby="portada-titulo"
       className="relative mt-2 flex min-h-[calc(100svh-16px)] flex-col overflow-clip rounded-[22px] bg-bg sm:mt-3 sm:min-h-[calc(100svh-24px)] lg:min-h-[calc(100svh-150px)]"
     >
+      <BackdropShapes variant={0} />
       <WaveLines className="absolute -top-16 -right-20 w-[clamp(260px,34vw,520px)] text-cyan/45" />
       {/* Kept low and outside the copy column so it never crosses the intro or the CTA */}
       <WaveLines className="absolute -bottom-36 -left-36 w-[clamp(200px,20vw,300px)] rotate-180 text-cyan/35" />
@@ -58,19 +60,19 @@ export default function CoverSheet() {
             Donde las manos <span className="block text-cyan">encuentran voz.</span>
           </h1>
           <p className="mt-8 max-w-[34rem] text-[clamp(17px,1.5vw,21px)] leading-[1.6] text-muted">
-            Somos cuatro estudiantes de ingeniería de Hermosillo. Con la comunidad sorda construimos
-            un guante que traduce señas a voz, un intérprete en vivo y una forma nueva de aprender
+            Cuatro estudiantes de ingeniería de Hermosillo que, junto con la comunidad sorda, desarrollan
+            un guante que traduce señas a voz, un intérprete en vivo y una nueva forma de aprender
             Lengua de Señas Mexicana.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
             <Button href="#problema">
-              Conoce nuestra historia <ArrowDown size={18} strokeWidth={2.4} aria-hidden="true" />
+              Conocer la historia <ArrowDown size={18} strokeWidth={2.4} aria-hidden="true" />
             </Button>
             <a
               href="#contacto"
               className="inline-flex min-h-12 items-center text-[15px] font-bold text-fg underline decoration-line decoration-2 underline-offset-[6px] transition-[text-decoration-color] duration-200 hover:decoration-amber"
             >
-              Escríbenos
+              Contacto
             </a>
           </div>
         </motion.div>

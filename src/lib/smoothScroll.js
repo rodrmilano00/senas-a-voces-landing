@@ -15,11 +15,15 @@ export function startSmoothScroll() {
     autoRaf: true,
     duration: 1.1,
     easing: (t) => 1 - Math.pow(1 - t, 4),
-    anchors: { offset: -16 },
   })
 
   return () => {
     lenis?.destroy()
     lenis = null
   }
+}
+
+export function scrollToY(y) {
+  if (lenis) lenis.scrollTo(y, { duration: 1.4 })
+  else window.scrollTo({ top: y, behavior: 'auto' })
 }

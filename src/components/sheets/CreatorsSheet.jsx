@@ -13,21 +13,21 @@ function Creator({ member, photo, index }) {
   const blockY = useTransform(scrollYProgress, [0, 1], still ? [0, 0] : [-28, 28])
 
   return (
-    <li ref={ref} className={`grid gap-7 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] sm:items-end ${index % 2 ? 'lg:mt-20' : ''}`}>
+    <li ref={ref} className={index % 2 ? 'lg:mt-12' : ''}>
       <Portrait
         src={photo}
         alt={`${member.name} haciendo una seña con la mano`}
         tone={member.tone}
         blockY={blockY}
         loading="lazy"
-        className="mr-4 mb-4 sm:mr-5 sm:mb-5"
+        className="mr-3 mb-3 max-w-[260px] sm:mr-4 sm:mb-4"
         imgClassName="aspect-[4/5] object-[48%_40%]"
       />
-      <div className="pb-2">
-        <h3 className="text-[clamp(28px,2.6vw,36px)] text-petrol dark:text-fg">{member.name}</h3>
+      <div className="mt-5">
+        <h3 className="text-[clamp(24px,2vw,28px)] text-petrol dark:text-fg">{member.name}</h3>
         <p className="mt-2 font-bold text-fg">{member.role}</p>
-        <p className="mt-3 max-w-[36ch] leading-[1.6] text-muted">{member.bio}</p>
-        <p className="mt-4 text-sm leading-snug text-muted">{member.school}</p>
+        <p className="mt-2 max-w-[34ch] text-[15px] leading-[1.55] text-muted">{member.bio}</p>
+        <p className="mt-3 text-sm leading-snug text-muted">{member.school}</p>
       </div>
     </li>
   )
@@ -37,10 +37,11 @@ export default function CreatorsSheet() {
   return (
     <Sheet
       id="creadores"
+      variant={0}
       title="Los creadores"
       intro="Estudiantes de Ingeniería en Tecnologías Computacionales y Mecatrónica del Tec de Monterrey y la Universidad de Sonora. Software, hardware y diseño en un mismo equipo."
     >
-      <ul className="mt-14 grid gap-x-16 gap-y-14 lg:grid-cols-2 lg:gap-y-6">
+      <ul className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
         {TEAM.map((m, i) => (
           <Creator key={m.name} member={m} photo={TEAM_PHOTOS[i]} index={i} />
         ))}

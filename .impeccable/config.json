@@ -47,6 +47,15 @@
         ],
         "createdAt": "2026-10-28T23:10:59.926Z",
         "reason": "display-size press clipping headlines (19px League Spartan, 2 lines) in a throwaway sketch; body copy is 1.5"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          "src/components/devices/LessonScreen.jsx"
+        ],
+        "createdAt": "2026-10-29T00:02:51.784Z",
+        "reason": "sanctioned exception: LessonScreen is a replica of the Academy app UI laid out at a fixed 240px design width and scaled to the phone; its sizes belong to that app, not the landing's type ramp"
       }
     ]
   }

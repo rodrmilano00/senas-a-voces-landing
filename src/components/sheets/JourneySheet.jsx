@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react'
-import { motion, useReducedMotion, useScroll, useSpring } from 'motion/react'
+import { motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useSpring } from 'motion/react'
 import { MILESTONES } from '../../lib/content'
 import { MILESTONE_PHOTOS, PARTNER_LOGOS } from '../../lib/media'
 import Sheet from './Sheet'
@@ -103,10 +103,23 @@ export default function JourneySheet() {
 
   const snake = wide && width ? serpentine(width, MILESTONES.length) : null
 
+  // The pen: a cyan point riding the tip of the drawn line.
+  const pathRef = useRef(null)
+  const penX = useMotionValue(-40)
+  const penY = useMotionValue(-40)
+  useMotionValueEvent(drawn, 'change', (v) => {
+    const path = pathRef.current
+    if (!path) return
+    const point = path.getPointAtLength(path.getTotalLength() * Math.min(1, Math.max(0, v)))
+    penX.set(point.x)
+    penY.set(point.y)
+  })
+
   return (
     <Sheet
       id="trayectoria"
-      title="Nuestra trayectoria"
+      variant={1}
+      title="Trayectoria"
       intro="Un proyecto que nació en las aulas de Hermosillo y hoy lleva el nombre de la ciudad a escenarios nacionales e internacionales."
     >
       <div ref={trackRef} className="relative mt-12" style={snake ? { height: snake.height } : undefined}>
@@ -115,6 +128,7 @@ export default function JourneySheet() {
             <svg width={width} height={snake.height} aria-hidden="true" className="absolute inset-0 overflow-visible">
               <path d={snake.d} fill="none" stroke="var(--petrol)" strokeWidth="2.5" strokeDasharray="9 9" strokeLinecap="round" opacity="0.45" />
               <motion.path
+                ref={pathRef}
                 d={snake.d}
                 fill="none"
                 stroke="var(--petrol)"
@@ -122,15 +136,27 @@ export default function JourneySheet() {
                 strokeLinecap="round"
                 style={{ pathLength: still ? 1 : drawn }}
               />
+              {!still && (
+                <>
+                  <motion.circle cx={penX} cy={penY} r="16" fill="var(--cyan)" opacity="0.18" />
+                  <motion.circle cx={penX} cy={penY} r="7" fill="var(--cyan)" stroke="var(--bg)" strokeWidth="3" />
+                </>
+              )}
             </svg>
             <ol>
               {MILESTONES.map((m, i) => {
                 const n = snake.nodes[i]
                 return (
                   <li key={m.title} className="absolute w-[280px] -translate-x-1/2 text-center" style={{ left: n.x, top: n.y - 190 }}>
-                    <span className="flex h-[166px] items-end justify-center">
+                    <motion.span
+                      className="flex h-[166px] origin-bottom items-end justify-center"
+                      initial={still ? false : { scale: 0.86, rotate: i % 2 ? 5 : -5, y: 22 }}
+                      whileInView={{ scale: 1, rotate: 0, y: 0 }}
+                      viewport={{ once: true, margin: '0px 0px -22% 0px' }}
+                      transition={{ type: 'spring', duration: 0.7, bounce: 0.25 }}
+                    >
                       <Media milestone={m} />
-                    </span>
+                    </motion.span>
                     <span aria-hidden="true" className="mx-auto mt-[14px] block h-5 w-5 rounded-full bg-cyan ring-4 ring-bg" />
                     <span className="mt-3 block">
                       <Label milestone={m} />

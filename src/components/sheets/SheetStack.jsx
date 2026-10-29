@@ -51,7 +51,7 @@ function SheetSlot({ children, index, last }) {
 
   return (
     <>
-      <div ref={slotRef} className="sticky px-2 sm:px-3" style={{ top, zIndex: index + 1 }}>
+      <div ref={slotRef} data-sheet-slot={index} className="sticky px-2 sm:px-3" style={{ top, zIndex: index + 1 }}>
         <motion.div style={{ scale }} className="relative origin-[50%_100%] will-change-transform">
           <CoverProgress.Provider value={progress}>{children}</CoverProgress.Provider>
           {!last && (
@@ -63,7 +63,7 @@ function SheetSlot({ children, index, last }) {
           )}
         </motion.div>
       </div>
-      <div ref={sentinelRef} aria-hidden="true" className="h-0" />
+      <div ref={sentinelRef} data-sheet-end={index} aria-hidden="true" className="h-0" />
     </>
   )
 }

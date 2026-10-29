@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useDarkMode } from './hooks/useDarkMode'
 import { startSmoothScroll } from './lib/smoothScroll'
-import Nav from './components/Nav'
+import { goToSheet } from './lib/sheetNav'
+import Header from './components/Header'
 import SheetStack from './components/sheets/SheetStack'
 import CoverSheet from './components/sheets/CoverSheet'
 import ProblemSheet from './components/sheets/ProblemSheet'
@@ -16,6 +17,20 @@ export default function App() {
 
   useEffect(() => startSmoothScroll(), [])
 
+  // Stuck sheets break native anchor jumps, so in-page links scroll to the
+  // sheet's real position in the document instead.
+  useEffect(() => {
+    const onClick = (e) => {
+      const link = e.target.closest?.('a[href^="#"]')
+      if (!link || e.defaultPrevented) return
+      const id = link.getAttribute('href').slice(1)
+      if (!id || id === 'contenido') return
+      if (goToSheet(id)) e.preventDefault()
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [])
+
   return (
     <>
       <a
@@ -24,7 +39,7 @@ export default function App() {
       >
         Saltar al contenido
       </a>
-      <Nav dark={dark} setDark={setDark} />
+      <Header dark={dark} setDark={setDark} />
       <main id="contenido">
         <SheetStack>
           <CoverSheet key="portada" />

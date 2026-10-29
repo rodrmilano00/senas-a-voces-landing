@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AtSign, Mail, MapPin, Phone } from 'lucide-react'
 import { CONTACT, FINAL_MESSAGE, NAV_LINKS } from '../../lib/content'
 import { LOGO } from '../../lib/media'
+import BackdropShapes from '../BackdropShapes'
 import WaveLines from '../WaveLines'
 
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT
@@ -60,7 +61,7 @@ export default function ContactSheet() {
     } catch (err) {
       setStatus('error')
       console.error('Error al enviar el formulario:', err)
-      setError(err.message || 'No pudimos enviar tu mensaje. Intenta de nuevo o escríbenos por correo.')
+      setError(err.message || 'No se pudo enviar el mensaje. Intenta de nuevo o escribe a senasavocesac@gmail.com.')
     }
   }
 
@@ -70,6 +71,7 @@ export default function ContactSheet() {
       aria-labelledby="contacto-titulo"
       className="relative mt-2 overflow-clip rounded-t-[22px] bg-band text-band-fg shadow-[0_-24px_48px_-28px_rgb(4_40_52/0.5)] sm:mt-3"
     >
+      <BackdropShapes variant={0} />
       <WaveLines className="absolute -top-20 -right-24 w-[clamp(240px,30vw,440px)] text-cyan/45" />
 
       <div className="container-page relative pt-[clamp(80px,10vw,140px)]">
@@ -80,11 +82,11 @@ export default function ContactSheet() {
         <div className="mt-[clamp(72px,9vw,120px)] grid items-start gap-14 lg:grid-cols-[1fr_minmax(0,32rem)] lg:gap-20">
           <div>
             <h2 id="contacto-titulo" className="text-[clamp(36px,4.4vw,60px)]">
-              Hablemos
+              Contacto
             </h2>
             <p className="mt-5 max-w-[44ch] text-[clamp(17px,1.4vw,19px)] leading-[1.65] text-band-muted">
-              ¿Quieres conocer el proyecto, aliarte con nosotros o llevar el traductor a tu escuela,
-              empresa o institución? Escríbenos y el equipo te responde directamente.
+              Para conocer el proyecto, sumar una alianza o llevar el traductor a una escuela, empresa o
+              institución, el equipo de Señas a Voces responde directamente.
             </p>
             <ul className="mt-10 grid gap-1">
               {DETAILS.map(({ icon: Icon, label, href, external }) => {
@@ -137,14 +139,14 @@ export default function ContactSheet() {
                 <textarea
                   className={`${FIELD_CLASS} min-h-[132px] resize-y`}
                   name="message"
-                  placeholder="Cuéntanos quién eres y en qué podemos colaborar"
+                  placeholder="Quién eres y en qué te gustaría colaborar"
                   required
                 />
               </label>
             </div>
 
             <div className="min-h-7 pt-4" aria-live="polite">
-              {status === 'sent' && <p className="text-sm font-bold text-petrol dark:text-cyan">Mensaje enviado. Te responderemos pronto.</p>}
+              {status === 'sent' && <p className="text-sm font-bold text-petrol dark:text-cyan">Mensaje enviado. El equipo responderá pronto.</p>}
               {status === 'error' && <p className="text-sm font-bold text-[#b42318] dark:text-[#ff8a80]">{error}</p>}
             </div>
 

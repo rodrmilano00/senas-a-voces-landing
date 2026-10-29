@@ -3,7 +3,7 @@
 
 export const NAV_LINKS = [
   { href: '#problema', label: 'El problema' },
-  { href: '#construimos', label: 'Lo que construimos' },
+  { href: '#construimos', label: 'Ecosistema' },
   { href: '#creadores', label: 'Creadores' },
   { href: '#trayectoria', label: 'Trayectoria' },
   { href: '#comunidad', label: 'Comunidad' },
@@ -43,7 +43,7 @@ export const PRESS_HEADLINES = [
 ]
 
 export const SOCIAL_REACH = [
-  { value: '+250', label: 'seguidores en @senasavocesac' },
+  { value: '+250', label: 'seguidores' },
   { value: '+10 mil', label: 'de alcance mensual' },
 ]
 

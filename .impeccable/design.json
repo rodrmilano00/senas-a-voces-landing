@@ -4,64 +4,473 @@
   "title": "Design System: Señas a Voces Academy",
   "extensions": {
     "colorMeta": {
-      "desk": { "role": "neutral", "displayName": "Sand Desk", "canonical": "oklch(90.4% 0.028 90)", "darkValue": "#01161d", "tonalRamp": ["#0c0b09", "#262521", "#44423b", "#646158", "#868276", "#aaa596", "#cfc9b7", "#f2eee5"] },
-      "bg": { "role": "neutral", "displayName": "Portfolio Cream", "canonical": "oklch(97.6% 0.014 92)", "darkValue": "#04232d", "tonalRamp": ["#0c0b09", "#262523", "#43423f", "#62615d", "#84827d", "#a7a59e", "#cbc9c1", "#f0eeea"] },
-      "surface": { "role": "neutral", "displayName": "Paper White", "canonical": "oklch(100% 0 0)", "darkValue": "#072f3b", "tonalRamp": ["#0c0b09", "#262523", "#434240", "#62615f", "#838280", "#a6a5a2", "#cac9c6", "#efeeeb"] },
-      "surface-2": { "role": "neutral", "displayName": "Warm Paper", "canonical": "oklch(95.2% 0.018 92)", "darkValue": "#062935", "tonalRamp": ["#0c0b09", "#262523", "#43423e", "#63615c", "#84827b", "#a8a59c", "#ccc9be", "#f0eee8"] },
-      "fg": { "role": "neutral", "displayName": "Deep Ink", "canonical": "oklch(28.4% 0.048 222)", "darkValue": "#eaf3f4", "tonalRamp": ["#000e17", "#022a35", "#264753", "#4a6671", "#6f8790", "#95a9b0", "#bdccd2", "#eaeff2"] },
-      "muted": { "role": "neutral", "displayName": "Slate Teal", "canonical": "oklch(48.2% 0.038 215)", "darkValue": "#a3bfc6", "tonalRamp": ["#010e12", "#13292e", "#2c474d", "#48676f", "#6c888f", "#92aab0", "#b9cdd3", "#e8f0f2"] },
-      "line": { "role": "neutral", "displayName": "Hairline", "canonical": "rgb(4 76 98 / 0.14)", "darkValue": "rgb(234 243 244 / 0.12)" },
-      "petrol": { "role": "primary", "displayName": "Portfolio Petroleum", "canonical": "oklch(38.8% 0.072 225)", "darkValue": "#7fd0e6", "tonalRamp": ["#000e1c", "#002a3c", "#01495f", "#35697d", "#5e8a9c", "#87acbb", "#b1cfdc", "#e5f1f6"] },
-      "cyan": { "role": "primary", "displayName": "Signal Cyan", "canonical": "oklch(64.0% 0.121 226)", "darkValue": "#46bfe6", "tonalRamp": ["#000e1d", "#002b3f", "#004a65", "#006c8e", "#018fb8", "#4bb3db", "#82d6f9", "#d4f5ff"] },
-      "amber": { "role": "secondary", "displayName": "Action Amber", "canonical": "oklch(79.2% 0.160 66)", "darkValue": "#ffa431", "tonalRamp": ["#180600", "#3a1d00", "#603700", "#895304", "#b57116", "#e29027", "#ffb34e", "#ffe7c0"] },
-      "amber-ink": { "role": "secondary", "displayName": "Amber Ink", "canonical": "oklch(28.2% 0.055 71)", "darkValue": "#3a2405", "tonalRamp": ["#170700", "#352002", "#523e24", "#715d47", "#907f6c", "#b1a292", "#d2c7ba", "#f2eee9"] },
-      "band": { "role": "primary", "displayName": "Petroleum Band", "canonical": "oklch(38.8% 0.072 225)", "darkValue": "#073a48", "tonalRamp": ["#000e1c", "#002a3c", "#01495f", "#35697d", "#5e8a9c", "#87acbb", "#b1cfdc", "#e5f1f6"] },
-      "band-fg": { "role": "neutral", "displayName": "Band Text", "canonical": "oklch(97.0% 0.010 204)", "darkValue": "#eef7f8", "tonalRamp": ["#090c0c", "#232626", "#404343", "#5e6262", "#7e8384", "#a0a6a7", "#c3cbcc", "#ebeff0"] },
-      "band-muted": { "role": "neutral", "displayName": "Band Muted", "canonical": "oklch(84.7% 0.033 213)", "darkValue": "#a9cbd3", "tonalRamp": ["#080c0d", "#1f2729", "#384447", "#546468", "#72868b", "#91aab0", "#b2cfd6", "#e4f1f4"] },
-      "band-line": { "role": "neutral", "displayName": "Band Hairline", "canonical": "rgb(255 255 255 / 0.14)", "darkValue": "rgb(255 255 255 / 0.12)" },
-      "tone-cyan": { "role": "tertiary", "displayName": "Creator Tone: Cyan (Emiliano)", "canonical": "oklch(64.0% 0.121 226)", "tonalRamp": ["#000e1d", "#002b3f", "#004a65", "#006c8e", "#018fb8", "#4bb3db", "#82d6f9", "#d4f5ff"] },
-      "tone-indigo": { "role": "tertiary", "displayName": "Creator Tone: Indigo", "canonical": "oklch(50.9% 0.202 275)", "tonalRamp": ["#08003d", "#190c6a", "#2f2c9b", "#474bcf", "#6673ec", "#8a9bff", "#b1c2ff", "#e4edff"] },
-      "tone-green": { "role": "tertiary", "displayName": "Creator Tone: Green", "canonical": "oklch(67.0% 0.142 153)", "tonalRamp": ["#001201", "#002f11", "#015028", "#1b7340", "#32995b", "#59bd7c", "#8bdfa5", "#d6f9df"] },
-      "tone-red": { "role": "tertiary", "displayName": "Creator Tone: Red (César)", "canonical": "oklch(62.6% 0.193 23)", "tonalRamp": ["#270000", "#500006", "#7c0f1b", "#ab2a31", "#dd4449", "#ff7270", "#ffa09b", "#ffdfdb"] }
+      "desk": {
+        "role": "neutral",
+        "displayName": "Sand Desk",
+        "canonical": "oklch(90.4% 0.028 90)",
+        "darkValue": "#01161d",
+        "tonalRamp": [
+          "#0c0b09",
+          "#262521",
+          "#44423b",
+          "#646158",
+          "#868276",
+          "#aaa596",
+          "#cfc9b7",
+          "#f2eee5"
+        ]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Portfolio Cream",
+        "canonical": "oklch(97.6% 0.014 92)",
+        "darkValue": "#04232d",
+        "tonalRamp": [
+          "#0c0b09",
+          "#262523",
+          "#43423f",
+          "#62615d",
+          "#84827d",
+          "#a7a59e",
+          "#cbc9c1",
+          "#f0eeea"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "oklch(100% 0 0)",
+        "darkValue": "#072f3b",
+        "tonalRamp": [
+          "#0c0b09",
+          "#262523",
+          "#434240",
+          "#62615f",
+          "#838280",
+          "#a6a5a2",
+          "#cac9c6",
+          "#efeeeb"
+        ]
+      },
+      "surface-2": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "oklch(95.2% 0.018 92)",
+        "darkValue": "#062935",
+        "tonalRamp": [
+          "#0c0b09",
+          "#262523",
+          "#43423e",
+          "#63615c",
+          "#84827b",
+          "#a8a59c",
+          "#ccc9be",
+          "#f0eee8"
+        ]
+      },
+      "fg": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "canonical": "oklch(28.4% 0.048 222)",
+        "darkValue": "#eaf3f4",
+        "tonalRamp": [
+          "#000e17",
+          "#022a35",
+          "#264753",
+          "#4a6671",
+          "#6f8790",
+          "#95a9b0",
+          "#bdccd2",
+          "#eaeff2"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Slate Teal",
+        "canonical": "oklch(48.2% 0.038 215)",
+        "darkValue": "#a3bfc6",
+        "tonalRamp": [
+          "#010e12",
+          "#13292e",
+          "#2c474d",
+          "#48676f",
+          "#6c888f",
+          "#92aab0",
+          "#b9cdd3",
+          "#e8f0f2"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgb(4 76 98 / 0.14)",
+        "darkValue": "rgb(234 243 244 / 0.12)"
+      },
+      "petrol": {
+        "role": "primary",
+        "displayName": "Portfolio Petroleum",
+        "canonical": "oklch(38.8% 0.072 225)",
+        "darkValue": "#7fd0e6",
+        "tonalRamp": [
+          "#000e1c",
+          "#002a3c",
+          "#01495f",
+          "#35697d",
+          "#5e8a9c",
+          "#87acbb",
+          "#b1cfdc",
+          "#e5f1f6"
+        ]
+      },
+      "cyan": {
+        "role": "primary",
+        "displayName": "Signal Cyan",
+        "canonical": "oklch(64.0% 0.121 226)",
+        "darkValue": "#46bfe6",
+        "tonalRamp": [
+          "#000e1d",
+          "#002b3f",
+          "#004a65",
+          "#006c8e",
+          "#018fb8",
+          "#4bb3db",
+          "#82d6f9",
+          "#d4f5ff"
+        ]
+      },
+      "amber": {
+        "role": "secondary",
+        "displayName": "Action Amber",
+        "canonical": "oklch(79.2% 0.160 66)",
+        "darkValue": "#ffa431",
+        "tonalRamp": [
+          "#180600",
+          "#3a1d00",
+          "#603700",
+          "#895304",
+          "#b57116",
+          "#e29027",
+          "#ffb34e",
+          "#ffe7c0"
+        ]
+      },
+      "amber-ink": {
+        "role": "secondary",
+        "displayName": "Amber Ink",
+        "canonical": "oklch(28.2% 0.055 71)",
+        "darkValue": "#3a2405",
+        "tonalRamp": [
+          "#170700",
+          "#352002",
+          "#523e24",
+          "#715d47",
+          "#907f6c",
+          "#b1a292",
+          "#d2c7ba",
+          "#f2eee9"
+        ]
+      },
+      "band": {
+        "role": "primary",
+        "displayName": "Petroleum Band",
+        "canonical": "oklch(38.8% 0.072 225)",
+        "darkValue": "#073a48",
+        "tonalRamp": [
+          "#000e1c",
+          "#002a3c",
+          "#01495f",
+          "#35697d",
+          "#5e8a9c",
+          "#87acbb",
+          "#b1cfdc",
+          "#e5f1f6"
+        ]
+      },
+      "band-fg": {
+        "role": "neutral",
+        "displayName": "Band Text",
+        "canonical": "oklch(97.0% 0.010 204)",
+        "darkValue": "#eef7f8",
+        "tonalRamp": [
+          "#090c0c",
+          "#232626",
+          "#404343",
+          "#5e6262",
+          "#7e8384",
+          "#a0a6a7",
+          "#c3cbcc",
+          "#ebeff0"
+        ]
+      },
+      "band-muted": {
+        "role": "neutral",
+        "displayName": "Band Muted",
+        "canonical": "oklch(84.7% 0.033 213)",
+        "darkValue": "#a9cbd3",
+        "tonalRamp": [
+          "#080c0d",
+          "#1f2729",
+          "#384447",
+          "#546468",
+          "#72868b",
+          "#91aab0",
+          "#b2cfd6",
+          "#e4f1f4"
+        ]
+      },
+      "band-line": {
+        "role": "neutral",
+        "displayName": "Band Hairline",
+        "canonical": "rgb(255 255 255 / 0.14)",
+        "darkValue": "rgb(255 255 255 / 0.12)"
+      },
+      "tone-cyan": {
+        "role": "tertiary",
+        "displayName": "Creator Tone: Cyan (Emiliano)",
+        "canonical": "oklch(64.0% 0.121 226)",
+        "tonalRamp": [
+          "#000e1d",
+          "#002b3f",
+          "#004a65",
+          "#006c8e",
+          "#018fb8",
+          "#4bb3db",
+          "#82d6f9",
+          "#d4f5ff"
+        ]
+      },
+      "tone-indigo": {
+        "role": "tertiary",
+        "displayName": "Creator Tone: Indigo",
+        "canonical": "oklch(50.9% 0.202 275)",
+        "tonalRamp": [
+          "#08003d",
+          "#190c6a",
+          "#2f2c9b",
+          "#474bcf",
+          "#6673ec",
+          "#8a9bff",
+          "#b1c2ff",
+          "#e4edff"
+        ]
+      },
+      "tone-green": {
+        "role": "tertiary",
+        "displayName": "Creator Tone: Green",
+        "canonical": "oklch(67.0% 0.142 153)",
+        "tonalRamp": [
+          "#001201",
+          "#002f11",
+          "#015028",
+          "#1b7340",
+          "#32995b",
+          "#59bd7c",
+          "#8bdfa5",
+          "#d6f9df"
+        ]
+      },
+      "tone-red": {
+        "role": "tertiary",
+        "displayName": "Creator Tone: Red (César)",
+        "canonical": "oklch(62.6% 0.193 23)",
+        "tonalRamp": [
+          "#270000",
+          "#500006",
+          "#7c0f1b",
+          "#ab2a31",
+          "#dd4449",
+          "#ff7270",
+          "#ffa09b",
+          "#ffdfdb"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Cover h1 only. Petroleum, with the second line set as a cyan block." },
-      "statement": { "displayName": "Statement", "purpose": "The scroll-revealed manifesto and the closing quote on the band. Max 18 to 22ch." },
-      "headline": { "displayName": "Headline", "purpose": "The h2 chapter title of each sheet. Petroleum on cream, max 760px." },
-      "title": { "displayName": "Title", "purpose": "Product names and section subheads (h3)." },
-      "subtitle": { "displayName": "Subtitle", "purpose": "Creator names (clamp 28 to 36px), step titles (22px), device captions (24px), milestone labels (19px)." },
-      "body-lead": { "displayName": "Body Lead", "purpose": "Sheet intros under the headline. Muted, max 56ch." },
-      "body": { "displayName": "Body", "purpose": "Running copy in muted, 36 to 48ch measures. The base is 16px at 1.6." },
-      "label": { "displayName": "Label", "purpose": "Buttons, nav links, status lines, text links. Sentence case, never tracked uppercase." },
-      "caption": { "displayName": "Caption", "purpose": "Figure captions, roles, schools. The proof strip uses 14px bold at 80% fg." }
+      "index-title": {
+        "displayName": "Index Title",
+        "purpose": "The Índice page h2 only. Petroleum (fg in dark mode)."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Cover h1 only. Petroleum, with the second line set as a cyan block."
+      },
+      "statement": {
+        "displayName": "Statement",
+        "purpose": "The scroll-revealed manifesto and the closing quote on the band. Max 18 to 22ch."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The h2 chapter title of each sheet. Petroleum on cream, max 760px. The contact h2 runs at clamp(36px, 4.4vw, 60px)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Product names and section subheads (h3)."
+      },
+      "index-entry": {
+        "displayName": "Index Entry",
+        "purpose": "Chapter rows on the Índice page. fg, cyan on hover, folio at 0.7em muted tabular."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "Device captions and audience terms (24px), creator names (clamp 24 to 28px), milestone labels (19px chip step)."
+      },
+      "subtitle-sm": {
+        "displayName": "Subtitle Small",
+        "purpose": "Glove step titles and press headlines (22px, 1.18 leading on clippings)."
+      },
+      "body-lead": {
+        "displayName": "Body Lead",
+        "purpose": "Sheet intros under the headline. Muted, max 56ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy in muted, 36 to 48ch measures. The base is 16px at 1.6."
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "Creator bios, milestone detail lines, the interpreter note. 15px at 1.5 to 1.6."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, header controls, status lines, text links. Sentence case, never tracked uppercase."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Figure captions, roles, press outlets, reach labels. The proof strip uses 14px bold at 80% fg."
+      }
     },
     "shadows": [
-      { "name": "sheet-edge", "value": "0 -1px 0 rgb(4 76 98 / 0.06), 0 -24px 48px -28px rgb(4 40 52 / 0.45)", "purpose": "Every sheet after the cover. Cast upward onto the sheet it covers." },
-      { "name": "band-edge", "value": "0 -24px 48px -28px rgb(4 40 52 / 0.5)", "purpose": "The closing petroleum contact sheet." },
-      { "name": "soft", "value": "0 1px 2px rgb(4 76 98 / 0.06), 0 8px 24px -12px rgb(4 76 98 / 0.18)", "purpose": "The nav pill after scrolling (--shadow-soft). Dark: 0 1px 2px rgb(0 0 0 / 0.2), 0 8px 24px -12px rgb(0 0 0 / 0.5)." },
-      { "name": "float", "value": "0 2px 4px rgb(4 76 98 / 0.06), 0 24px 48px -20px rgb(4 76 98 / 0.35)", "purpose": "The open mobile menu (--shadow-float). Dark: 0 2px 4px rgb(0 0 0 / 0.2), 0 24px 48px -20px rgb(0 0 0 / 0.65)." },
-      { "name": "object-on-paper", "value": "0 2px 4px rgb(4 40 52 / 0.06), 0 18px 36px -20px rgb(4 40 52 / 0.35)", "purpose": "Press clippings. Logo plaques use 0 14px 30px -18px." },
-      { "name": "device", "value": "0 2px 4px rgb(4 40 52 / 0.2), 0 40px 80px -30px rgb(4 40 52 / 0.55)", "purpose": "The laptop lid. The phone uses 0.25 / 0 30px 60px -24px 0.55." },
-      { "name": "amber-glow", "value": "inset 0 1px 0 rgb(255 255 255 / 0.5), 0 6px 16px -6px rgb(255 164 49 / 0.7)", "purpose": "Primary buttons at rest. Hover: 0 10px 22px -8px rgb(255 164 49 / 0.8)." },
-      { "name": "card-on-band", "value": "0 2px 4px rgb(0 0 0 / 0.12), 0 30px 60px -30px rgb(0 0 0 / 0.5)", "purpose": "The contact form card on the petroleum band." }
+      {
+        "name": "sheet-edge",
+        "value": "0 -1px 0 rgb(4 76 98 / 0.06), 0 -24px 48px -28px rgb(4 40 52 / 0.45)",
+        "purpose": "Every sheet after the cover. Cast upward onto the sheet it covers."
+      },
+      {
+        "name": "band-edge",
+        "value": "0 -24px 48px -28px rgb(4 40 52 / 0.5)",
+        "purpose": "The closing petroleum contact sheet."
+      },
+      {
+        "name": "hanging-tab",
+        "value": "0 2px 4px rgb(4 40 52 / 0.06), 0 14px 28px -16px rgb(4 40 52 / 0.35)",
+        "purpose": "Both hanging tabs at the top edge."
+      },
+      {
+        "name": "chapter-tab-active",
+        "value": "0 8px 18px -10px rgb(4 40 52 / 0.6)",
+        "purpose": "The petroleum tab of the current chapter on the right-edge rail."
+      },
+      {
+        "name": "object-on-paper",
+        "value": "0 2px 4px rgb(4 40 52 / 0.06), 0 18px 36px -22px rgb(4 40 52 / 0.35)",
+        "purpose": "Press clippings. Logo plaques use 0 14px 30px -18px; the glove mat uses 0 2px 4px / 0.05, 0 24px 48px -28px / 0.35."
+      },
+      {
+        "name": "phone",
+        "value": "0 2px 4px rgb(4 40 52 / 0.25), 0 30px 60px -24px rgb(4 40 52 / 0.55)",
+        "purpose": "The phone chassis. The 3D laptop carries no drop shadow; its depth is its geometry."
+      },
+      {
+        "name": "amber-glow",
+        "value": "inset 0 1px 0 rgb(255 255 255 / 0.5), 0 6px 16px -6px rgb(255 164 49 / 0.7)",
+        "purpose": "Primary buttons at rest. Hover: 0 10px 22px -8px rgb(255 164 49 / 0.8)."
+      },
+      {
+        "name": "card-on-band",
+        "value": "0 2px 4px rgb(0 0 0 / 0.12), 0 30px 60px -30px rgb(0 0 0 / 0.5)",
+        "purpose": "The contact form card on the petroleum band."
+      }
     ],
     "motion": [
-      { "name": "ease-out-quart", "value": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "UI state transitions at 200 to 300ms (buttons, links, fields)." },
-      { "name": "inertial-scroll", "value": "Lenis duration 1.1s, easing 1 - (1 - t)^4, anchor offset -16px", "purpose": "Page scroll. Not started under reduced motion." },
-      { "name": "sheet-recede", "value": "scale 1 -> 0.94 (origin 50% 100%), desk overlay opacity 0 -> 0.55", "purpose": "A sheet sticks at min(0, viewport height − sheet height) while the next one covers it. Progress runs from the next sheet's top entering the viewport to it reaching the top. Reduced motion: stacks without scale or dim." },
-      { "name": "cover-depth", "value": "copy -50px, lead photo -90 / block -40, second photo -170 / block -110; pointer spring stiffness 80 damping 18, far x10, near x-18", "purpose": "Cover layers drift at separate rates while it is covered. The pointer layer runs on fine pointers only." },
-      { "name": "portrait-block-trail", "value": "block y -28px -> 28px across the viewport", "purpose": "A creator's offset block trails its photo. Reduced motion: 0." },
-      { "name": "depth-image", "value": "image 116% tall, y -13% -> 0%", "purpose": "Photos drift inside 20px frames. Reduced motion: held at -6.5%." },
-      { "name": "word-reveal", "value": "per-word opacity 0.14 -> 1, scrubbed by scroll", "purpose": "Manifesto statement. Reduced motion: full ink. The screen reader reads the intact sentence." },
-      { "name": "trajectory-draw", "value": "pathLength scrubbed from start 75% to end 92%, spring stiffness 120 damping 30", "purpose": "A solid petroleum stroke draws over the dashed path. Reduced motion: fully drawn." },
-      { "name": "device-tilt", "value": "laptop rotateX 24deg -> 0, scale 0.9 -> 1 (perspective 1400px); phone y 38% -> 0, rotate 7deg -> 0", "purpose": "The Academy scene settles flat at center screen while the phone climbs faster. Reduced motion: flat." },
-      { "name": "drift-pairs", "value": "laptops +60 -> -60 / -30 -> +90px; clipping columns ±40 / ±50 / ±70px", "purpose": "Adjacent objects drift against each other. Reduced motion: 0." },
-      { "name": "theme-transition", "value": "background-color, color 0.4s ease", "purpose": "Light/dark switch on body." }
+      {
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.25, 1, 0.5, 1)",
+        "purpose": "UI state transitions at 200 to 300ms (buttons, links, fields)."
+      },
+      {
+        "name": "ease-rail",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Chapter tab slide and color at 300ms; the contact submit lift at 200ms."
+      },
+      {
+        "name": "index-slide",
+        "value": "translateY(-100%) -> 0, 500ms cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "The Índice dialog slides down over the stack. Reduced motion: no transition."
+      },
+      {
+        "name": "inertial-scroll",
+        "value": "Lenis duration 1.1s, easing 1 - (1 - t)^4; chapter jumps scrollTo 1.4s",
+        "purpose": "Page scroll and chapter jumps via the sheet-start resolver. Not started under reduced motion; jumps are instant."
+      },
+      {
+        "name": "sheet-recede",
+        "value": "scale 1 -> 0.94 (origin 50% 100%), desk overlay opacity 0 -> 0.55",
+        "purpose": "A sheet sticks at min(0, viewport height − sheet height) while the next one covers it. Progress runs from the next sheet's top entering the viewport to it reaching the top. Reduced motion: stacks without scale or dim."
+      },
+      {
+        "name": "backdrop-drift",
+        "value": "circle y 0 -> -60 to -260px across the viewport",
+        "purpose": "Three circles per sheet at separate rates. Reduced motion: still."
+      },
+      {
+        "name": "cover-depth",
+        "value": "copy -50px, lead photo -90 / block -40, second photo -170 / block -110; pointer spring stiffness 80 damping 18, far x10, near x-18",
+        "purpose": "Cover layers drift at separate rates while it is covered. The pointer layer runs on fine pointers only."
+      },
+      {
+        "name": "portrait-block-trail",
+        "value": "block y -28px -> 28px across the viewport",
+        "purpose": "A creator's offset block trails its photo. Reduced motion: 0."
+      },
+      {
+        "name": "depth-image",
+        "value": "image 116% tall, y -13% -> 0%",
+        "purpose": "Photos drift inside 20px frames. Reduced motion: held at -6.5%."
+      },
+      {
+        "name": "word-reveal",
+        "value": "per-word opacity 0.14 -> 1, scrubbed by scroll",
+        "purpose": "Manifesto statement. Reduced motion: full ink. The screen reader reads the intact sentence."
+      },
+      {
+        "name": "trajectory-draw",
+        "value": "pathLength scrubbed from start 75% to end 92%, spring stiffness 120 damping 30; pen point at getPointAtLength(total x drawn)",
+        "purpose": "A solid petroleum stroke draws over the dashed path with a cyan pen at its tip. Reduced motion: fully drawn, no pen."
+      },
+      {
+        "name": "settle-once",
+        "value": "milestone media: spring 0.7s bounce 0.25 from scale 0.86, rotate ±5deg, y 22px; press cards: spring 0.8s bounce 0.2 from y 36px, rotate ±1.5deg, 60ms stagger per row",
+        "purpose": "Objects on the paper settle once on first view, transform only, never opacity. Reduced motion: at rest."
+      },
+      {
+        "name": "laptop-open",
+        "value": "lid rotateX -88deg -> 4deg over progress 0.05 -> 0.6; device rotateY ±26 -> ±4deg, rotateX -34 -> -13deg, scale 0.82 -> 1; perspective 2200px",
+        "purpose": "Lesson laptop scrubbed from start 62% to center 48%; secondary laptops from start 78% to center 52%, turning from opposite sides. Reduced motion: progress pinned at 1."
+      },
+      {
+        "name": "phone-swing",
+        "value": "x 55% -> 0, rotateY -48 -> -14deg, rotateZ 10 -> 2deg over stage 0.45 -> 1; opacity 0 -> 1 over 0.4 -> 0.6; perspective 1200px",
+        "purpose": "The phone swings in on the lesson laptop's progress. Reduced motion: in place."
+      },
+      {
+        "name": "theme-transition",
+        "value": "background-color, color 0.4s ease",
+        "purpose": "Light/dark switch on body."
+      }
     ],
     "breakpoints": [
-      { "name": "sm", "value": "640px" },
-      { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "1024px" }
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
     ]
   },
   "components": [
@@ -70,55 +479,71 @@
       "kind": "button",
       "refersTo": "button-primary",
       "description": "Amber pill used for every primary action, with a warm glow and a 2px lift on hover.",
-      "html": "<a class=\"ds-btn-primary\" href=\"#\">Conoce nuestra historia <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg></a>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 9999px; background: var(--amber, #ffa431); color: var(--amber-ink, #3a2405); font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 6px 16px -6px rgb(255 164 49 / 0.7); transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1), box-shadow 300ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 10px 22px -8px rgb(255 164 49 / 0.8); } .ds-btn-primary:active { transform: translateY(0) scale(0.98); } .ds-btn-primary:focus-visible { outline: 2.5px solid var(--cyan, #0d9ac5); outline-offset: 3px; }"
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Conocer la historia <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 9999px; background: var(--amber, #ffa431); color: var(--amber-ink, #3a2405); font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 6px 16px -6px rgb(255 164 49 / 0.7); transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1), box-shadow 300ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 10px 22px -8px rgb(255 164 49 / 0.8); } .ds-btn-primary:active { transform: translateY(0) scale(0.98); } .ds-btn-primary:focus-visible { outline: 2.5px solid var(--cyan, #0d9ac5); outline-offset: 3px; border-radius: 9999px; }"
     },
     {
       "name": "Text Link",
       "kind": "button",
       "refersTo": "text-link",
       "description": "Secondary action paired with a primary button. Its underline turns amber on hover.",
-      "html": "<a class=\"ds-text-link\" href=\"#\">Escríbenos</a>",
+      "html": "<a class=\"ds-text-link\" href=\"#\">Contacto</a>",
       "css": ".ds-text-link { display: inline-flex; align-items: center; min-height: 48px; color: var(--fg, #062f3b); font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 15px; font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; text-decoration-color: var(--line, rgb(4 76 98 / 0.14)); transition: text-decoration-color 200ms; } .ds-text-link:hover { text-decoration-color: var(--amber, #ffa431); } .ds-text-link:focus-visible { outline: 2.5px solid var(--cyan, #0d9ac5); outline-offset: 3px; border-radius: 6px; }"
     },
     {
-      "name": "Floating Nav",
+      "name": "Hanging Tabs",
       "kind": "nav",
-      "refersTo": "nav-bar",
-      "description": "Pill nav floating 12px from the top. Shown here in its scrolled state: translucent paper with blur.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Principal\"><span class=\"ds-nav-brand\">Señas a Voces</span><ul class=\"ds-nav-links\"><li><a href=\"#\">El problema</a></li><li><a href=\"#\">Lo que construimos</a></li><li><a href=\"#\">Creadores</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Escríbenos</a></nav>",
-      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; padding: 0 8px 0 20px; border-radius: 9999px; background: color-mix(in srgb, var(--surface, #ffffff) 85%, transparent); backdrop-filter: blur(24px); box-shadow: 0 0 0 1px var(--line, rgb(4 76 98 / 0.14)), 0 1px 2px rgb(4 76 98 / 0.06), 0 8px 24px -12px rgb(4 76 98 / 0.18); font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; } .ds-nav-brand { font-family: 'League Spartan', sans-serif; font-weight: 700; color: var(--petrol, #044c62); } .ds-nav-links { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; } .ds-nav-links a { display: block; padding: 8px 14px; border-radius: 9999px; font-size: 15px; font-weight: 600; color: color-mix(in srgb, var(--fg, #062f3b) 80%, transparent); text-decoration: none; transition: background-color 150ms, color 150ms; } .ds-nav-links a:hover { background: color-mix(in srgb, var(--fg, #062f3b) 5%, transparent); color: var(--fg, #062f3b); } .ds-nav-links a:focus-visible, .ds-nav-cta:focus-visible { outline: 2.5px solid var(--cyan, #0d9ac5); outline-offset: 3px; } .ds-nav-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 0 24px; border-radius: 9999px; background: var(--amber, #ffa431); color: var(--amber-ink, #3a2405); font-size: 15px; font-weight: 700; text-decoration: none; box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 6px 16px -6px rgb(255 164 49 / 0.7); }"
+      "refersTo": "hanging-tab",
+      "description": "Two cream tabs hanging from the top edge, rounded only at the bottom: the logo at left; theme toggle, Índice and the amber Contacto pill at right.",
+      "html": "<div class=\"ds-tabs\"><a class=\"ds-tab ds-tab-logo\" href=\"#\">Señas a Voces</a><div class=\"ds-tab ds-tab-tools\"><button class=\"ds-tab-icon\" type=\"button\" aria-label=\"Usar tema oscuro\"><svg width=\"19\" height=\"19\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\"/></svg></button><button class=\"ds-tab-index\" type=\"button\" aria-haspopup=\"dialog\"><span class=\"ds-bars\" aria-hidden=\"true\"><i></i><i class=\"short\"></i><i></i></span>Índice</button><a class=\"ds-tab-cta\" href=\"#\">Contacto</a></div></div>",
+      "css": ".ds-tabs { display: flex; justify-content: space-between; align-items: flex-start; padding: 0 24px; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; } .ds-tab { display: flex; align-items: center; gap: 4px; border-radius: 0 0 18px 18px; background: color-mix(in srgb, var(--bg, #faf7ed) 95%, transparent); backdrop-filter: blur(12px); box-shadow: 0 0 0 1px var(--line, rgb(4 76 98 / 0.14)), 0 2px 4px rgb(4 40 52 / 0.06), 0 14px 28px -16px rgb(4 40 52 / 0.35); } .ds-tab-logo { padding: 12px 20px 10px; font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 20px; color: var(--petrol, #044c62); text-decoration: none; } .ds-tab-tools { padding: 8px; } .ds-tab-icon { display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 9999px; background: transparent; color: color-mix(in srgb, var(--fg, #062f3b) 80%, transparent); cursor: pointer; transition: background-color 200ms, color 200ms; } .ds-tab-index { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px; border: 0; border-radius: 9999px; background: transparent; color: var(--fg, #062f3b); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; transition: background-color 200ms; } .ds-bars { display: grid; gap: 3px; } .ds-bars i { display: block; width: 16px; height: 2px; border-radius: 2px; background: currentColor; } .ds-bars i.short { width: 12px; } .ds-tab-icon:hover, .ds-tab-index:hover { background: color-mix(in srgb, var(--fg, #062f3b) 6%, transparent); color: var(--fg, #062f3b); } .ds-tab-cta { display: inline-flex; align-items: center; height: 44px; padding: 0 20px; border-radius: 9999px; background: var(--amber, #ffa431); color: var(--amber-ink, #3a2405); font-size: 15px; font-weight: 700; text-decoration: none; transition: transform 150ms; } .ds-tab-cta:hover { transform: translateY(-1px); } .ds-tab-cta:active { transform: scale(0.97); } .ds-tab-icon:focus-visible, .ds-tab-index:focus-visible, .ds-tab-cta:focus-visible, .ds-tab-logo:focus-visible { outline: 2.5px solid var(--cyan, #0d9ac5); outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Chapter Rail",
+      "kind": "nav",
+      "refersTo": "chapter-tab",
+      "description": "Divider tabs on the right edge (1024px and up), set vertically. The current chapter is a petroleum tab slid fully out.",
+      "html": "<nav class=\"ds-rail\" aria-label=\"Capítulos\"><ol><li><a href=\"#\">Portada</a></li><li><a href=\"#\">El problema</a></li><li><a href=\"#\" aria-current=\"true\">Ecosistema</a></li><li><a href=\"#\">Los creadores</a></li></ol></nav>",
+      "css": ".ds-rail { display: flex; justify-content: flex-end; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; } .ds-rail ol { display: grid; gap: 6px; list-style: none; margin: 0; padding: 0; } .ds-rail a { display: block; padding: 14px 8px; border-radius: 10px 0 0 10px; writing-mode: vertical-rl; transform: rotate(180deg) translateX(-6px); font-size: 12px; font-weight: 700; letter-spacing: 0.025em; text-decoration: none; background: var(--bg, #faf7ed); color: color-mix(in srgb, var(--fg, #062f3b) 65%, transparent); box-shadow: 0 0 0 1px var(--line, rgb(4 76 98 / 0.14)); transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), background-color 300ms, color 300ms; } .ds-rail a:hover { transform: rotate(180deg); color: var(--fg, #062f3b); } .ds-rail a[aria-current] { transform: rotate(180deg); background: var(--petrol, #044c62); color: #ffffff; box-shadow: 0 8px 18px -10px rgb(4 40 52 / 0.6); } .ds-rail a:focus-visible { outline: 2.5px solid var(--cyan, #0d9ac5); outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Índice Entry",
+      "kind": "nav",
+      "refersTo": "index-entry",
+      "description": "A chapter row on the slide-down Índice page: League Spartan name, dotted leader, folio number. Cyan on hover.",
+      "html": "<ol class=\"ds-index\"><li><a href=\"#\"><span>El problema</span><span class=\"ds-leader\" aria-hidden=\"true\"></span><span class=\"ds-folio\">02</span></a></li><li><a href=\"#\"><span>El ecosistema</span><span class=\"ds-leader\" aria-hidden=\"true\"></span><span class=\"ds-folio\">03</span></a></li></ol>",
+      "css": ".ds-index { display: grid; gap: 4px; max-width: 880px; list-style: none; margin: 0; padding: 0; } .ds-index a { display: flex; align-items: baseline; gap: 16px; padding: 10px 0; border-radius: 12px; font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: clamp(24px, 3.2vw, 40px); line-height: 1.02; letter-spacing: -0.02em; color: var(--fg, #062f3b); text-decoration: none; transition: color 200ms; } .ds-leader { flex: 1; height: 0; transform: translateY(-0.2em); border-bottom: 3px dotted color-mix(in srgb, var(--fg, #062f3b) 25%, transparent); } .ds-folio { font-size: 0.7em; font-variant-numeric: tabular-nums; color: var(--muted, #45646c); } .ds-index a:hover { color: var(--cyan, #0d9ac5); } .ds-index a:hover .ds-leader { border-bottom-color: color-mix(in srgb, var(--cyan, #0d9ac5) 60%, transparent); } .ds-index a:focus-visible { outline: 2.5px solid var(--cyan, #0d9ac5); outline-offset: 3px; border-radius: 6px; }"
     },
     {
       "name": "Sheet",
       "kind": "card",
       "refersTo": "sheet",
-      "description": "One page of the portfolio. Cream with 22px corners, an upward edge shadow, wave lines in opposite corners and a headline-plus-intro header.",
-      "html": "<section class=\"ds-sheet\"><svg class=\"ds-sheet-wave\" viewBox=\"0 0 320 320\" fill=\"none\" aria-hidden=\"true\"><path d=\"M-20 320 C 40 230, 30 150, 120 110 S 250 40, 330 -10\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M-4 320 C 56 230, 46 150, 136 106.8 S 256.4 24, 330 -0.4\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M12 320 C 72 230, 62 150, 152 103.6 S 262.8 8, 330 9.2\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M28 320 C 88 230, 78 150, 168 100.4 S 269.2 -8, 330 18.8\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg><h2 class=\"ds-sheet-title\">El problema</h2><p class=\"ds-sheet-intro\">Solo alrededor de 300,000 personas usan la Lengua de Señas Mexicana, y la mayoría oyente no la conoce.</p></section>",
-      "css": ".ds-sheet { position: relative; overflow: clip; border-radius: 22px; background: var(--bg, #faf7ed); color: var(--fg, #062f3b); padding: 72px 48px 96px; box-shadow: 0 -1px 0 rgb(4 76 98 / 0.06), 0 -24px 48px -28px rgb(4 40 52 / 0.45); } .ds-sheet-wave { position: absolute; top: -72px; right: -88px; width: 260px; color: color-mix(in srgb, var(--cyan, #0d9ac5) 45%, transparent); pointer-events: none; } .ds-sheet-title { position: relative; margin: 0; font-family: 'League Spartan', 'Atkinson Hyperlegible Next', sans-serif; font-weight: 700; font-size: clamp(40px, 5.6vw, 80px); line-height: 1.02; letter-spacing: -0.02em; color: var(--petrol, #044c62); text-wrap: balance; } .ds-sheet-intro { position: relative; margin: 24px 0 0; max-width: 56ch; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.65; color: var(--muted, #45646c); }"
+      "description": "One page of the portfolio. Cream with 22px corners, an upward edge shadow, three drifting backdrop circles, wave lines in opposite corners and a headline-plus-intro header.",
+      "html": "<section class=\"ds-sheet\"><span class=\"ds-circle ds-circle-a\" aria-hidden=\"true\"></span><span class=\"ds-circle ds-circle-b\" aria-hidden=\"true\"></span><span class=\"ds-circle ds-circle-c\" aria-hidden=\"true\"></span><span class=\"ds-circle ds-circle-a\" aria-hidden=\"true\"></span><span class=\"ds-circle ds-circle-b\" aria-hidden=\"true\"></span><span class=\"ds-circle ds-circle-c\" aria-hidden=\"true\"></span><svg class=\"ds-sheet-wave\" viewBox=\"0 0 320 320\" fill=\"none\" aria-hidden=\"true\"><path d=\"M-20 320 C 40 230, 30 150, 120 110 S 250 40, 330 -10\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M-4 320 C 56 230, 46 150, 136 106.8 S 256.4 24, 330 -0.4\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M12 320 C 72 230, 62 150, 152 103.6 S 262.8 8, 330 9.2\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M28 320 C 88 230, 78 150, 168 100.4 S 269.2 -8, 330 18.8\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg><h2 class=\"ds-sheet-title\">El problema</h2><p class=\"ds-sheet-intro\">Solo alrededor de 300,000 personas usan la Lengua de Señas Mexicana, y la mayoría oyente no la conoce.</p></section>",
+      "css": ".ds-sheet { position: relative; overflow: clip; border-radius: 22px; background: var(--bg, #faf7ed); color: var(--fg, #062f3b); padding: 72px 48px 96px; box-shadow: 0 -1px 0 rgb(4 76 98 / 0.06), 0 -24px 48px -28px rgb(4 40 52 / 0.45); } .ds-sheet-wave { position: absolute; top: -72px; right: -88px; width: 260px; color: color-mix(in srgb, var(--cyan, #0d9ac5) 45%, transparent); pointer-events: none; } .ds-sheet-title { position: relative; margin: 0; font-family: 'League Spartan', 'Atkinson Hyperlegible Next', sans-serif; font-weight: 700; font-size: clamp(40px, 5.6vw, 80px); line-height: 1.02; letter-spacing: -0.02em; color: var(--petrol, #044c62); text-wrap: balance; } .ds-sheet-intro { position: relative; margin: 24px 0 0; max-width: 56ch; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.65; color: var(--muted, #45646c); } .ds-circle { position: absolute; border-radius: 9999px; pointer-events: none; } .ds-circle-a { width: 420px; height: 420px; top: -12%; right: -14%; background: color-mix(in srgb, var(--petrol, #044c62) 7%, transparent); } .ds-circle-b { width: 240px; height: 240px; bottom: -6%; left: -8%; background: color-mix(in srgb, var(--amber, #ffa431) 12%, transparent); } .ds-circle-c { width: 130px; height: 130px; top: 32%; left: 38%; background: color-mix(in srgb, var(--cyan, #0d9ac5) 9%, transparent); } .ds-circle { position: absolute; border-radius: 9999px; pointer-events: none; } .ds-circle-a { width: 420px; height: 420px; top: -12%; right: -14%; background: color-mix(in srgb, var(--petrol, #044c62) 7%, transparent); } .ds-circle-b { width: 240px; height: 240px; bottom: -6%; left: -8%; background: color-mix(in srgb, var(--amber, #ffa431) 12%, transparent); } .ds-circle-c { width: 130px; height: 130px; top: 32%; left: 38%; background: color-mix(in srgb, var(--cyan, #0d9ac5) 9%, transparent); }"
     },
     {
       "name": "Portrait on Offset Block",
       "kind": "custom",
       "refersTo": "portrait-frame",
-      "description": "A creator photo in a 20px frame over a flat block in that creator's tone, offset 16px. Used only for creators.",
+      "description": "A creator photo in a 20px frame over a flat block in that creator's tone, offset 16px. Capped at 260px in the creators grid. Used only for creators.",
       "html": "<div class=\"ds-portrait\" style=\"--tone: #e5484d\"><span class=\"ds-portrait-block\" aria-hidden=\"true\"></span><div class=\"ds-portrait-photo\" role=\"img\" aria-label=\"Creator portrait\"></div></div>",
       "css": ".ds-portrait { position: relative; width: 220px; margin: 0 16px 16px 0; } .ds-portrait-block { position: absolute; inset: 0; transform: translate(16px, 16px); border-radius: 20px; background: var(--tone); } .ds-portrait-photo { position: relative; aspect-ratio: 4 / 5; border-radius: 20px; background: linear-gradient(160deg, #7a0d12, #e5484d); }"
     },
     {
-      "name": "Press Clipping",
+      "name": "Press Grid",
       "kind": "card",
       "refersTo": "press-clipping",
-      "description": "A paper cutting on the desk: white, 10px corners, a hairline ring, a soft drop and a slight tilt.",
-      "html": "<div class=\"ds-clipping\"><p class=\"ds-clipping-outlet\">Expreso</p><p class=\"ds-clipping-head\">“Estudiantes crean guante que traduce señas a voz”</p></div>",
-      "css": ".ds-clipping { max-width: 300px; padding: 24px; border-radius: 10px; background: var(--surface, #ffffff); transform: rotate(-1.5deg); box-shadow: 0 0 0 1px var(--line, rgb(4 76 98 / 0.14)), 0 2px 4px rgb(4 40 52 / 0.06), 0 18px 36px -20px rgb(4 40 52 / 0.35); } .ds-clipping-outlet { margin: 0; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 14px; font-weight: 700; color: var(--petrol, #044c62); } .ds-clipping-head { margin: 8px 0 0; font-family: 'League Spartan', sans-serif; font-size: 22px; line-height: 1.15; font-weight: 700; color: var(--fg, #062f3b); }"
+      "description": "Even grid of flat paper clippings (14px corners, hairline ring, soft drop) closed by a petroleum reach card.",
+      "html": "<ul class=\"ds-press\"><li class=\"ds-clipping\"><p class=\"ds-clipping-outlet\">Noro</p><p class=\"ds-clipping-head\">“Señas a Voces, guante para traducir Lengua de Señas Mexicana creado por estudiantes de Sonora”</p></li><li class=\"ds-reach\"><a href=\"#\">@senasavocesac</a><dl><div><dt>seguidores</dt><dd><b>+250</b><span>seguidores</span></dd></div><div><dt>alcance</dt><dd><b>+10 mil</b><span>de alcance mensual</span></dd></div></dl></li></ul>",
+      "css": ".ds-press { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 20px; list-style: none; margin: 0; padding: 0; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; } .ds-clipping { display: flex; flex-direction: column; padding: 28px; border-radius: 14px; background: var(--surface, #ffffff); box-shadow: 0 0 0 1px var(--line, rgb(4 76 98 / 0.14)), 0 2px 4px rgb(4 40 52 / 0.06), 0 18px 36px -22px rgb(4 40 52 / 0.35); } .ds-clipping-outlet { margin: 0; font-size: 14px; font-weight: 700; color: var(--petrol, #044c62); } .ds-clipping-head { margin: 12px 0 0; font-family: 'League Spartan', sans-serif; font-size: 22px; line-height: 1.18; font-weight: 700; color: var(--fg, #062f3b); } .ds-reach { display: flex; flex-direction: column; justify-content: space-between; padding: 28px; border-radius: 14px; background: var(--band, #044c62); color: var(--band-fg, #eef7f8); } .ds-reach a { font-size: 14px; font-weight: 700; color: inherit; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--band-line, rgb(255 255 255 / 0.14)); } .ds-reach a:hover { text-decoration-color: var(--amber, #ffa431); } .ds-reach a:focus-visible { outline: 2.5px solid var(--cyan, #0d9ac5); outline-offset: 3px; border-radius: 6px; } .ds-reach dl { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0 0; } .ds-reach dt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } .ds-reach dd { margin: 0; } .ds-reach b { display: block; font-family: 'League Spartan', sans-serif; font-size: clamp(32px, 3vw, 42px); line-height: 1; } .ds-reach span { display: block; margin-top: 6px; font-size: 14px; color: var(--band-muted, #b5d3da); }"
     },
     {
       "name": "Milestone Node",
       "kind": "chip",
       "refersTo": "milestone-label",
-      "description": "Trajectory stop: a 20px cyan node ringed in cream, a pale-cyan title chip and a cream-backed detail line.",
-      "html": "<div class=\"ds-milestone\"><span class=\"ds-milestone-node\" aria-hidden=\"true\"></span><span class=\"ds-milestone-label\">Copa Enactus</span><span class=\"ds-milestone-detail\">Representación de México en Puerto Rico.</span></div>",
+      "description": "Trajectory stop: the cyan pen point on the drawn line, a 20px cyan node ringed in cream, a pale-cyan title chip and a cream-backed detail line.",
+      "html": "<div class=\"ds-milestone\"><svg class=\"ds-pen\" width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" aria-hidden=\"true\"><circle cx=\"20\" cy=\"20\" r=\"16\" fill=\"#0d9ac5\" opacity=\"0.18\"/><circle cx=\"20\" cy=\"20\" r=\"7\" fill=\"#0d9ac5\" stroke=\"#faf7ed\" stroke-width=\"3\"/></svg><span class=\"ds-milestone-node\" aria-hidden=\"true\"></span><span class=\"ds-milestone-label\">Copa Enactus</span><span class=\"ds-milestone-detail\">Representación de México en Puerto Rico.</span></div>",
       "css": ".ds-milestone { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; background: var(--bg, #faf7ed); padding: 16px; } .ds-milestone-node { width: 20px; height: 20px; border-radius: 9999px; background: var(--cyan, #0d9ac5); box-shadow: 0 0 0 4px var(--bg, #faf7ed); } .ds-milestone-label { display: inline-block; padding: 6px 14px; border-radius: 10px; background: #d9eef4; font-family: 'League Spartan', sans-serif; font-size: 19px; line-height: 1.2; font-weight: 700; color: var(--petrol, #044c62); } .ds-milestone-detail { max-width: 30ch; padding: 4px 8px; border-radius: 6px; background: var(--bg, #faf7ed); font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 15px; line-height: 1.5; color: var(--muted, #45646c); }"
     },
     {
@@ -140,39 +565,70 @@
   ],
   "narrative": {
     "northStar": "The Portfolio That Turns Its Own Pages",
-    "overview": "The site is the team's evidence portfolio, bound and paged. Every chapter is a cream sheet (22px corners) lying on a deeper sand desk. A sheet scrolls normally until its bottom edge reaches the viewport, then sticks there and recedes slightly as the next sheet slides over it. Depth comes from paper stacking and scroll-linked parallax. There are no fade-up entrances and nothing reveals itself on a timer. The portfolio cover's concentric cyan wave lines sit in two opposite corners of every sheet. That is how the brand repeats from page to page.\n\nPetroleum carries the voice: League Spartan titles, set heavy and tight. Cyan appears at display size, in the wave lines and as the data and trajectory marks. Amber is reserved for actions and small markers. Body text is Atkinson Hyperlegible Next, a face built for legibility, because the audience includes deaf and hard-of-hearing readers and accessibility-focused institutions. Imagery is real: the four creators photographed under colored light, each on an offset block in their own color, plus real devices running real screen recordings of the platform.\n\nThe density is editorial. Wide sheets carry generous vertical breaks between chapters (up to 160px). Any section can hold asymmetric two-column compositions. The deliberate dark moment is the petroleum contact sheet that closes the stack, along with one band-colored featured quote.",
+    "overview": "The site is the team's evidence portfolio, bound and paged. Every chapter is a cream sheet (22px corners) lying on a deeper sand desk. A sheet scrolls normally until its bottom edge reaches the viewport, then sticks there and recedes slightly as the next sheet slides over it. Depth comes from paper stacking and scroll-linked parallax: behind each sheet's copy, three soft solid circles in petroleum, amber and cyan drift at their own rates. The portfolio cover's concentric cyan wave lines sit in two opposite corners of every sheet. That is how the brand repeats from page to page. The portfolio is navigated the way a binder is: cream tabs hang from the top edge, divider tabs run down the right edge, and an \"Índice\" page slides down over the stack.\n\nPetroleum carries the voice: League Spartan titles, set heavy and tight. Cyan appears at display size, in the wave lines and as the data and trajectory marks, including the pen point that draws the trajectory. Amber is reserved for actions and small markers. Body text is Atkinson Hyperlegible Next, a face built for legibility, because the audience includes deaf and hard-of-hearing readers and accessibility-focused institutions. Imagery is real: the four creators photographed under colored light, each on an offset block in their own color, the team's own drawing of the glove, and real platform recordings playing on a laptop built in true CSS 3D that opens its lid as you arrive.\n\nThe density is editorial. Wide sheets carry generous vertical breaks between chapters (up to 160px). Any section can hold asymmetric two-column compositions. The deliberate dark moments are the petroleum contact sheet that closes the stack, one band-colored featured quote and the band-colored reach card in the press grid.",
     "keyCharacteristics": [
       "Paged sheets with 22px corners on a sand desk. Each sheet sticks at its bottom edge and recedes to 0.94 scale, dimming toward the desk, as the next sheet covers it.",
+      "Binder navigation: hanging cream tabs at the top edge, vertical divider tabs on the right edge with the current chapter in petroleum, and a full \"Índice\" page with dotted leaders and folio numbers.",
       "Petroleum League Spartan display type (700, -0.02em, line-height 0.92 to 1.02). Cyan is used only for the second line of the cover headline and for marks.",
       "Amber pill actions with a warm amber glow. Amber dots mark status and proof.",
-      "Concentric cyan wave lines in opposite sheet corners at 45% and 35% opacity.",
+      "Concentric cyan wave lines in opposite sheet corners at 45% and 35% opacity, over three drifting backdrop circles at 6 to 12% opacity.",
       "Creator portraits sit on per-person colored offset blocks, and the block drifts on a different parallax rate from the photo.",
-      "Motion is scroll-linked depth only: Lenis inertial scroll, parallax, a word reveal, the trajectory drawing itself and device tilt. When reduced motion is on, all of it goes still and the stacking layout stays."
+      "Motion is scroll-linked depth first: Lenis inertial scroll, parallax, a word reveal, the trajectory drawing itself with a pen point, and a 3D laptop opening and turning to face the reader. Objects placed on the paper may settle once on first view, by transform only. When reduced motion is on, all of it goes still and the stacking layout stays."
     ],
     "rules": [
-      { "name": "The Paper, Not Gray Rule", "body": "Every neutral is a warm sand/cream or a petroleum-tinted ink. Even the receding-sheet dim is the desk color at up to 55% opacity, never black or gray.", "section": "colors" },
-      { "name": "The Amber Means Act Rule", "body": "Amber fills only things you can press, plus tiny dots that mark status or proof. It never fills a card or a band.", "section": "colors" },
-      { "name": "The No-Uppercase Rule", "body": "Labels are sentence case in bold Atkinson. The system has no tracked-out uppercase small labels and no kickers above titles. A sheet's title is the first thing on the sheet.", "section": "typography" },
-      { "name": "The Cyan Is Display-Size Rule", "body": "Cyan text appears only at display or figure size. Running text stays in fg or muted.", "section": "typography" },
-      { "name": "The Recede, Don't Fade Rule", "body": "A covered sheet scales from 1 to 0.94 (origin at the bottom center) while a desk-colored overlay rises from 0 to 0.55. Nothing else in the system fades in or out on entrance.", "section": "elevation" },
-      { "name": "The Shadow Points Up Rule", "body": "Sheet shadows use a negative y offset because the newer page lies on top. Never drop a sheet shadow downward.", "section": "elevation" }
+      {
+        "name": "The Paper, Not Gray Rule",
+        "body": "Every neutral is a warm sand/cream or a petroleum-tinted ink. Even the receding-sheet dim and the \"Índice\" backdrop are the desk color (up to 55% and 70%), never black or gray. Device hardware (chassis, silver deck, keys) is the one exception, because it depicts a real object.",
+        "section": "colors"
+      },
+      {
+        "name": "The Amber Means Act Rule",
+        "body": "Solid amber fills only things you can press, plus tiny dots that mark status or proof. It never fills a card or a band. The only other amber is the 10 to 12% backdrop circle, which is atmosphere, not a surface.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Uppercase Rule",
+        "body": "Labels are sentence case in bold Atkinson. The system has no tracked-out uppercase small labels and no kickers above titles. A sheet's title is the first thing on the sheet.",
+        "section": "typography"
+      },
+      {
+        "name": "The Cyan Is Display-Size Rule",
+        "body": "Cyan text appears only at display, figure or index-entry size (24px and up). Running text stays in fg or muted.",
+        "section": "typography"
+      },
+      {
+        "name": "The Recede, Don't Fade Rule",
+        "body": "A covered sheet scales from 1 to 0.94 (origin at the bottom center) while a desk-colored overlay rises from 0 to 0.55. Sections, headings, copy and cards never fade in or out on entrance.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Settle, Never Hide Rule",
+        "body": "An object placed on the paper (milestone media, the press grid) may settle once, the first time it is seen: a spring on scale, rotation and y only, never opacity. It is fully visible from first paint, it never replays, and under reduced motion it renders at rest.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Shadow Points Up Rule",
+        "body": "Sheet shadows use a negative y offset because the newer page lies on top. Never drop a sheet shadow downward.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do build every new chapter as a sheet: 22px corners, the upward sheet-edge shadow, wave lines in opposite corners, and a headline-plus-intro header.",
+      "Do build every new chapter as a sheet: 22px corners, the upward sheet-edge shadow, a backdrop-circle layout different from its neighbors, wave lines in opposite corners, and a headline-plus-intro header.",
+      "Do register every new chapter in the chapter list so it gets a divider tab and an \"Índice\" entry, and route its in-page links through the sheet-start resolver rather than native anchors.",
       "Do set titles in petroleum League Spartan 700 at -0.02em. Keep running text in Atkinson Hyperlegible Next, at 17px with 1.65 leading, in muted, within 36 to 56ch.",
-      "Do fill actions with amber and amber-ink in full pills that are at least 48px tall, and pair a primary button with an underlined text link rather than a second filled button.",
-      "Do express depth through scroll-linked motion (stacking, parallax and drawn paths), and give every motion value a reduced-motion value of 0 or its resting state.",
-      "Do show real people, real devices and real platform recordings. Put creators on their own tone's offset block.",
+      "Do fill actions with amber and amber-ink in full pills that are at least 48px tall (44px in the header), and pair a primary button with an underlined text link rather than a second filled button.",
+      "Do express depth through scroll-linked motion (stacking, parallax, drawn paths and the 3D laptop), and give every motion value a reduced-motion value of 0 or its resting state.",
+      "Do show real people, real devices, real platform recordings and the team's own drawings, shown whole. Put creators on their own tone's offset block.",
       "Do tint shadows with petroleum and keep the neutrals warm sand and cream."
     ],
     "donts": [
-      "Don't add fade-up or slide-in entrance animations to sections or cards. Motion here is tied to scroll position, never triggered on entry.",
+      "Don't add fade-up or slide-in entrance animations to sections, headings or copy. The only entry-triggered motion is the once-only transform settle of objects placed on the paper (milestone media, press cards), and it never touches opacity.",
       "Don't put a kicker or eyebrow label above a sheet title, or use tracked uppercase small labels.",
       "Don't set body copy or small labels in cyan. It reaches only large-text contrast on cream.",
-      "Don't fill cards, bands or large areas with amber.",
-      "Don't use gray or black for the receding-sheet dim or as a neutral surface. Recede toward the desk.",
+      "Don't fill cards, bands or large areas with solid amber.",
+      "Don't use gray or black for the receding-sheet dim, the \"Índice\" backdrop or a neutral surface. Recede toward the desk.",
       "Don't use colored offset blocks anywhere except behind creator portraits, and don't use them as a generic card shadow.",
-      "Don't introduce purple SaaS gradients, emoji feature cards or a row of three equal cards."
+      "Don't introduce purple SaaS gradients, emoji feature cards or a hero over a row of equal feature cards."
     ]
   }
 }

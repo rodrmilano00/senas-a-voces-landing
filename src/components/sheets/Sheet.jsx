@@ -1,3 +1,4 @@
+import BackdropShapes from '../BackdropShapes'
 import WaveLines from '../WaveLines'
 
 const TONES = {
@@ -10,7 +11,7 @@ const TONES = {
  * tucked into a corner. `title` is the chapter name, set the way the
  * portfolio sets its page titles.
  */
-export default function Sheet({ id, title, intro, tone = 'cream', className = '', children, labelledBy }) {
+export default function Sheet({ id, title, intro, tone = 'cream', variant = 0, className = '', children, labelledBy }) {
   const headingId = labelledBy ?? (id ? `${id}-titulo` : undefined)
 
   return (
@@ -19,6 +20,7 @@ export default function Sheet({ id, title, intro, tone = 'cream', className = ''
       aria-labelledby={title ? headingId : undefined}
       className={`relative mt-2 overflow-clip rounded-[22px] shadow-[0_-1px_0_rgb(4_76_98/0.06),0_-24px_48px_-28px_rgb(4_40_52/0.45)] sm:mt-3 ${TONES[tone]} ${className}`}
     >
+      <BackdropShapes variant={variant} />
       {/* The portfolio cover's wave lines, in two opposite corners of every sheet */}
       <WaveLines className="absolute top-[-72px] right-[-88px] w-[clamp(200px,24vw,340px)] text-cyan/45" />
       <WaveLines className="absolute bottom-[-88px] left-[-88px] w-[clamp(200px,22vw,320px)] rotate-180 text-cyan/35" />
