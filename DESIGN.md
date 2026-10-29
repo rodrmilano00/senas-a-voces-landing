@@ -1,6 +1,6 @@
 ---
 name: Señas a Voces Academy
-description: The team's evidence portfolio, paged. Cream sheets stack on a sand desk as you scroll.
+description: The team's evidence portfolio, laid open. Full-bleed chapters flow on one cream ground, inked in petroleum.
 colors:
   desk: "#e6dfcb"
   bg: "#faf7ed"
@@ -57,6 +57,12 @@ typography:
     fontSize: "clamp(24px, 3.2vw, 40px)"
     fontWeight: 700
     lineHeight: 1.02
+  quote-display:
+    fontFamily: "League Spartan, Atkinson Hyperlegible Next, system-ui, sans-serif"
+    fontSize: "clamp(24px, 2.6vw, 36px)"
+    fontWeight: 700
+    lineHeight: 1.15
+    letterSpacing: "-0.02em"
   subtitle:
     fontFamily: "League Spartan, Atkinson Hyperlegible Next, system-ui, sans-serif"
     fontSize: "24px"
@@ -72,6 +78,11 @@ typography:
     fontSize: "clamp(17px, 1.4vw, 20px)"
     fontWeight: 400
     lineHeight: 1.65
+  body-list:
+    fontFamily: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
+    fontSize: "20px"
+    fontWeight: 400
+    lineHeight: 1.55
   body:
     fontFamily: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
     fontSize: "17px"
@@ -93,24 +104,20 @@ typography:
     fontWeight: 400
     lineHeight: 1.5
 rounded:
+  plate: "4px"
   backing: "6px"
   chip: "10px"
   field: "12px"
-  clipping: "14px"
-  plaque: "16px"
-  tab: "18px"
+  photo: "16px"
   frame: "20px"
-  sheet: "22px"
   pill: "9999px"
 spacing:
-  sheet-gap: "8px"
-  sheet-gap-sm: "12px"
   gutter: "clamp(16px, 4vw, 48px)"
   container: "1240px"
-  sheet-top: "clamp(56px, 6vw, 84px)"
-  sheet-bottom: "clamp(72px, 9vw, 128px)"
+  section-pad: "clamp(88px, 10vw, 144px)"
   article-break: "clamp(72px, 8vw, 112px)"
   chapter-break: "clamp(96px, 12vw, 160px)"
+  long-break: "clamp(120px, 12vw, 200px)"
 components:
   button-primary:
     backgroundColor: "{colors.amber}"
@@ -123,18 +130,25 @@ components:
     textColor: "{colors.fg}"
     typography: "{typography.label}"
     height: "48px"
-  hanging-tab:
-    backgroundColor: "{colors.bg}"
-    textColor: "{colors.fg}"
-    rounded: "{rounded.tab}"
-    padding: "8px"
-  hanging-tab-cta:
+  header-cta:
     backgroundColor: "{colors.amber}"
     textColor: "{colors.amber-ink}"
     typography: "{typography.label}"
     rounded: "{rounded.pill}"
     padding: "0 20px"
     height: "44px"
+  header-control:
+    textColor: "{colors.fg}"
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "0 16px"
+    height: "44px"
+  header-band:
+    backgroundColor: "{colors.bg}"
+    height: "68px"
+  header-band-on-band:
+    backgroundColor: "{colors.band}"
+    height: "68px"
   chapter-tab:
     backgroundColor: "{colors.bg}"
     textColor: "{colors.fg}"
@@ -153,16 +167,24 @@ components:
     typography: "{typography.index-entry}"
     rounded: "{rounded.field}"
     padding: "10px 0"
-  sheet:
+  section:
     backgroundColor: "{colors.bg}"
     textColor: "{colors.fg}"
-    rounded: "{rounded.sheet}"
-  sheet-band:
+    padding: "clamp(88px, 10vw, 144px) clamp(16px, 4vw, 48px)"
+  section-band:
     backgroundColor: "{colors.band}"
     textColor: "{colors.band-fg}"
-    rounded: "{rounded.sheet}"
   portrait-frame:
     rounded: "{rounded.frame}"
+  depth-image:
+    rounded: "{rounded.frame}"
+  quote-on-photo:
+    textColor: "#ffffff"
+    typography: "{typography.quote-display}"
+    padding: "56px"
+  name-column:
+    textColor: "{colors.fg}"
+    typography: "{typography.body-list}"
   milestone-label:
     backgroundColor: "#d9eef4"
     textColor: "{colors.petrol}"
@@ -174,31 +196,18 @@ components:
     typography: "{typography.body-sm}"
     rounded: "{rounded.backing}"
     padding: "4px 8px"
-  press-clipping:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.fg}"
-    rounded: "{rounded.clipping}"
-    padding: "28px"
-  press-reach-card:
-    backgroundColor: "{colors.band}"
-    textColor: "{colors.band-fg}"
-    rounded: "{rounded.clipping}"
-    padding: "28px"
-  logo-plaque:
-    backgroundColor: "#faf7ed"
-    rounded: "{rounded.plaque}"
+  logo-tile:
+    backgroundColor: "{colors.surface-2}"
     width: "200px"
     height: "132px"
-  quote-card:
-    backgroundColor: "{colors.surface-2}"
+  glove-mat:
+    backgroundColor: "#f8f8f3"
+    padding: "24px"
+  contact-form-card:
+    backgroundColor: "{colors.surface}"
     textColor: "{colors.fg}"
     rounded: "{rounded.frame}"
-    padding: "40px"
-  quote-card-band:
-    backgroundColor: "{colors.band}"
-    textColor: "{colors.band-fg}"
-    rounded: "{rounded.frame}"
-    padding: "40px"
+    padding: "36px"
   input-field:
     backgroundColor: "{colors.bg}"
     textColor: "{colors.fg}"
@@ -210,50 +219,52 @@ components:
 
 ## Overview
 
-**Creative North Star: "The Portfolio That Turns Its Own Pages"**
+**Creative North Star: "The Portfolio, Laid Open"**
 
-The site is the team's evidence portfolio, bound and paged. Every chapter is a cream sheet (22px corners) lying on a deeper sand desk. A sheet scrolls normally until its bottom edge reaches the viewport, then sticks there and recedes slightly as the next sheet slides over it. Depth comes from paper stacking and scroll-linked parallax: behind each sheet's copy, three soft solid circles in petroleum, amber and cyan drift at their own rates. The portfolio cover's concentric cyan wave lines sit in two opposite corners of every sheet. That is how the brand repeats from page to page. The portfolio is navigated the way a binder is: cream tabs hang from the top edge, divider tabs run down the right edge, and an "Índice" page slides down over the stack.
+The site is the team's evidence portfolio opened flat. Every chapter is a full-bleed section on one shared cream ground, and the chapters flow into each other with no cards, no rounded sheets, no gutters between them and no stacking. Cream chapters paint no ground of their own and clip nothing, so the decoration belongs to the page rather than to a chapter. The brand repeats through the portfolio cover's concentric cyan wave lines, which sit in two opposite corners of every section, and through three soft solid circles in petroleum, amber and cyan that drift behind each section's copy at their own scroll rates; both run across chapter edges with no visible cut. The page closes on one full-bleed petroleum band for contact, the only chapter with its own ground and its own clip.
 
-Petroleum carries the voice: League Spartan titles, set heavy and tight. Cyan appears at display size, in the wave lines and as the data and trajectory marks, including the pen point that draws the trajectory. Amber is reserved for actions and small markers. Body text is Atkinson Hyperlegible Next, a face built for legibility, because the audience includes deaf and hard-of-hearing readers and accessibility-focused institutions. Imagery is real: the four creators photographed under colored light, each on an offset block in their own color, the team's own drawing of the glove, and real platform recordings playing on a laptop built in true CSS 3D that opens its lid as you arrive.
+Petroleum carries the voice: League Spartan titles, set heavy and tight. Cyan appears at display size, in the wave lines and as the data and trajectory marks, including the pen point that draws the trajectory. Amber is reserved for actions and small markers. Body text is Atkinson Hyperlegible Next, a face built for legibility, because the audience includes deaf and hard-of-hearing readers and accessibility-focused institutions. Imagery is real and set at uneven sizes: the four creators photographed under colored light on offset blocks in their own color, the team's own drawing of the glove, a community testimonial set straight over the photograph of that work, and the team's own 3D laptop renders, whose white studio backdrop multiplies into the cream so the laptop sits on the page itself.
 
-The density is editorial. Wide sheets carry generous vertical breaks between chapters (up to 160px). Any section can hold asymmetric two-column compositions. The deliberate dark moments are the petroleum contact sheet that closes the stack, one band-colored featured quote and the band-colored reach card in the press grid.
+The density is editorial. Secondary material is set as plain text (quotes in columns, names in columns) and the column edges and the space between blocks do the organising; there are no hairline dividers between content. The header owns no box: the logo and controls sit straight on the page, and a solid band in the page's own colour appears behind them only once the page has scrolled. The page moves: chapter titles rise word by word out of a mask, and copy blocks rise into place once as they arrive, on top of the scroll-linked depth. Slow devices and reduced-motion visitors get the same page at rest, with all of that motion switched off.
 
 **Key Characteristics:**
-- Paged sheets with 22px corners on a sand desk. Each sheet sticks at its bottom edge and recedes to 0.94 scale, dimming toward the desk, as the next sheet covers it.
-- Binder navigation: hanging cream tabs at the top edge, vertical divider tabs on the right edge with the current chapter in petroleum, and a full "Índice" page with dotted leaders and folio numbers.
+- Full-bleed sections on one cream ground (`bg`), each padded clamp(88px, 10vw, 144px), with no section cards, radii, gutters or stacking. Cream chapters paint no background and do not clip; horizontal overflow is clipped once, at page level. Contact is a full-bleed petroleum band with its own ground and clip.
+- A chrome-free header: logo left, controls right, straight on the page. Once scrolled, a solid band in the page's own colour (cream, or petroleum over contact) fades in behind them. Never a gradient.
 - Petroleum League Spartan display type (700, -0.02em, line-height 0.92 to 1.02). Cyan is used only for the second line of the cover headline and for marks.
-- Amber pill actions with a warm amber glow. Amber dots mark status and proof.
-- Concentric cyan wave lines in opposite sheet corners at 45% and 35% opacity, over three drifting backdrop circles at 6 to 12% opacity.
-- Creator portraits sit on per-person colored offset blocks, and the block drifts on a different parallax rate from the photo.
-- Motion is scroll-linked depth first: Lenis inertial scroll, parallax, a word reveal, the trajectory drawing itself with a pen point, and a 3D laptop opening and turning to face the reader. Objects placed on the paper may settle once on first view, by transform only. When reduced motion is on, all of it goes still and the stacking layout stays.
+- Amber pill actions; the main button carries a warm amber glow. Amber dots mark status and proof.
+- Concentric cyan wave lines in opposite section corners at 45% and 35% opacity, over three drifting backdrop circles at 6 to 12% opacity, all running uncut across chapter edges.
+- No hairline dividers between content blocks: space separates them.
+- Secondary content as plain type: the lead testimonial over its photograph, other quotes and press names in text columns, no card grids.
+- Devices are the team's own 3D renders: a scroll-scrubbed laptop that opens with a clip-path shutter, a played lesson render, and an iPhone 16 Pro SVG frame drawn over a real recording.
+- Motion is scroll-linked depth plus once-only entrances: Lenis inertial scroll, parallax, a word reveal, the trajectory drawing itself, the render scrub, chapter titles rising word by word from a mask, and copy blocks rising into place on first view. Lite mode and reduced motion turn all of it still.
 
 ## Colors
 
-The palette is a warm paper world (sand desk, cream sheet) inked in deep petroleum, with cyan for marks and amber for actions. All values come from the logo and the portfolio.
+The palette is a warm cream world inked in deep petroleum, with cyan for marks and amber for actions. All values come from the logo and the portfolio.
 
 ### Primary
-- **Portfolio Petroleum** (`petrol`): headline and title ink on cream sheets. It is also the trajectory path stroke, the active chapter tab, the "Índice" title and the ground of the closing band (`band` has the same value). Statistic figures and audience terms use it. In dark mode the token flips to a pale cyan (#7fd0e6), and most titles switch to `fg` instead.
-- **Signal Cyan** (`cyan`): the second line of the cover headline ("encuentran voz."), the wave lines, the LSM dots in the population chart, the trajectory nodes and pen point, the hover state of "Índice" entries (40px and under, always 24px or larger), the focus ring and the text caret. At 15% it also tints dark-mode milestone labels, and at 8 to 10% it is one of the backdrop circles. On cream it reaches only large-text contrast, so it is used at display size or as a non-text mark, never for body copy.
+- **Portfolio Petroleum** (`petrol`): headline and title ink on cream. It is also the trajectory path stroke, the active chapter tab, the "Índice" title, the "Visibilidad en medios" title and the ground of the closing band (`band` has the same value). Statistic figures and audience terms use it. In dark mode the token flips to a pale cyan (#7fd0e6), and most titles switch to `fg` instead.
+- **Signal Cyan** (`cyan`): the second line of the cover headline ("encuentran voz."), the wave lines, the LSM dots in the population chart, the trajectory nodes and pen point, the hover state of "Índice" entries, the focus ring and the text caret. At 15% it tints dark-mode milestone labels, and at 8 to 10% it is one of the backdrop circles. On cream it reaches only large-text contrast, so it is used at display size or as a non-text mark, never for body copy.
 
 ### Secondary
-- **Action Amber** (`amber`): fills every primary action (pill buttons, the header "Contacto" pill, the submit button and the skip link). It also colors the status dots, the proof-strip bullets, the quote marks and the text selection. Hovering a text link turns its underline amber. At 10 to 12% it is one of the backdrop circles.
+- **Action Amber** (`amber`): fills every primary action (pill buttons, the header "Contacto" pill, the submit button and the skip link). It also colors the status dots, the proof-strip bullets and the text selection. Hovering a text link turns its underline amber. At 10 to 12% it is one of the backdrop circles.
 - **Amber Ink** (`amber-ink`): text on amber. Product status lines and step numerals (at 80%) use it on cream. In dark mode those switch to `amber`.
 
 ### Tertiary (creator tones)
 - **Creator tones** (`tone-cyan`, `tone-indigo`, `tone-green`, `tone-red`): one color per creator, stored with that creator in content data. They are used only for that person's offset portrait block. They are identity colors, not UI colors.
 
 ### Neutral
-- **Sand Desk** (`desk`): the page background the sheets rest on. It shows in the 8px/12px gutters, in the dim overlay of a receding sheet and, at 70%, as the backdrop behind the open "Índice". In dark mode it becomes #01161d.
-- **Portfolio Cream** (`bg`): the sheet ground. It also fills form fields, the hanging tabs (at 95% with blur), resting chapter tabs and the "Índice" page. An opaque cream backing sits behind milestone detail lines so the trajectory passes behind them. In dark mode it becomes #04232d.
-- **Paper White** (`surface`): press clippings and the contact form card. In dark mode it becomes #072f3b.
-- **Warm Paper** (`surface-2`): secondary testimonial cards. In dark mode it becomes #062935.
-- **Deep Ink** (`fg`): primary text and small headings. In dark mode it becomes #eaf3f4.
-- **Slate Teal** (`muted`): intros, body, captions and the "Índice" folio numbers. In dark mode it becomes #a3bfc6.
-- **Hairline** (`line`): petroleum at 14%. It draws rules between list rows, the proof-strip top border, inset rings on cards, fields, tabs and the "Índice" close button, and the resting underline of text links.
-- **Band set** (`band`, `band-fg`, `band-muted`, `band-line`): the petroleum contact sheet, the featured quote and the press reach card. In dark mode `band` is #073a48.
+- **Portfolio Cream** (`bg`): the page ground. The body and every section except contact sit on it, and the scrolled header band takes it. It also fills form fields, resting chapter tabs and the "Índice" page. An opaque cream backing sits behind milestone detail lines so the trajectory passes behind them. In dark mode it becomes #04232d.
+- **Sand** (`desk`): no longer a ground. It survives only as the scrollbar track and, at 70%, the backdrop behind the open "Índice". In dark mode it becomes #01161d.
+- **Paper White** (`surface`): the contact form card. In dark mode it becomes #072f3b.
+- **Warm Paper** (`surface-2`): the trajectory's partner-logo tiles. In dark mode it becomes #062935 (the tiles themselves stay cream, #faf7ed, so the logos keep their ground).
+- **Deep Ink** (`fg`): primary text, quotes, names and small headings. In dark mode it becomes #eaf3f4.
+- **Slate Teal** (`muted`): intros, body, captions, name-column headings and the "Índice" folio numbers. In dark mode it becomes #a3bfc6.
+- **Hairline** (`line`): petroleum at 14%. It is a ring and underline color only: inset rings on fields, chapter tabs and the "Índice" close button, and the resting underline of text links. It no longer draws rules between content.
+- **Band set** (`band`, `band-fg`, `band-muted`, `band-line`): the petroleum contact band and its footer, and the header band while it sits over contact. `band-line` stays defined but currently draws nothing, since the footer rule was removed. In dark mode `band` is #073a48.
 
 ### Named Rules
-**The Paper, Not Gray Rule.** Every neutral is a warm sand/cream or a petroleum-tinted ink. Even the receding-sheet dim and the "Índice" backdrop are the desk color (up to 55% and 70%), never black or gray. Device hardware (chassis, silver deck, keys) is the one exception, because it depicts a real object.
+**The Paper, Not Gray Rule.** Every neutral is a warm cream or a petroleum-tinted ink. The "Índice" backdrop is sand at 70%, never black or gray. Device hardware (the phone's titanium frame) is the one exception, because it depicts a real object. A photograph may be darkened under the type set on it (the testimonial photo at brightness 0.55); that is image treatment, not a surface.
 
 **The Amber Means Act Rule.** Solid amber fills only things you can press, plus tiny dots that mark status or proof. It never fills a card or a band. The only other amber is the 10 to 12% backdrop circle, which is atmosphere, not a surface.
 
@@ -265,68 +276,68 @@ The palette is a warm paper world (sand desk, cream sheet) inked in deep petrole
 **Character:** League Spartan is a geometric, heavy and tightly tracked title voice, the way the portfolio sets its page titles. Atkinson Hyperlegible Next is a humanist body face chosen for letterform clarity. Every h1 to h4 uses League Spartan 700 with line-height 1.02, -0.02em tracking and balanced wrapping. Paragraphs use pretty wrapping.
 
 ### Hierarchy
-- **Index title** (the "Índice" page h2 only): petroleum (`fg` in dark mode). The largest type on the site because the index page is a cover of its own.
-- **Display** (cover h1 only): petroleum, with the second line in cyan as its own block.
-- **Statement** (the manifesto WordReveal and the closing quote on the band, which runs at clamp(36px, 5vw, 72px)): petroleum or band-fg, max 18 to 22ch.
-- **Headline** (the title of each sheet, h2): petroleum on cream, max 760px. The contact h2 runs smaller, at clamp(36px, 4.4vw, 60px).
-- **Title** (product names and section subheads, h3): `fg` or petroleum.
+- **Index title** (the "Índice" page h2 only): petroleum (`fg` in dark mode). The largest type on the site.
+- **Display** (cover h1 only): petroleum, with the second line ("encuentran voz.") in cyan on its own line. Its words rise from a mask on load.
+- **Statement** (the manifesto WordReveal, and the closing quote on the band at clamp(36px, 5vw, 72px)): petroleum or band-fg, max 18 to 22ch.
+- **Headline** (each section's h2): petroleum on cream, max 760px, its words rising from a mask on first view. The contact h2 runs smaller, at clamp(36px, 4.4vw, 60px), and is set still.
+- **Title** (product names, h3): `fg`. Smaller subheads use clamp(26px, 2.4vw, 32px) ("¿Y a quién afecta?") and clamp(30px, 3vw, 40px) ("Visibilidad en medios", petroleum).
 - **Index entry** (chapter rows on the "Índice" page): `fg`, cyan on hover, with folio numbers at 0.7em in `muted` tabular figures.
-- **Subtitle** (24px: device captions and audience terms; creator names at clamp(24px, 2vw, 28px); milestone labels at 19px as their own chip step): League Spartan 700.
-- **Subtitle small** (22px): glove step titles and press headlines (1.18 leading on clippings).
-- **Figures** (statistics at clamp(30px, 2.8vw, 40px), social reach at clamp(32px, 3vw, 42px), step numerals at 40px with tabular figures): League Spartan 700, line-height 1.
-- **Body lead** (the intro under each sheet title): `muted`, max 56ch.
+- **Quote display** (the lead testimonial over its photograph, white, max 30ch; the featured press headline at clamp(26px, 2.8vw, 36px) with 1.18 leading, `fg`, max 30ch): League Spartan 700, set as a quotation in typographic quote marks.
+- **Subtitle** (24px audience terms; Academy points at 26px; creator names at clamp(24px, 2vw, 28px); milestone labels at 19px as their own chip step): League Spartan 700.
+- **Subtitle small** (22px): glove step titles.
+- **Figures** (statistics at clamp(30px, 2.8vw, 40px), step numerals at 40px with tabular figures): League Spartan 700, line-height 1.
+- **Body lead** (the intro under each section title): `muted`, max 56ch.
+- **Body list** (20px, 1.55): the press and partner names in columns, `fg`, each column headed by its category in `muted` at the same size. Secondary quotes run at 19px/1.6 in `fg`, max 46ch.
 - **Body** (17px, line-height 1.65; the base is 16px at 1.6): `muted`, held to 36 to 48ch measures.
 - **Body small** (15px, 1.5 to 1.6): creator bios, milestone detail lines and the interpreter note under the live translator.
 - **Label** (15px bold): buttons, header controls, status lines and the text link "Contacto".
-- **Caption** (14px): figure captions, roles, the press outlet line, reach labels and the proof strip (14px bold at 80% `fg`).
+- **Caption** (14px): figure captions, roles, the chart legend and the proof strip (14px bold at 80% `fg`).
 
 ### Named Rules
-**The No-Uppercase Rule.** Labels are sentence case in bold Atkinson. The system has no tracked-out uppercase small labels and no kickers above titles. A sheet's title is the first thing on the sheet.
+**The No-Uppercase Rule.** Labels are sentence case in bold Atkinson. The system has no tracked-out uppercase small labels and no kickers above titles. A section's title is the first thing in the section. Column headings ("Medios", "Aliados", "Reconocimientos") are set at the list's own size in `muted`, not as small caps.
 
 **The Cyan Is Display-Size Rule.** Cyan text appears only at display, figure or index-entry size (24px and up). Running text stays in `fg` or `muted`.
 
 ## Layout
 
-The page is a vertical stack of sheets inset from the viewport by 8px (12px from 640px up), so the sand desk frames every sheet. Content sits in a page container that is at most 1240px wide, with clamp(16px, 4vw, 48px) inline padding. Each sheet pads clamp(56px, 6vw, 84px) above its content and clamp(72px, 9vw, 128px) below.
+The page is one continuous column of full-bleed sections on the cream ground. Content sits in a page container at most 1240px wide with clamp(16px, 4vw, 48px) inline padding. Each section pads clamp(88px, 10vw, 144px) above and below its content. The cover is at least 100svh tall, with clamp(104px, 10vw, 128px) top padding to clear the header, and closes on its proof strip. Contact starts with clamp(80px, 10vw, 140px) of top padding and ends in its own footer.
 
-Rhythm inside a sheet: title, then a 24px gap to the intro, then 48 to 64px to the first composition. Articles inside a chapter are separated by clamp(72px, 8vw, 112px). A full break inside a chapter (for example, manifesto or press) uses clamp(96px, 12vw, 160px), usually over a hairline rule.
+Rhythm inside a section: title, then a 24px gap to the intro, then 48 to 64px to the first composition. Articles inside a chapter are separated by clamp(72px, 8vw, 112px). A full break inside a chapter (the lesson render after the scrubbed laptop) uses clamp(96px, 12vw, 160px). The longest breaks are open space with no rule: clamp(120px, 14vw, 200px) before the manifesto and clamp(120px, 12vw, 200px) before "Visibilidad en medios". Within a block, rows (the audience list, the Sonora fact) are separated by padding and margin only. The contact footer sits clamp(96px, 11vw, 144px) below the form, with no rule.
 
-Compositions are asymmetric two-column grids that collapse to one column below 1024px. Examples: the cover is 1.3fr/0.9fr, the build articles alternate 1.15fr/1fr with the image side swapping, and community uses a 7/5 split out of 12 columns. Creators sit in four columns from 1024px (two from 640px), 32px apart, with portraits capped at 260px and odd items dropped 48px. Press is an even grid of three columns by two rows (two columns from 640px) with 20px gaps: five headline clippings and the reach card. The trajectory snakes three milestones per row across the sheet (440px rows) at 1024px and up. Below that it becomes a single dashed line down the left edge with stacked milestones. The Academy device scene centers the lesson laptop at up to 1080px with the phone at the lower right, then sets the two secondary laptops in two columns, the right one dropped 112px.
+Compositions are asymmetric and collapse to one column below 1024px. The cover is 1.3fr/0.9fr. The build articles alternate 1.15fr/1fr with the image side swapping. The Academy article sets its name and description side by side, then the scrubbed laptop render centered at up to 1180px with the phone overlapping its lower right (clamp(112px, 17vw, 228px) wide), then the lesson render at 1.25fr beside three plain points at 1fr. Community runs at uneven sizes: the lead photograph spans the full container (4:5, 16:10 from 640px, 16:9 from 1024px) with its quotation set in its lower edge; two secondary quotes follow in two plain columns from 768px, 64px apart; then a 12-column row with the "Visibilidad en medios" title in 3 columns and three name columns in the other 9 (two from 640px); then one press headline indented 25% from 1024px. Creators sit in four columns from 1024px (two from 640px), 32px apart, portraits capped at 260px. The trajectory snakes three milestones per row (440px rows) at 1024px and up, and below that becomes a single dashed line down the left edge with stacked milestones.
 
-The cover fills the viewport (100svh minus the gutter, or minus 150px on large screens so the next sheet's top edge peeks), with clamp(104px, 10vw, 128px) top padding to clear the hanging tabs. The hanging tabs hang 12px in from each side (24px from 640px up). The chapter rail is pinned to the right edge at mid-height from 1024px up. Breakpoints are Tailwind defaults (640, 768, 1024).
+Horizontal overflow is clipped once, at page level (`overflow-x: clip` on the root, the body and the main element), so decoration that bleeds past a chapter's edge is cut only at the viewport sides, never at a chapter boundary. Vertical overflow is never clipped on cream chapters.
 
-Chapter links never use native anchor jumps, because stuck sheets report their stuck position. Every in-page `#` link resolves to the sheet's true start (read from the end marker of the sheet before it) and scrolls there through Lenis in 1.4s, or instantly when Lenis is off. The current chapter is the last one whose start is above 45% of the viewport height.
+The header's logo sits 16px from the left (32px from 640px up) and the controls 12px from the right (32px from 640px up), 12px from the top (16px from 640px up). The scrolled band behind them is 68px tall (76px from 640px up). The chapter rail is pinned to the right edge at mid-height from 1024px up. Breakpoints are Tailwind defaults (640, 768, 1024).
+
+Chapter navigation measures each section's real top in the document (its bounding top plus the scroll position) and scrolls there through Lenis in 1.4s, or instantly when Lenis is off; the cover always goes to 0. Every in-page `#` link is routed through it. The current chapter is the last one whose top is above 45% of the viewport height; the header reads the chapter at 4% to know whether it sits over contact.
 
 ## Elevation & Depth
 
-Depth is physical paper. Sheets cast their shadow upward onto the sheet they cover. Real objects (clippings, logo plaques, the glove drawing's mat, the hanging tabs and the phone) cast soft petroleum-tinted drops onto the paper. The structural depth is motion: covered sheets shrink toward their bottom edge and dim toward the desk, backdrop circles and layers inside a sheet drift at their own scroll rates, and the laptop is a true 3D object (deck, hinged lid, silver back) rather than a shadowed flat frame. Shadows are always tinted with petroleum (rgb 4 40 52 or 4 76 98), except on the band, where the form card drops a neutral black shadow.
+The page is flat paper. Sections carry no shadows and no edges; one section simply continues into the next. Depth is motion and imagery: backdrop circles and layers inside a section drift at their own scroll rates, photographs drift inside their frames, creator blocks trail their photos, and the laptop is a real 3D render whose camera moves with scroll. Only a few objects cast a shadow, each tinted with petroleum except on the band.
 
 ### Shadow Vocabulary
-- **Sheet edge** (`0 -1px 0 rgb(4 76 98 / 0.06), 0 -24px 48px -28px rgb(4 40 52 / 0.45)`): every sheet after the cover. It is cast upward onto the sheet beneath.
-- **Band edge** (`0 -24px 48px -28px rgb(4 40 52 / 0.5)`): the closing contact sheet.
-- **Hanging tab** (`0 2px 4px rgb(4 40 52 / 0.06), 0 14px 28px -16px rgb(4 40 52 / 0.35)`): both top tabs.
+- **Amber glow** (`inset 0 1px 0 rgb(255 255 255 / 0.5), 0 6px 16px -6px rgb(255 164 49 / 0.7)`): primary buttons. On hover it widens to `0 10px 22px -8px` at 0.8. The contact submit button shows only the hover glow.
+- **Phone drop** (`drop-shadow(0 30px 40px rgb(4 40 52 / 0.35))`, a filter, so it follows the frame's silhouette): the phone over the laptop render.
 - **Active chapter tab** (`0 8px 18px -10px rgb(4 40 52 / 0.6)`): the petroleum tab of the current chapter.
-- **Object on paper** (`0 2px 4px rgb(4 40 52 / 0.06), 0 18px 36px -22px rgb(4 40 52 / 0.35)`): press clippings. Partner-logo plaques use `0 14px 30px -18px`, and the glove drawing's mat uses `0 2px 4px rgb(4 40 52 / 0.05), 0 24px 48px -28px rgb(4 40 52 / 0.35)`.
-- **Phone** (`0 2px 4px rgb(4 40 52 / 0.25), 0 30px 60px -24px rgb(4 40 52 / 0.55)`): the phone chassis.
-- **Amber glow** (`inset 0 1px 0 rgb(255 255 255 / 0.5), 0 6px 16px -6px rgb(255 164 49 / 0.7)`): primary buttons. On hover it widens to `0 10px 22px -8px` at 0.8.
 - **Card on band** (`0 2px 4px rgb(0 0 0 / 0.12), 0 30px 60px -30px rgb(0 0 0 / 0.5)`): the contact form.
 
 ### Named Rules
-**The Recede, Don't Fade Rule.** A covered sheet scales from 1 to 0.94 (origin at the bottom center) while a desk-colored overlay rises from 0 to 0.55. Sections, headings, copy and cards never fade in or out on entrance.
+**The Flat Ground Rule.** Sections and the things laid on them (the glove drawing, logo tiles, photographs) have no resting shadow. A shadow belongs only to something lifted off the page: a pressable button, the phone held in front of the laptop, the active tab, the form card on the band.
 
-**The Settle, Never Hide Rule.** An object placed on the paper (milestone media, the press grid) may settle once, the first time it is seen: a spring on scale, rotation and y only, never opacity. It is fully visible from first paint, it never replays, and under reduced motion it renders at rest.
+**The Settle, Never Hide Rule.** An object placed on the paper (milestone media) may settle once, the first time it is seen: a spring on scale, rotation and y only, never opacity. It is fully visible from first paint, it never replays, and when calm it renders at rest.
 
-**The Shadow Points Up Rule.** Sheet shadows use a negative y offset because the newer page lies on top. Never drop a sheet shadow downward.
+**The Rise Once Rule.** Type and copy blocks enter once, on first view, and never replay: headings rise word by word from a mask, blocks rise 28px with opacity, siblings staggered by a delay. Entrances run on the shared entrance ease (0.16, 1, 0.3, 1). Under calm everything renders at rest from first paint.
 
 ## Shapes
 
-All corners are soft and rounded, and none are sharp. Corners nest by scale: sheets are 22px, photo frames, portraits, the glove mat, quote cards and the form card are 20px, the hanging tabs are 18px, journey photos and logo plaques are 16px, press clippings and the reach card are 14px, fields and "Índice" rows are 12px, milestone labels and chapter tabs are 10px, and milestone detail backings are 6px. The focus outline also carries a 6px radius. Every interactive control in the page body is a full pill (buttons, the header "Contacto" pill, contact detail rows, circular 40px, 44px and 48px icon buttons).
+Corners are soft where something is held or pressed and square where something is laid flat into the page. Portraits, the live-translator photo frame and the contact form card are 20px; trajectory photos are 16px; fields and "Índice" rows are 12px; milestone labels and chapter tabs are 10px; milestone detail backings are 6px; the dark-mode plate behind the renders is 4px. The focus outline carries a 6px radius. Every interactive control is a full pill (buttons, the header controls and "Contacto" pill, contact detail rows, circular 40px, 44px and 48px icon buttons).
 
-Edge-bound shapes round only their free side: the hanging tabs round only their bottom corners (they hang from the top edge), the chapter tabs round only their left corners (they come out of the right edge), and the contact sheet rounds only its top corners because it is the last page and ends the document. The "Índice" page is a full-viewport sheet with no radius.
+No hairline rules divide content; space does. Square corners: the sections themselves (full bleed), the testimonial photograph, the glove drawing's mat and the partner-logo tiles. The renders have no edge at all: a radial mask feathers them into the ground. Chapter tabs round only their left corners because they come out of the right edge. The "Índice" page is a full-viewport sheet with no radius.
 
 Recurring silhouettes:
-- The four-line concentric wave curve (stroke 2, round caps, `currentColor`), clipped into opposite sheet corners and rotated 180° for the bottom-left one.
-- Backdrop circles: three solid, unblurred discs per sheet, the largest up to 620px.
+- The four-line concentric wave curve (stroke 2, round caps, `currentColor`), set into opposite section corners and rotated 180° for the bottom-left one. On cream it overhangs the chapter edge into its neighbour uncut. Contact carries only the top-right one, clipped by the band.
+- Backdrop circles: three solid, unblurred discs per section, the largest up to 620px, free to cross chapter edges.
 - Dots: 6px amber proof bullets, 8px amber status dots, 10px legend dots, the 100-dot population grid, 20px cyan trajectory nodes ringed 4px in `bg`, and the pen point (a 7px-radius cyan core with a 3px `bg` stroke inside a 16px-radius cyan halo at 18%).
 - The dashed trajectory: a 2.5px petroleum stroke, `9 9` dash at 45% opacity, with a solid stroke drawn over it.
 - Dotted leaders: a 3px dotted rule in `fg` at 25% linking each "Índice" entry to its folio number.
@@ -339,31 +350,36 @@ Tactile, warm and weighty.
 - **Primary:** an amber fill with amber-ink text and the amber glow. It is the only filled button style in use. The cover's primary reads "Conocer la historia".
 - **Hover / Focus / Active:** lifts 2px and the glow widens, over 300ms with the quart-out ease. Active scales to 0.98. Focus is the global 2.5px cyan outline at a 3px offset with a 6px radius.
 - **Submit (contact form):** full width, 52px or taller, 16px padding. Its states read "Enviar mensaje", "Enviando…", "Reintentar envío" and "Enviar otro mensaje". When disabled it drops to 70% opacity.
-- **Text link (secondary action):** 15px bold `fg`, with a 2px underline at 6px offset. The underline is `line` at rest and turns amber on hover. It pairs with a primary button at 28px spacing; on the cover it reads "Contacto".
+- **Text link (secondary action):** 15px bold `fg`, with a 2px underline at 6px offset. The underline is `line` at rest and turns amber on hover. It pairs with a primary button at 28px spacing; on the cover it reads "Contacto". The Instagram handle in the press line uses the same treatment at a 4px offset.
 
 ### Navigation
-The portfolio's own binder hardware, not a bar.
-- **Hanging tabs:** two cream tabs fixed to the top edge, `bg` at 95% with a 12px backdrop blur, a hairline ring, the hanging-tab shadow and 18px bottom corners. The left tab holds the logo (36px tall, 44px from 640px up) and returns to the cover. The right tab holds a 44px circular theme toggle, a 44px "Índice" pill (a drawn three-bar mark and the 15px bold label) and, from 640px up, the amber "Contacto" pill at 44px. Header controls hover to a 6% `fg` wash.
-- **Chapter rail (1024px and up):** seven divider tabs pinned to the right edge at mid-height, 6px apart, set in vertical writing mode. Resting tabs are `bg` with a hairline ring and `fg` at 65%, tucked 6px into the edge; hover slides them out and darkens the text. The current chapter (scroll-spy) is a petroleum tab with white text (dark-mode text is the dark cream, #04232d) and the active-tab shadow, slid fully out. Transitions run 300ms on cubic-bezier(0.23, 1, 0.32, 1).
-- **Índice page:** a native modal dialog that slides down from the top over a desk-at-70% backdrop (500ms, cubic-bezier(0.32, 0.72, 0, 1)). It holds the logo and a 48px ringed close button, the index title, then the seven chapters as index entries, each joined by a dotted leader to its 01 to 07 folio number, over a contact line in 14px `muted`. Hover turns an entry and its leader cyan. Escape or a click on the backdrop closes it. It is also the mobile menu.
+Controls on the page, not in a bar.
+- **Header:** no containers. The logo (40px tall, 48px from 640px up) sits at the top left and returns to the cover. At the top right: a 44px circular theme toggle, a 44px "Índice" pill (a drawn three-bar mark and the 15px bold label) and, from 640px up, the amber "Contacto" pill at 44px with no glow. Controls are `fg` at 80% and hover to a 6% `fg` wash. Past 12px of scroll, a solid full-width band in `bg` fades in behind them over 300ms. Over the contact chapter the band is `band`, the controls switch to `band-fg` with a 10% white hover, and the logo switches to its light-on-dark variant. Never a gradient, blur or border.
+- **Chapter rail (1024px and up):** seven divider tabs pinned to the right edge at mid-height, 6px apart, set in vertical writing mode. Resting tabs are `bg` with a hairline ring and `fg` at 65%, tucked 6px into the edge; hover slides them out and darkens the text. The current chapter (scroll-spy) is a petroleum tab with white text (dark-mode text is #04232d) and the active-tab shadow, slid fully out. Transitions run 300ms on cubic-bezier(0.23, 1, 0.32, 1).
+- **Índice page:** a native modal dialog that slides down from the top over a sand-at-70% backdrop (500ms, cubic-bezier(0.32, 0.72, 0, 1)). It holds the logo and a 48px ringed close button, the index title, then the seven chapters as index entries, each joined by a dotted leader to its 01 to 07 folio number, over a contact line in 14px `muted`. Hover turns an entry and its leader cyan. Escape or a click on the backdrop closes it. It is also the mobile menu.
 - **Footer links:** 15px semibold `band-fg` at 80%, full on hover.
 
-### Sheet (signature)
-The chapter container. Cream (or band) ground, 22px corners, the upward sheet-edge shadow, the backdrop circles, and wave lines in the top-right (cyan at 45%) and bottom-left (cyan at 35%, rotated). An optional header holds the headline and the body-lead intro. Sheets live in the stacking scroller described under Motion.
+### Section (signature)
+The chapter container. Full bleed, no radius and no shadow. A cream chapter paints no background of its own (the page's `bg` shows through) and does not clip, so its circles and wave lines run into the neighbouring chapters. The `band` tone alone paints its own ground and clips its overflow. It carries the backdrop circles and wave lines in the top-right (cyan at 45%) and bottom-left (cyan at 35%, rotated). An optional header holds the headline, which rises word by word on first view, and the body-lead intro, which rises 0.2s after it. Sections are flat in the document flow; nothing sticks.
 
 ### Backdrop circles (signature)
-Three solid circles per sheet, one each in petroleum (6 to 7%), amber (10 to 12%) and cyan (8 to 10%), sized with clamps between roughly 100px and 620px and partly cropped by the sheet edge. Each drifts upward by its own amount (60 to 260px) as the sheet crosses the viewport, so the layers separate. Three layouts exist, chosen per sheet so consecutive sheets never repeat; the cover and contact sheets use them too. They are non-interactive and hidden from assistive technology.
+Three solid circles per section, one each in petroleum (6 to 7%), amber (10 to 12%) and cyan (8 to 10%), sized with clamps between roughly 100px and 620px, overhanging the section edge into the next chapter without a cut (the layer does not clip). Each drifts upward by its own amount (60 to 260px) as the section crosses the viewport. Three layouts exist, assigned so consecutive sections never repeat (0, 1, 2, 0, 1, 2, 0 down the page). They are non-interactive and hidden from assistive technology.
 
 ### Portrait on offset block (signature)
-Each creator's photo sits in a 20px frame over a block in that creator's tone, offset 12px right and down (16px from 640px up). On scroll the block trails the photo by ±28px on its own track, so the pair separates as it passes. In the creators grid, each portrait is capped at 260px and is followed by the name, a bold role line, a body-small bio (max 34ch) and the school. On the cover, two portraits overlap at different depths, and on fine pointers they also respond to pointer position on a spring. These blocks are flat color (no blur), are used only behind creator portraits, and use only that creator's tone.
+Each creator's photo sits in a 20px frame over a block in that creator's tone, offset 12px right and down (16px from 640px up). On scroll the block trails the photo by ±28px, so the pair separates as it passes. On hover the pair lifts 6px and turns -1° over 500ms on the entrance ease, as feedback. In the creators grid, each portrait is capped at 260px and is followed by the name, a bold role line, a body-small bio (max 34ch) and the school; that text block rises in on first view, staggered 0.08s per column. On the cover, two portraits overlap at different depths, and on fine pointers they also respond to pointer position on a spring. The blocks are flat color, are used only behind creator portraits, and use only that creator's tone.
 
-### Cards / Containers
-- **Quote cards:** 20px corners and 32px padding (40px from 640px up), with an amber SVG quote mark. The featured quote sits on `band` with a League Spartan 600 blockquote. Secondary quotes sit on `surface-2` with 17px body text.
-- **Press clippings:** `surface`, 14px corners, 28px padding, a hairline ring and the object shadow, laid flat. Each shows the outlet in 14px bold petroleum (cyan in dark mode) over a subtitle-small headline in quotes.
-- **Press reach card:** the sixth cell of the press grid. `band`, 14px corners, 28px padding: the Instagram handle as a 14px bold underlined link at the top (underline `band-line`, amber on hover) and two reach figures at the bottom ("+250 seguidores", "+10 mil de alcance mensual") with `band-muted` captions.
-- **Photo frames (DepthImage):** 20px corners with overflow clipped. The image is 116% of the frame's height and drifts from -13% to 0% as the frame crosses the viewport.
-- **Glove drawing mat:** the team's white-ground drawing shown whole (never cropped) on a #f8f8f3 mat with 20px corners, 16px padding (24px from 640px up), a hairline ring and the mat shadow. The mat color matches the drawing's own paper so the edge of the image disappears.
-- **Partner-logo plaques:** a fixed 200×132px, 16px corners, with the logo contained in 168×104px. Always cream in both themes so the logos keep their ground.
+### Quotation over a photograph (signature)
+The lead testimonial is set straight on the photograph of that work. The photo is a full-width DepthImage with square corners, darkened to brightness 0.55. The quotation (an excerpt of the testimonial, quote-display, white, max 30ch) and its attribution (16px, name bold, role at 80% white) sit in the photo's lower edge with 24px padding (40px from 640px up, 56px from 1024px up); from 1024px up the attribution aligns right on the same baseline row.
+
+### Plain text columns
+Secondary material carries no box. Secondary quotes are 19px `fg` with a bold name and a 14px `muted` role below. Press and partner names are set as plain lists in body-list size, one column per category, headed by the category name in `muted`. One press headline is then set large as a quotation, with the outlet and the Instagram reach as one sentence beneath it in 17px `muted`.
+
+### Photo frames (DepthImage)
+Overflow clipped; 20px corners where the frame is a held photo (the live translator test), square where the photo carries type. The image is 116% of the frame's height and drifts from -13% to 0% as the frame crosses the viewport (held at -6.5% when calm).
+
+### Glove drawing mat and logo tiles
+- **Glove drawing mat:** the team's white-ground drawing shown whole (never cropped) on a #f8f8f3 mat, 16px padding (24px from 640px up), square corners, no ring and no shadow. The mat matches the drawing's own paper so the image edge disappears.
+- **Partner-logo tiles:** a fixed 200×132px in `surface-2`, square, no shadow, with the logo contained in 168×104px. Cream (#faf7ed) in dark mode so the logos keep their ground.
 
 ### Inputs / Fields
 - **Style:** `bg` fill, a 1px `line` ring, 12px corners, 14px by 16px padding and 16px text. Labels sit above in 14px bold `fg`, and fields carry a cyan caret.
@@ -371,46 +387,59 @@ Each creator's photo sits in a 20px frame over a block in that creator's tone, o
 - **Status:** a polite live region below the fields. Success is 14px bold petroleum. Errors are 14px bold red.
 
 ### Status line and proof strip
-Product status is a 15px bold amber-ink line with an 8px amber dot, set below the product name, never above it. The cover's proof strip runs along the cover's bottom edge as 14px bold items, each led by a 6px amber dot, over a hairline top border.
+Product status is a 15px bold amber-ink line with an 8px amber dot, set below the product name, never above it. The cover's proof strip runs along the cover's bottom edge as 14px bold items, each led by a 6px amber dot, separated from the copy above by space alone (no border).
 
 ### Trajectory
-The milestones are joined by a dashed petroleum path. A solid stroke draws along it as you scroll, and the pen point rides the drawn tip of the line. Nodes are 20px cyan dots. Each milestone has a photo (260px wide, 16:10) or logo plaque above its node; on first view the media settles from 0.86 scale, ±5° rotation and 22px lower to rest, on a spring from the bottom edge. Below the node sits the milestone label (League Spartan 19px petroleum on a pale cyan #d9eef4 chip, or cyan at 15% in dark mode) over a detail line on an opaque cream backing, so the path passes behind the text and never through it.
+The milestones are joined by a dashed petroleum path. A solid stroke draws along it as you scroll, and the pen point rides the drawn tip. Nodes are 20px cyan dots. Each milestone has a photo (260px wide, 16:10, 16px corners) or a logo tile above its node; on first view the media settles from 0.86 scale, ±5° rotation and 22px lower to rest, on a spring from the bottom edge. Below the node sits the milestone label (League Spartan 19px petroleum on a pale cyan #d9eef4 chip, or cyan at 15% in dark mode) over a detail line on an opaque cream backing, so the path passes behind the text and never through it.
 
 ### Devices
-- **Laptop (3D):** built in real CSS 3D at 2200px perspective. A silver keyboard deck (gradient #d6dcde to #b8c1c4, 18px front corners) is rotated 90° to lie toward the viewer, with four rows of dark keys (#2b3337), a space bar, a trackpad and a front edge so it reads as a slab. The lid hinges on its bottom edge: its front face is a dark bezel (#0f1518, 16px top corners and 4px bottom) around a cream-grounded screen running the recording, with a soft glare that appears as the lid opens; its back face is silver (#dfe5e7 to #b9c3c6) carrying the mirrored logo at 80%. Both faces hide their backs, so a closed lid shows only the silver.
-- **Phone:** a dark chassis (#121b1f) with a 1px white ring at 10%, side buttons and the phone shadow. Its screen is laid out at 240px and scaled to fit. The camera island stays black in both themes.
-- Both wrap muted, looping screen recordings of the real platform that play only while on screen. Device captions sit under the secondary laptops, pulled up 6% into the space the deck reserves.
+- **Render scrub (laptop):** the team's own 3D render of the laptop on the dashboard, encoded all-intra so every frame seeks cleanly. Scroll position maps to video time (progress 0.12 to 0.82 across the render's pass through the viewport), seeking at most once per animation frame. The picture opens with a clip-path shutter uncovering it from its bottom edge (progress 0.05 to 0.32) while the video settles from 1.12 to 1 scale (0.05 to 0.4); both are scroll-mapped. The render's white backdrop is multiplied into the page and its edge feathered by a radial mask (opaque to 62%, clear at 96%). The clip mounts only within 900px of the viewport; until then, and always in lite mode, the poster still is shown. In dark mode the mask is dropped and the render sits on a cream (#faf7ed) plate with 4px corners.
+- **Lesson render:** the second render plays muted and looped only while at least 15% is on screen, with the same multiply and feather (64% to 98%), beside three plain points (26px League Spartan title over 17px `muted` text, 32px apart). Calm shows the poster.
+- **Phone:** the 21st.dev "iPhone 16 Pro" frame (designali-in), an SVG with a titanium gradient (#5b6062 to #2c3032 to #474c4e), black bezel and Dynamic Island drawn over the screen. The screen is laid out at 240px and scaled to fit, cream-grounded, with a faint diagonal glass sheen, and runs the lesson UI over the real recording. It rides over the laptop render's lower right with its own parallax (y 140 to -120px, rotate 6° to -4°) and the phone drop shadow.
 
 ### Motion
-- **Inertial scroll:** Lenis, duration 1.1s, quartic ease-out. Chapter jumps go through the sheet-start resolver and Lenis at 1.4s.
-- **Sheet stacking:** each sheet sticks at `min(0, viewport height − sheet height)`. Progress runs from the moment the next sheet's top enters the viewport until it reaches the top: scale goes from 1 to 0.94 and the desk dim from 0 to 0.55.
-- **Backdrop drift:** each circle moves 0 to between -60 and -260px as its sheet crosses the viewport.
-- **Cover depth:** while the cover is being covered, the copy rises 50px and the lead portrait 90px (its block 40px). The second portrait rises 170px (its block 110px). On fine pointers a spring (stiffness 80, damping 18) moves the far portrait ×10 and the near one ×−18.
-- **Word reveal:** the manifesto's words move from 14% opacity to full ink in reading order as it scrolls through the view. Screen readers get the intact sentence once.
-- **Trajectory draw:** the path length follows scroll from 75% to 92% of the viewport through a spring (stiffness 120, damping 30), and the pen point follows the drawn length along the path.
-- **Milestone and press settle:** springs, once per page view. Milestone media: 0.7s, bounce 0.25, from 0.86 scale, ±5°, +22px. Press cards: 0.8s, bounce 0.2, from +36px and ±1.5°, staggered 60ms across each row.
-- **Laptop open:** scroll progress drives the lid from -88° (closed) to 4° (open) between 5% and 60% of progress, while the whole device turns from a three-quarter view (rotateY ±26°, rotateX -34°, scale 0.82) to near-front (±4°, -13°, scale 1). The lesson laptop runs from its top at 62% of the viewport to its center at 48%; the secondary laptops from 78% to 52%, turning from opposite sides.
-- **Phone swing:** in the second half of the lesson laptop's progress, the phone slides in from 55% to the right, rotateY -48° to -14° and rotateZ 10° to 2°, at 1200px perspective.
+- **Inertial scroll:** Lenis, duration 1.1s, quartic ease-out. Chapter jumps go through the section-top resolver and Lenis at 1.4s.
+- **Backdrop drift:** each circle moves 0 to between -60 and -260px as its section crosses the viewport.
+- **Cover depth:** the cover takes its parallax from its own scroll (start of cover at top to its end at top): the copy rises 50px, the lead portrait 90px (its block 40px), the second portrait 170px (its block 110px). On fine pointers a spring (stiffness 80, damping 18) moves the far portrait ×10 and the near one ×−18.
+- **Title reveal:** each word of a heading sits in its own mask and rises from 105% to 0 over 0.9s on the entrance ease, 0.06s apart. Every chapter h2 built on the section plays it on first view (viewport margin -10% bottom); the cover h1 plays it on mount after 0.15s, with "encuentran voz." as the cyan line. Screen readers get the heading once, intact.
+- **Block reveal:** a block rises from 28px below with opacity 0 to 1 over 0.8s on the entrance ease (`cubic-bezier(0.16, 1, 0.3, 1)`), once, on first view (viewport margin -12% bottom). A delay staggers siblings: section intros at 0.2s; the cover paragraph at 0.55s and its actions at 0.7s; audience rows, creator text, community quotes and name columns at 0.08 to 0.12s per item; the glove text column at 0.1s and the translator text column at 0.
+- **Population count:** when the dot chart enters view (margin -20% bottom), the 13 LSM dots fill cyan one after another, 70ms apart, each scaling to 1.1 over 500ms.
+- **Portrait hover:** lift 6px and rotate -1° over 500ms on the entrance ease.
+- **Word reveal:** the manifesto's words move from 14% opacity to full ink in reading order as it scrolls through the view (start 85% to end 40%). Screen readers get the intact sentence once.
+- **Trajectory draw:** the path length follows scroll from 75% to 92% of the viewport through a spring (stiffness 120, damping 30), and the pen point follows the drawn length.
+- **Milestone settle:** a spring once per page view, 0.7s, bounce 0.25, from 0.86 scale, ±5°, +22px.
+- **Render scrub, shutter and phone parallax:** as described under Devices.
+- **Header band:** opacity 0 to 1 over 300ms once scrolled past 12px.
 - **Índice slide:** the dialog translates from -100% to rest over 500ms.
 - **Easing for UI state:** `cubic-bezier(0.25, 1, 0.5, 1)` (quart-out) at 200 to 300ms for buttons, links and fields. The theme color transition is 400ms.
-- **Reduced motion:** Lenis is not started and chapter jumps are instant. Sheets still stack and stick but do not scale or dim. Every parallax value, backdrop drift included, collapses to 0 (DepthImage holds at -6.5%). Words show at full ink. The trajectory is fully drawn and the pen point is not rendered. Milestone media and press cards render at rest. Device progress is pinned at 1, so every laptop is open and near-front and the phone is in place. The "Índice" appears without the slide. Videos are replaced by their poster stills. Pointer depth is off.
+- **Lite mode:** decided at load from device hints (Save-Data, device memory of 2GB or less, 2 cores or fewer), reduced motion or a `?lite` query, then confirmed by a frame-rate probe: if the median of the first 90 frames (the first 10 discarded) exceeds 34ms, the page switches to lite. Lite starts no Lenis, shows render posters instead of the scrub and plays no videos, and pins the phone. `html.lite` strips every backdrop-filter and cuts transitions to 0.01ms.
+- **Calm (lite or reduced motion):** every parallax value, backdrop drift included, collapses to 0 (DepthImage holds at -6.5%). Title and block reveals render at rest from first paint, and the LSM dots show filled. Words show at full ink. The trajectory is fully drawn and the pen point is not rendered. Milestone media render at rest. Videos are replaced by their poster stills. Pointer depth is off. Under reduced motion the "Índice" appears without the slide.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** build every new chapter as a sheet: 22px corners, the upward sheet-edge shadow, a backdrop-circle layout different from its neighbors, wave lines in opposite corners, and a headline-plus-intro header.
-- **Do** register every new chapter in the chapter list so it gets a divider tab and an "Índice" entry, and route its in-page links through the sheet-start resolver rather than native anchors.
+- **Do** build every new chapter as a full-bleed section on the shared ground: clamp(88px, 10vw, 144px) padding, a backdrop-circle layout different from its neighbors, wave lines in opposite corners, and a headline-plus-intro header.
+- **Do** register every new chapter in the chapter list so it gets a divider tab and an "Índice" entry, and route its in-page links through the section-top resolver.
 - **Do** set titles in petroleum League Spartan 700 at -0.02em. Keep running text in Atkinson Hyperlegible Next, at 17px with 1.65 leading, in `muted`, within 36 to 56ch.
 - **Do** fill actions with amber and amber-ink in full pills that are at least 48px tall (44px in the header), and pair a primary button with an underlined text link rather than a second filled button.
-- **Do** express depth through scroll-linked motion (stacking, parallax, drawn paths and the 3D laptop), and give every motion value a reduced-motion value of 0 or its resting state.
-- **Do** show real people, real devices, real platform recordings and the team's own drawings, shown whole. Put creators on their own tone's offset block.
-- **Do** tint shadows with petroleum and keep the neutrals warm sand and cream.
+- **Do** set secondary material as plain type in columns and let photographs carry the weight, at uneven sizes; put a quotation over its photograph rather than in a card.
+- **Do** show real people, the team's own renders and drawings, and real platform recordings, shown whole. Multiply white-backdrop renders into the ground and feather their edges. Put creators on their own tone's offset block.
+- **Do** gate every parallax, video, spring, entrance and the inertial scroll on the calm check, so lite mode and reduced motion get the page at rest.
+- **Do** give new chapter headings the word-by-word title reveal and new copy blocks the once-only block reveal, staggered by a delay, on the entrance ease.
+- **Do** let cream chapters share the page's ground: no background and no clip on the chapter, so decoration crosses chapter edges uncut. Clip horizontal overflow only at page level.
+- **Do** separate rows, facts and footers with space rather than rules.
 
 ### Don't:
-- **Don't** add fade-up or slide-in entrance animations to sections, headings or copy. The only entry-triggered motion is the once-only transform settle of objects placed on the paper (milestone media, press cards), and it never touches opacity.
-- **Don't** put a kicker or eyebrow label above a sheet title, or use tracked uppercase small labels.
+- **Don't** put sections in rounded cards, separate them with gutters, stack them or give them edge shadows.
+- **Don't** box the header: no bar, tab, pill container, gradient or blur behind the logo and controls. The only backing is the solid band in the page's own colour once scrolled.
+- **Don't** lay content in card grids (press clippings, quote cards, reach cards); set it as plain text in columns.
+- **Don't** give a resting shadow to anything laid flat on the page (drawings, logo tiles, photographs).
+- **Don't** replay entrances, tie them to every scroll pass, or let an entrance leave content hidden under calm. Milestone media keep their transform-only settle and never touch opacity.
+- **Don't** paint a background on, or clip, a cream chapter; only the petroleum band owns its ground.
+- **Don't** draw hairline rules between content rows, between blocks of a chapter or above the footer.
+- **Don't** put a kicker or eyebrow label above a section title, or use tracked uppercase small labels.
 - **Don't** set body copy or small labels in cyan. It reaches only large-text contrast on cream.
 - **Don't** fill cards, bands or large areas with solid amber.
-- **Don't** use gray or black for the receding-sheet dim, the "Índice" backdrop or a neutral surface. Recede toward the desk.
+- **Don't** build device mockups from CSS boxes; use the team's renders or the iPhone 16 Pro frame.
 - **Don't** use colored offset blocks anywhere except behind creator portraits, and don't use them as a generic card shadow.
 - **Don't** introduce purple SaaS gradients, emoji feature cards or a hero over a row of equal feature cards.

@@ -2,20 +2,24 @@ import { useEffect, useRef, useState } from 'react'
 import { Moon, Sun, X } from 'lucide-react'
 import { CONTACT } from '../lib/content'
 import { CHAPTERS, currentChapter, goToSheet } from '../lib/sheetNav'
+import { LOGO } from '../lib/media'
 import Logo from './Logo'
 
-// Cream tabs that hang from the top edge of the stack, like labels clipped
-// onto the portfolio, instead of a navigation bar.
-const HANGING_TAB =
-  'fixed top-0 z-50 flex items-center rounded-b-[18px] bg-bg/95 shadow-[0_2px_4px_rgb(4_40_52/0.06),0_14px_28px_-16px_rgb(4_40_52/0.35)] ring-1 ring-line backdrop-blur-md'
+// No bar chrome and no boxes: the logo and controls sit straight on the page.
+// Once scrolled, a band in the page's own colour sits behind them, so it only
+// shows where content passes underneath.
+const CORNER = 'fixed top-0 z-50 flex items-center pt-3 sm:pt-4'
 
-function useActiveChapter() {
-  const [active, setActive] = useState(0)
+function useChapterState() {
+  const [state, setState] = useState({ active: 0, under: 0, scrolled: false })
   useEffect(() => {
     let raf = 0
     const update = () => {
       raf = 0
-      setActive(currentChapter())
+      const active = currentChapter()
+      const under = currentChapter(0.04)
+      const scrolled = window.scrollY > 12
+      setState((s) => (s.active === active && s.under === under && s.scrolled === scrolled ? s : { active, under, scrolled }))
     }
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update)
@@ -29,11 +33,14 @@ function useActiveChapter() {
       cancelAnimationFrame(raf)
     }
   }, [])
-  return active
+  return state
 }
 
 export default function Header({ dark, setDark }) {
-  const active = useActiveChapter()
+  const { active, under, scrolled } = useChapterState()
+  // Over the petroleum contact chapter the header switches to its light-on-dark set.
+  const onBand = CHAPTERS[under].id === 'contacto'
+  const ink = onBand ? 'text-band-fg hover:bg-white/10' : 'text-fg/80 hover:bg-fg/[0.06] hover:text-fg'
   const indexRef = useRef(null)
 
   const openIndex = () => indexRef.current?.showModal()
@@ -46,22 +53,30 @@ export default function Header({ dark, setDark }) {
 
   return (
     <header>
+      <div
+        aria-hidden="true"
+        className={`pointer-events-none fixed inset-x-0 top-0 z-40 h-[68px] transition-opacity duration-300 sm:h-[76px] ${scrolled ? 'opacity-100' : 'opacity-0'} ${onBand ? 'bg-band' : 'bg-bg'}`}
+      />
       <a
         href="#inicio"
         data-target="inicio"
         onClick={onNav}
         aria-label="Señas a Voces Academy, ir a la portada"
-        className={`${HANGING_TAB} left-3 px-4 pt-3 pb-2.5 sm:left-6 sm:px-5`}
+        className={`${CORNER} left-4 sm:left-8`}
       >
-        <Logo className="h-9 sm:h-11" />
+        {onBand ? (
+          <img src={LOGO.horizontalDark} alt="Señas a Voces Academy" width="600" height="242" className="h-10 w-auto sm:h-12" />
+        ) : (
+          <Logo className="h-10 sm:h-12" />
+        )}
       </a>
 
-      <div className={`${HANGING_TAB} right-3 gap-1 py-2 pr-2 pl-2 sm:right-6`}>
+      <div className={`${CORNER} right-3 gap-1 sm:right-8`}>
         <button
           type="button"
           onClick={() => setDark((d) => !d)}
           aria-label={dark ? 'Usar tema claro' : 'Usar tema oscuro'}
-          className="grid h-11 w-11 place-items-center rounded-full text-fg/80 transition-colors duration-200 hover:bg-fg/[0.06] hover:text-fg"
+          className={`grid h-11 w-11 place-items-center rounded-full transition-colors duration-200 ${ink}`}
         >
           {dark ? <Sun size={19} strokeWidth={2} /> : <Moon size={19} strokeWidth={2} />}
         </button>
@@ -69,7 +84,7 @@ export default function Header({ dark, setDark }) {
           type="button"
           onClick={openIndex}
           aria-haspopup="dialog"
-          className="inline-flex h-11 items-center gap-2.5 rounded-full px-4 text-[15px] font-bold text-fg transition-colors duration-200 hover:bg-fg/[0.06]"
+          className={`inline-flex h-11 items-center gap-2.5 rounded-full px-4 text-[15px] font-bold transition-colors duration-200 ${ink}`}
         >
           <span aria-hidden="true" className="grid gap-[3px]">
             <span className="h-[2px] w-4 rounded bg-current" />
@@ -88,7 +103,7 @@ export default function Header({ dark, setDark }) {
         </a>
       </div>
 
-      {/* Divider tabs along the stack's right edge: where you are, and a shortcut to each chapter */}
+      {/* Divider tabs along the page's right edge: where you are, and a shortcut to each chapter */}
       <nav aria-label="Capítulos" className="fixed top-1/2 right-0 z-40 hidden -translate-y-1/2 lg:block">
         <ol className="grid gap-1.5">
           {CHAPTERS.map((c, i) => (

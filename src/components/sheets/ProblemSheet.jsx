@@ -1,4 +1,8 @@
+import { useRef } from 'react'
+import { useInView } from 'motion/react'
 import { AUDIENCES, MANIFESTO } from '../../lib/content'
+import { useCalm } from '../../lib/perf'
+import { Reveal } from '../Reveal'
 import Sheet from './Sheet'
 import WordReveal from '../WordReveal'
 
@@ -7,6 +11,11 @@ const TOTAL_DOTS = 100
 const LSM_DOTS = 13
 
 export default function ProblemSheet() {
+  const dotsRef = useRef(null)
+  const calm = useCalm()
+  // The LSM dots light up one after another, like a count, when the chart is read.
+  const counted = useInView(dotsRef, { once: true, margin: '0px 0px -20% 0px' }) || calm
+
   return (
     <Sheet
       id="problema"
@@ -16,9 +25,15 @@ export default function ProblemSheet() {
     >
       <div className="mt-14 grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
         <figure className="max-w-[32rem]">
-          <div className="grid grid-cols-[repeat(20,minmax(0,1fr))] gap-1.5" aria-hidden="true">
+          <div ref={dotsRef} className="grid grid-cols-[repeat(20,minmax(0,1fr))] gap-1.5" aria-hidden="true">
             {Array.from({ length: TOTAL_DOTS }, (_, i) => (
-              <span key={i} className={`aspect-square rounded-full ${i < LSM_DOTS ? 'bg-cyan' : 'bg-fg/12'}`} />
+              <span
+                key={i}
+                style={{ transitionDelay: `${i < LSM_DOTS ? i * 70 : 0}ms` }}
+                className={`aspect-square rounded-full transition-[background-color,transform] duration-500 ${
+                  i < LSM_DOTS && counted ? 'scale-110 bg-cyan' : 'bg-fg/12'
+                }`}
+              />
             ))}
           </div>
           <figcaption className="mt-5 grid gap-2 text-sm text-muted">
@@ -34,7 +49,7 @@ export default function ProblemSheet() {
             </span>
             <span className="text-sm">Cada punto representa unas 23,000 personas.</span>
           </figcaption>
-          <p className="mt-12 border-t border-line pt-8 text-[17px] leading-[1.65] text-muted">
+          <p className="mt-14 text-[17px] leading-[1.65] text-muted">
             <strong className="block font-display text-[clamp(30px,2.8vw,40px)] leading-none font-bold text-petrol dark:text-cyan">
               145,000 en Sonora
             </strong>
@@ -49,22 +64,19 @@ export default function ProblemSheet() {
         <div>
           <h3 className="font-display text-[clamp(26px,2.4vw,32px)] text-fg">¿Y a quién afecta?</h3>
           <dl className="mt-4">
-            {AUDIENCES.map((a) => (
-              <div key={a.title} className="grid gap-1 border-t border-line py-5 sm:grid-cols-[10rem_1fr] sm:gap-6">
+            {AUDIENCES.map((a, i) => (
+              <Reveal key={a.title} delay={i * 0.08} className="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
                 <dt className="font-display text-[24px] leading-tight font-bold text-petrol dark:text-cyan">{a.title}</dt>
                 <dd className="max-w-[42ch] leading-[1.6] text-muted sm:pt-1">{a.desc}</dd>
-              </div>
+              </Reveal>
             ))}
           </dl>
         </div>
       </div>
 
-      <div className="mt-[clamp(96px,12vw,160px)] border-t border-line pt-[clamp(56px,7vw,96px)]">
-        {/* The sheet sticks once its bottom edge reaches the viewport, so the
-            reveal has to finish before the manifesto rises past ~80%. */}
+      <div className="mt-[clamp(120px,14vw,200px)]">
         <WordReveal
           text={MANIFESTO}
-          offset={['start 100%', 'end 82%']}
           className="max-w-[18ch] font-display text-[clamp(44px,6.4vw,96px)] leading-[0.98] font-bold tracking-[-0.02em] text-petrol dark:text-fg"
         />
       </div>

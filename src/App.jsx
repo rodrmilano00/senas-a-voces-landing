@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { useDarkMode } from './hooks/useDarkMode'
 import { startSmoothScroll } from './lib/smoothScroll'
 import { goToSheet } from './lib/sheetNav'
+import { probeFrameRate, useLite } from './lib/perf'
 import Header from './components/Header'
-import SheetStack from './components/sheets/SheetStack'
 import CoverSheet from './components/sheets/CoverSheet'
 import ProblemSheet from './components/sheets/ProblemSheet'
 import BuildSheet from './components/sheets/BuildSheet'
@@ -14,11 +14,13 @@ import ContactSheet from './components/sheets/ContactSheet'
 
 export default function App() {
   const [dark, setDark] = useDarkMode()
+  const lite = useLite()
 
-  useEffect(() => startSmoothScroll(), [])
+  useEffect(() => probeFrameRate(), [])
+  // Inertial scroll is a luxury: slow devices keep native scrolling.
+  useEffect(() => (lite ? undefined : startSmoothScroll()), [lite])
 
-  // Stuck sheets break native anchor jumps, so in-page links scroll to the
-  // sheet's real position in the document instead.
+  // In-page links go through the smooth scroller so they land under the header.
   useEffect(() => {
     const onClick = (e) => {
       const link = e.target.closest?.('a[href^="#"]')
@@ -40,16 +42,14 @@ export default function App() {
         Saltar al contenido
       </a>
       <Header dark={dark} setDark={setDark} />
-      <main id="contenido">
-        <SheetStack>
-          <CoverSheet key="portada" />
-          <ProblemSheet key="problema" />
-          <BuildSheet key="construimos" />
-          <CreatorsSheet key="creadores" />
-          <JourneySheet key="trayectoria" />
-          <CommunitySheet key="comunidad" />
-          <ContactSheet key="contacto" />
-        </SheetStack>
+      <main id="contenido" className="overflow-x-clip">
+        <CoverSheet />
+        <ProblemSheet />
+        <BuildSheet />
+        <CreatorsSheet />
+        <JourneySheet />
+        <CommunitySheet />
+        <ContactSheet />
       </main>
     </>
   )

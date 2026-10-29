@@ -5,7 +5,7 @@
 
 /* ─── Design tokens (sampled from the logo and the portfolio) ─── */
 :root {
-  /* The desk the portfolio sheets rest on */
+  /* A deeper sand: scrollbar track and the Índice backdrop */
   --desk: #e6dfcb;
   --bg: #faf7ed;
   --surface: #ffffff;
@@ -18,14 +18,12 @@
   --amber: #ffa431;
   --amber-ink: #3a2405;
 
-  /* Deliberate petroleum surfaces (how-it-works band, contact) */
+  /* The petroleum contact band */
   --band: #044c62;
   --band-fg: #eef7f8;
   --band-muted: #b5d3da;
-  --band-line: rgb(255 255 255 / 0.14);
 
-  --shadow-soft: 0 1px 2px rgb(4 76 98 / 0.06), 0 8px 24px -12px rgb(4 76 98 / 0.18);
-  --shadow-float: 0 2px 4px rgb(4 76 98 / 0.06), 0 24px 48px -20px rgb(4 76 98 / 0.35);
+
 }
 
 html.dark {
@@ -44,10 +42,8 @@ html.dark {
   --band: #073a48;
   --band-fg: #eef7f8;
   --band-muted: #a9cbd3;
-  --band-line: rgb(255 255 255 / 0.12);
 
-  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.2), 0 8px 24px -12px rgb(0 0 0 / 0.5);
-  --shadow-float: 0 2px 4px rgb(0 0 0 / 0.2), 0 24px 48px -20px rgb(0 0 0 / 0.65);
+
 }
 
 /* ─── Expose tokens to Tailwind utilities ─── */
@@ -66,7 +62,7 @@ html.dark {
   --color-band: var(--band);
   --color-band-fg: var(--band-fg);
   --color-band-muted: var(--band-muted);
-  --color-band-line: var(--band-line);
+
 
   --font-display: 'League Spartan', 'Atkinson Hyperlegible Next', system-ui, sans-serif;
   --font-sans: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif;
@@ -76,12 +72,14 @@ html.dark {
 
 @layer base {
   html {
+    /* Decoration runs across chapter edges; clip it sideways only, at page level */
+    overflow-x: clip;
     scroll-behavior: smooth;
     scroll-padding-top: 88px;
   }
   body {
     font-family: var(--font-sans);
-    background: var(--desk);
+    background: var(--bg);
     color: var(--fg);
     line-height: 1.6;
     overflow-x: clip;
@@ -139,7 +137,15 @@ html.lenis body {
   }
 }
 
-/* Índice: the index page slides down over the stack */
+/* Lite mode (slow devices): drop the costly paint work, keep the page */
+html.lite *,
+html.lite *::before,
+html.lite *::after {
+  backdrop-filter: none !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Índice: the index page slides down over the page */
 .index-sheet {
   transform: translateY(-100%);
   transition:

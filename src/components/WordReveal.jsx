@@ -1,5 +1,6 @@
 import { useRef } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
+import { motion, useScroll, useTransform } from 'motion/react'
+import { useCalm } from '../lib/perf'
 
 /**
  * A statement that reads itself in as you scroll: each word goes from a faint
@@ -8,7 +9,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
  */
 export default function WordReveal({ text, className = '', as: Tag = 'p', offset = ['start 85%', 'end 40%'] }) {
   const ref = useRef(null)
-  const still = useReducedMotion()
+  const still = useCalm()
   const { scrollYProgress } = useScroll({ target: ref, offset })
   const words = text.split(' ')
 

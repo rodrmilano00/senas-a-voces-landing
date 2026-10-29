@@ -109,6 +109,8 @@ export const GLOVE_STEPS = [
 export const TESTIMONIALS = [
   {
     text: 'Voy a una cita psicológica y tengo que estar acompañado de mi familia o de un intérprete del cual no tengo la confianza suficiente […] Puede ser algo complejo que preferiría escribir, pero igual es una barrera.',
+    // Shorter cut of the same quote, for the line set over the photograph.
+    excerpt: 'Voy a una cita psicológica y tengo que estar acompañado de mi familia o de un intérprete del cual no tengo la confianza suficiente.',
     name: 'Jesús Enrique',
     role: 'Maestro de la comunidad sorda, persona sorda',
   },

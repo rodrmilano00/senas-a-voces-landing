@@ -1,22 +1,24 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { ArrowDown } from 'lucide-react'
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'motion/react'
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'motion/react'
+import { useCalm } from '../../lib/perf'
 import { HERO_PROOF, TEAM } from '../../lib/content'
 import { TEAM_PHOTOS } from '../../lib/media'
-import { useCoverProgress } from './coverProgress'
 import Button from '../Button'
 import Portrait from '../Portrait'
 import BackdropShapes from '../BackdropShapes'
 import WaveLines from '../WaveLines'
+import { Reveal, TitleReveal } from '../Reveal'
 
 const LEAD = 0 // Emiliano, cyan
 const SECOND = 3 // César Luna, red
 
 export default function CoverSheet() {
-  const cover = useCoverProgress()
-  const still = useReducedMotion()
+  const ref = useRef(null)
+  const still = useCalm()
+  const { scrollYProgress: cover } = useScroll({ target: ref, offset: ['start start', 'end start'] })
 
-  // Scroll depth: as the next sheet slides over, each layer drifts at its own rate.
+  // Scroll depth: as the cover scrolls away, each layer drifts at its own rate.
   const leadY = useTransform(cover, [0, 1], [0, still ? 0 : -90])
   const leadBlockY = useTransform(cover, [0, 1], [0, still ? 0 : -40])
   const secondY = useTransform(cover, [0, 1], [0, still ? 0 : -170])
@@ -45,9 +47,10 @@ export default function CoverSheet() {
 
   return (
     <section
+      ref={ref}
       id="inicio"
       aria-labelledby="portada-titulo"
-      className="relative mt-2 flex min-h-[calc(100svh-16px)] flex-col overflow-clip rounded-[22px] bg-bg sm:mt-3 sm:min-h-[calc(100svh-24px)] lg:min-h-[calc(100svh-150px)]"
+      className="relative flex min-h-[100svh] flex-col"
     >
       <BackdropShapes variant={0} />
       <WaveLines className="absolute -top-16 -right-20 w-[clamp(260px,34vw,520px)] text-cyan/45" />
@@ -56,15 +59,21 @@ export default function CoverSheet() {
 
       <div className="container-page relative grid flex-1 items-center gap-x-10 gap-y-14 pt-[clamp(104px,10vw,128px)] pb-10 lg:grid-cols-[1.3fr_0.9fr]">
         <motion.div style={{ y: copyY }}>
-          <h1 id="portada-titulo" className="text-[clamp(50px,6.4vw,96px)] leading-[0.92] text-petrol dark:text-fg">
-            Donde las manos <span className="block text-cyan">encuentran voz.</span>
-          </h1>
-          <p className="mt-8 max-w-[34rem] text-[clamp(17px,1.5vw,21px)] leading-[1.6] text-muted">
+          <TitleReveal
+            as="h1"
+            id="portada-titulo"
+            onMount
+            delay={0.15}
+            text="Donde las manos"
+            accent="encuentran voz."
+            className="text-[clamp(50px,6.4vw,96px)] leading-[0.92] text-petrol dark:text-fg"
+          />
+          <Reveal as="p" delay={0.55} className="mt-8 max-w-[34rem] text-[clamp(17px,1.5vw,21px)] leading-[1.6] text-muted">
             Cuatro estudiantes de ingeniería de Hermosillo que, junto con la comunidad sorda, desarrollan
             un guante que traduce señas a voz, un intérprete en vivo y una nueva forma de aprender
             Lengua de Señas Mexicana.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
+          </Reveal>
+          <Reveal delay={0.7} className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
             <Button href="#problema">
               Conocer la historia <ArrowDown size={18} strokeWidth={2.4} aria-hidden="true" />
             </Button>
@@ -74,7 +83,7 @@ export default function CoverSheet() {
             >
               Contacto
             </a>
-          </div>
+          </Reveal>
         </motion.div>
 
         <div className="relative mx-auto w-full max-w-[460px] lg:max-w-none">
@@ -103,7 +112,7 @@ export default function CoverSheet() {
 
       <ul
         aria-label="Reconocimientos"
-        className="container-page relative flex flex-wrap gap-x-6 gap-y-2 border-t border-line pt-5 pb-6 text-sm font-bold text-fg/80"
+        className="container-page relative flex flex-wrap gap-x-6 gap-y-2 pt-5 pb-8 text-sm font-bold text-fg/80"
       >
         {HERO_PROOF.map((p) => (
           <li key={p} className="flex items-center gap-2.5">

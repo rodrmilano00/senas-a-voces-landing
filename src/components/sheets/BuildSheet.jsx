@@ -3,6 +3,7 @@ import { PHOTOS } from '../../lib/media'
 import Sheet from './Sheet'
 import DepthImage from '../DepthImage'
 import DeviceScene from '../DeviceScene'
+import { Reveal } from '../Reveal'
 
 const [ACADEMY, GLOVE, LIVE] = PRODUCTS
 
@@ -25,7 +26,7 @@ export default function BuildSheet() {
       intro="Tres soluciones que atacan la brecha desde tres ángulos, todas validadas con la comunidad sorda: traducir en el momento, atender en ventanilla y aprender la lengua."
     >
       <article className="mt-16 grid items-center gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-        <figure className="rounded-[20px] bg-[#f8f8f3] p-4 shadow-[0_2px_4px_rgb(4_40_52/0.05),0_24px_48px_-28px_rgb(4_40_52/0.35)] ring-1 ring-line sm:p-6">
+        <figure className="bg-[#f8f8f3] p-4 sm:p-6">
           <img
             src={PHOTOS.glove}
             alt="Dibujo del guante traductor: sensores flex en cada dedo, cables a un ESP32 que lee los valores y una bocina que dice “¡Gracias!”"
@@ -35,7 +36,7 @@ export default function BuildSheet() {
             className="w-full"
           />
         </figure>
-        <div>
+        <Reveal delay={0.1}>
           <h3 className="text-[clamp(32px,3.6vw,52px)] text-fg">{GLOVE.name}</h3>
           <Status>{GLOVE.status}</Status>
           <p className="mt-4 max-w-[48ch] text-[17px] leading-[1.65] text-muted">{GLOVE.desc}</p>
@@ -52,7 +53,7 @@ export default function BuildSheet() {
               </li>
             ))}
           </ol>
-        </div>
+        </Reveal>
       </article>
 
       <article className="mt-[clamp(72px,8vw,112px)] grid items-center gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
@@ -63,7 +64,7 @@ export default function BuildSheet() {
             className="aspect-[4/3] rounded-[20px] sm:aspect-[16/11]"
           />
         </div>
-        <div className="lg:order-1">
+        <Reveal className="lg:order-1">
           <h3 className="text-[clamp(32px,3.6vw,52px)] text-fg">{LIVE.name}</h3>
           <Status>{LIVE.status}</Status>
           <p className="mt-4 max-w-[46ch] text-[17px] leading-[1.65] text-muted">{LIVE.desc}</p>
@@ -71,7 +72,7 @@ export default function BuildSheet() {
             Señas a Voces no reemplaza a los intérpretes: amplía el acceso en los momentos donde
             ellos no están presentes.
           </p>
-        </div>
+        </Reveal>
       </article>
 
       <article className="mt-[clamp(72px,8vw,112px)]">

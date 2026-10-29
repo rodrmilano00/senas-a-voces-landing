@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react'
-import { motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useSpring } from 'motion/react'
+import { motion, useMotionValue, useMotionValueEvent, useScroll, useSpring } from 'motion/react'
+import { useCalm } from '../../lib/perf'
 import { MILESTONES } from '../../lib/content'
 import { MILESTONE_PHOTOS, PARTNER_LOGOS } from '../../lib/media'
 import Sheet from './Sheet'
@@ -64,7 +65,7 @@ function Media({ milestone, className = '' }) {
   if (milestone.logo) {
     const logo = PARTNER_LOGOS[milestone.logo]
     return (
-      <span className={`flex h-[132px] w-[200px] shrink-0 items-center justify-center rounded-[16px] bg-[#faf7ed] shadow-[0_2px_4px_rgb(4_40_52/0.06),0_14px_30px_-18px_rgb(4_40_52/0.35)] ${className}`}>
+      <span className={`flex h-[132px] w-[200px] shrink-0 items-center justify-center bg-surface-2 dark:bg-[#faf7ed] ${className}`}>
         <img src={logo.src} alt={logo.alt} loading="lazy" className="h-[104px] w-[168px] object-contain" />
       </span>
     )
@@ -97,7 +98,7 @@ export default function JourneySheet() {
   const trackRef = useRef(null)
   const wide = useWide()
   const width = useWidth(trackRef)
-  const still = useReducedMotion()
+  const still = useCalm()
   const { scrollYProgress } = useScroll({ target: trackRef, offset: ['start 75%', 'end 92%'] })
   const drawn = useSpring(scrollYProgress, { stiffness: 120, damping: 30 })
 

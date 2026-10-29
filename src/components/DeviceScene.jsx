@@ -1,76 +1,49 @@
-import { useRef } from 'react'
-import { motion, useMotionValue, useReducedMotion, useScroll, useTransform } from 'motion/react'
-import { SCREENS } from '../lib/media'
-import Laptop3D from './devices/Laptop3D'
+import { LAPTOP_OPEN_FRAMES, MOCKUPS } from '../lib/media'
+import MockupVideo from './devices/MockupVideo'
+import ScrollLaptop from './devices/ScrollLaptop'
 import Phone from './devices/Phone'
 import LessonScreen from './devices/LessonScreen'
+import { Reveal } from './Reveal'
 
-/** Scroll progress of an element entering the viewport; pinned open under reduced motion. */
-function useEntrance(ref, offset) {
-  const still = useReducedMotion()
-  const { scrollYProgress } = useScroll({ target: ref, offset })
-  const open = useMotionValue(1)
-  return still ? open : scrollYProgress
-}
+const ACADEMY_POINTS = [
+  { title: 'Validación con cámara', desc: 'La cámara detecta las manos y mide la precisión de cada seña.' },
+  { title: 'Una ruta de la A a la Ñ', desc: 'Del abecedario y los números hasta expresiones cotidianas.' },
+  { title: 'Misiones diarias y rachas', desc: 'Cada sesión suma al progreso por módulo, para que practicar se vuelva costumbre.' },
+]
 
 /**
- * Academy on real screens. The lesson laptop opens its lid and turns to face
- * the visitor as it scrolls into place; the phone swings in later, at its own
- * depth (scroll patterns after 21st.dev "Container Scroll Animation" by
- * Aceternity and "Phone Scroll Hero" by ruixen.ui). Below, two more laptops
- * open from opposite sides.
+ * Academy on photoreal laptops. First the After Effects laptop opens as the
+ * visitor scrolls, waking on a real lesson; the phone (iPhone 16 Pro frame
+ * from 21st.dev, with the live lesson) rises in front of it. Then a reel shot
+ * with the lesson path, tracked onto its screen.
  */
 export default function DeviceScene() {
-  const stageRef = useRef(null)
-  const leftRef = useRef(null)
-  const rightRef = useRef(null)
-
-  const stage = useEntrance(stageRef, ['start 62%', 'center 48%'])
-  const phoneX = useTransform(stage, [0.45, 1], ['55%', '0%'])
-  const phoneRotateY = useTransform(stage, [0.45, 1], [-48, -14])
-  const phoneRotateZ = useTransform(stage, [0.45, 1], [10, 2])
-
-  const left = useEntrance(leftRef, ['start 78%', 'center 52%'])
-  const right = useEntrance(rightRef, ['start 78%', 'center 52%'])
-
   return (
     <>
-      <div ref={stageRef} className="relative mt-10">
-        <Laptop3D
-          progress={stage}
-          turn={1}
-          {...SCREENS.lesson}
-          label="Señas a Voces Academy en una laptop: lección Abril, la cámara del alumno detecta sus manos y valida la seña"
-          className="mx-auto w-[min(100%,1080px)]"
-        />
-        <div className="pointer-events-none absolute right-0 bottom-[14%] w-[clamp(118px,19vw,240px)] [perspective:1200px] sm:right-[3%]">
-          <motion.div style={{ x: phoneX, rotateY: phoneRotateY, rotateZ: phoneRotateZ }}>
-            <Phone>
-              <LessonScreen />
-            </Phone>
-          </motion.div>
-        </div>
-      </div>
+      <ScrollLaptop
+        frames={LAPTOP_OPEN_FRAMES}
+        label="Laptop que se abre con Señas a Voces Academy: lección Agosto, la cámara del alumno detecta sus manos y valida la seña con ¡Excelente!"
+      >
+        <Phone>
+          <LessonScreen />
+        </Phone>
+      </ScrollLaptop>
 
-      <div className="mt-[clamp(32px,5vw,72px)] grid gap-x-10 gap-y-12 md:grid-cols-2">
-        <figure ref={leftRef}>
-          <Laptop3D progress={left} turn={-1} {...SCREENS.path} label="Ruta de lecciones de Señas a Voces Academy, del abecedario a expresiones cotidianas" />
-          <figcaption className="-mt-[6%]">
-            <span className="block font-display text-[24px] font-bold text-fg">Una ruta, de la A a la Ñ</span>
-            <span className="mt-1 block max-w-[40ch] leading-[1.6] text-muted">
-              Del abecedario y los números hasta expresiones cotidianas, una seña a la vez.
-            </span>
-          </figcaption>
-        </figure>
-        <figure ref={rightRef} className="md:mt-28">
-          <Laptop3D progress={right} turn={1} {...SCREENS.dashboard} label="Panel de progreso de Señas a Voces Academy con misiones diarias y racha" />
-          <figcaption className="-mt-[6%]">
-            <span className="block font-display text-[24px] font-bold text-fg">Misiones diarias y rachas</span>
-            <span className="mt-1 block max-w-[40ch] leading-[1.6] text-muted">
-              Cada sesión suma al progreso por módulo, para que practicar se vuelva costumbre.
-            </span>
-          </figcaption>
-        </figure>
+      <div className="mt-[clamp(48px,6vw,96px)] grid items-center gap-x-10 gap-y-8 lg:grid-cols-[1.35fr_1fr]">
+        {/* The reel's camera sits further back in this shot, so it runs wider than its column */}
+        <MockupVideo
+          {...MOCKUPS.path}
+          className="lg:-ml-[8%] lg:w-[118%]"
+          label="Laptop con la ruta de lecciones de Señas a Voces Academy, del abecedario a expresiones cotidianas"
+        />
+        <ul className="grid gap-8">
+          {ACADEMY_POINTS.map((p, i) => (
+            <Reveal as="li" key={p.title} delay={i * 0.1}>
+              <h4 className="font-display text-[26px] leading-tight font-bold text-fg">{p.title}</h4>
+              <p className="mt-2 max-w-[40ch] text-[17px] leading-[1.6] text-muted">{p.desc}</p>
+            </Reveal>
+          ))}
+        </ul>
       </div>
     </>
   )

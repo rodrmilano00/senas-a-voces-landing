@@ -1,60 +1,29 @@
-import { motion, useReducedMotion } from 'motion/react'
-import { CONTACT, PRESS, PRESS_HEADLINES, SOCIAL_REACH, TESTIMONIALS } from '../../lib/content'
+import { CONTACT, PRESS_HEADLINES, SOCIAL_REACH, TESTIMONIALS } from '../../lib/content'
 import { PHOTOS } from '../../lib/media'
 import Sheet from './Sheet'
 import DepthImage from '../DepthImage'
+import { Reveal } from '../Reveal'
 
 const [FEATURED, ...QUOTES] = TESTIMONIALS
-function QuoteMark({ className = '' }) {
-  return (
-    <svg viewBox="0 0 32 24" aria-hidden="true" className={`fill-amber ${className}`}>
-      <path d="M0 24V14.4C0 6.6 4.1 1.8 12.2 0l1.5 3.4C9.4 4.8 7.3 7.4 7 11h6v13H0Zm18.3 0V14.4C18.3 6.6 22.4 1.8 30.5 0L32 3.4c-4.3 1.4-6.4 4-6.7 7.6h6V24H18.3Z" />
-    </svg>
-  )
-}
 
-// Five headlines and the social reach fill an even 3 x 2 grid. Cards rise
-// into place as a set when the grid scrolls in; nothing is hidden by default.
-function Clippings() {
-  const still = useReducedMotion()
-  const rise = (i) => ({
-    initial: still ? false : { y: 36, rotate: i % 2 ? 1.5 : -1.5 },
-    whileInView: { y: 0, rotate: 0 },
-    viewport: { once: true, margin: '0px 0px -12% 0px' },
-    transition: { type: 'spring', duration: 0.8, bounce: 0.2, delay: (i % 3) * 0.06 },
-  })
+// Who has covered, backed and recognised the project, as plain names: the
+// column edges do the organising, no logos, boxes or cards.
+const NAME_COLUMNS = [
+  {
+    kind: 'Medios',
+    names: ['N+ Televisa', 'adn Noticias', 'El Tiempo', 'ConectaTec', 'Noro', 'Proyecto Puente', 'Quinta Fuerza', 'Número Uno Noticias', 'El Búnker 93.9 FM', 'Tijuana Informa', 'Expreso 24/7'],
+  },
+  {
+    kind: 'Aliados',
+    names: ['Señas del Desierto', 'Enactus México', 'H. Ayuntamiento de Hermosillo', 'DIF Hermosillo', 'Agencia de Desarrollo Económico'],
+  },
+  {
+    kind: 'Reconocimientos',
+    names: ['1er lugar, SmartCity Hackathon', 'Campeones nacionales, Enactus México', 'Copa Enactus, Puerto Rico'],
+  },
+]
 
-  return (
-    <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {PRESS_HEADLINES.map((h, i) => (
-        <motion.li
-          key={h.outlet}
-          {...rise(i)}
-          className="flex flex-col rounded-[14px] bg-surface p-7 shadow-[0_2px_4px_rgb(4_40_52/0.06),0_18px_36px_-22px_rgb(4_40_52/0.35)] ring-1 ring-line"
-        >
-          <p className="text-sm font-bold text-petrol dark:text-cyan">{h.outlet}</p>
-          <p className="mt-3 font-display text-[22px] leading-[1.18] font-bold text-fg">“{h.title}”</p>
-        </motion.li>
-      ))}
-      <motion.li {...rise(PRESS_HEADLINES.length)} className="flex flex-col justify-between rounded-[14px] bg-band p-7 text-band-fg">
-        <a href={CONTACT.instagramHref} target="_blank" rel="noreferrer" className="text-sm font-bold underline decoration-band-line underline-offset-4 hover:decoration-amber">
-          {CONTACT.instagram}
-        </a>
-        <dl className="mt-6 grid grid-cols-2 gap-4">
-          {SOCIAL_REACH.map((r) => (
-            <div key={r.label}>
-              <dt className="sr-only">{r.label}</dt>
-              <dd>
-                <span className="block font-display text-[clamp(32px,3vw,42px)] leading-none font-bold">{r.value}</span>
-                <span className="mt-1.5 block text-sm text-band-muted">{r.label}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </motion.li>
-    </ul>
-  )
-}
+const FEATURED_HEADLINE = PRESS_HEADLINES.find((h) => h.outlet === 'Proyecto Puente')
 
 export default function CommunitySheet() {
   return (
@@ -64,49 +33,65 @@ export default function CommunitySheet() {
       title="Con la comunidad, no solo para ella"
       intro="Con Roberto Labrada, líder del colectivo Señas del Desierto, el equipo valida el diseño y el funcionamiento de cada producto."
     >
-      <div className="mt-14 grid gap-6 lg:grid-cols-12">
-        <figure className="relative lg:col-span-7">
-          <DepthImage
-            src={PHOTOS.showcase}
-            alt="El equipo de Señas a Voces junto al colectivo Señas del Desierto después de un showcase"
-            className="aspect-[3/2] rounded-[20px]"
-          />
-          <figcaption className="mt-3 text-sm text-muted">Showcase con el colectivo Señas del Desierto, Hermosillo.</figcaption>
-        </figure>
-        <figure className="flex flex-col justify-between rounded-[20px] bg-band p-8 text-band-fg sm:p-10 lg:col-span-5">
-          <div>
-            <QuoteMark className="h-7 w-9" />
-            <blockquote className="mt-6 font-display text-[clamp(22px,2vw,28px)] leading-[1.25] font-semibold">
-              {FEATURED.text}
-            </blockquote>
-          </div>
-          <figcaption className="mt-8">
+      {/* The lead testimonial, set straight on the photograph of that work */}
+      <figure className="relative mt-14 overflow-hidden">
+        <DepthImage
+          src={PHOTOS.showcase}
+          alt="El equipo de Señas a Voces junto al colectivo Señas del Desierto después de un showcase en Hermosillo"
+          className="aspect-[4/5] sm:aspect-[16/10] lg:aspect-[16/9]"
+          imgClassName="brightness-[0.55]"
+        />
+        <div className="absolute inset-x-0 bottom-0 grid gap-6 p-6 text-white sm:p-10 lg:grid-cols-[1fr_auto] lg:items-end lg:p-14">
+          <blockquote className="max-w-[30ch] font-display text-[clamp(24px,2.6vw,36px)] leading-[1.15] font-bold">
+            “{FEATURED.excerpt}”
+          </blockquote>
+          <figcaption className="text-[16px] lg:text-right">
             <span className="block font-bold">{FEATURED.name}</span>
-            <span className="block text-sm text-band-muted">{FEATURED.role}</span>
+            <span className="block text-white/80">{FEATURED.role}</span>
           </figcaption>
-        </figure>
-      </div>
+        </div>
+      </figure>
 
-      <div className="mt-6 grid gap-6 md:grid-cols-2">
-        {QUOTES.map((t) => (
-          <figure key={t.name} className="rounded-[20px] bg-surface-2 p-8 sm:p-10">
-            <QuoteMark className="h-5 w-7" />
-            <blockquote className="mt-5 text-[17px] leading-[1.65] text-fg">{t.text}</blockquote>
-            <figcaption className="mt-6">
+      <div className="mt-16 grid gap-12 md:grid-cols-2 md:gap-16">
+        {QUOTES.map((t, i) => (
+          <Reveal as="figure" key={t.name} delay={i * 0.12}>
+            <blockquote className="max-w-[46ch] text-[19px] leading-[1.6] text-fg">“{t.text}”</blockquote>
+            <figcaption className="mt-5">
               <span className="block font-bold text-fg">{t.name}</span>
               <span className="block text-sm text-muted">{t.role}</span>
             </figcaption>
-          </figure>
+          </Reveal>
         ))}
       </div>
 
-      <div className="mt-[clamp(96px,12vw,160px)]">
-        <h3 className="text-[clamp(32px,3.6vw,52px)] text-petrol dark:text-fg">Visibilidad en medios</h3>
-        <p className="mt-4 max-w-[56ch] text-[17px] leading-[1.65] text-muted">
-          Además, el equipo fue entrevistado en {PRESS.join(', ')}.
-        </p>
-        <Clippings />
+      <div className="mt-[clamp(120px,12vw,200px)] grid gap-10 lg:grid-cols-12">
+        <h3 className="text-[clamp(30px,3vw,40px)] text-petrol lg:col-span-3 dark:text-fg">Visibilidad en medios</h3>
+        <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:col-span-9 lg:grid-cols-3">
+          {NAME_COLUMNS.map((col, i) => (
+            <Reveal as="ul" key={col.kind} delay={i * 0.1} className="text-[20px] leading-[1.55]">
+              <li className="text-muted">{col.kind}</li>
+              {col.names.map((n) => (
+                <li key={n} className="text-fg">
+                  {n}
+                </li>
+              ))}
+            </Reveal>
+          ))}
+        </div>
       </div>
+
+      <figure className="mt-[clamp(72px,8vw,112px)] lg:ml-[25%]">
+        <blockquote className="max-w-[30ch] font-display text-[clamp(26px,2.8vw,36px)] leading-[1.18] font-bold text-fg">
+          “{FEATURED_HEADLINE.title}”
+        </blockquote>
+        <figcaption className="mt-4 text-[17px] text-muted">
+          {FEATURED_HEADLINE.outlet}. En redes,{' '}
+          <a href={CONTACT.instagramHref} target="_blank" rel="noreferrer" className="font-bold text-fg underline decoration-line decoration-2 underline-offset-4 hover:decoration-amber">
+            {CONTACT.instagram}
+          </a>{' '}
+          suma {SOCIAL_REACH.map((r) => `${r.value} ${r.label}`).join(' y ')}.
+        </figcaption>
+      </figure>
     </Sheet>
   )
 }

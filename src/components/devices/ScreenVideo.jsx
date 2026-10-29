@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { useReducedMotion } from 'motion/react'
+import { useCalm } from '../../lib/perf'
 
 /**
  * A screen recording that plays only while it is on screen. Reduced motion
@@ -7,7 +7,7 @@ import { useReducedMotion } from 'motion/react'
  */
 export default function ScreenVideo({ src, poster, className = '' }) {
   const ref = useRef(null)
-  const still = useReducedMotion()
+  const still = useCalm()
 
   useEffect(() => {
     const video = ref.current

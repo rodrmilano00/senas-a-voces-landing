@@ -1,13 +1,15 @@
 import { useRef } from 'react'
-import { useReducedMotion, useScroll, useTransform } from 'motion/react'
+import { useScroll, useTransform } from 'motion/react'
+import { useCalm } from '../../lib/perf'
 import { TEAM } from '../../lib/content'
 import { TEAM_PHOTOS } from '../../lib/media'
 import Sheet from './Sheet'
 import Portrait from '../Portrait'
+import { Reveal } from '../Reveal'
 
 function Creator({ member, photo, index }) {
   const ref = useRef(null)
-  const still = useReducedMotion()
+  const still = useCalm()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   // The colored block trails its photo, so the pair separates as it passes.
   const blockY = useTransform(scrollYProgress, [0, 1], still ? [0, 0] : [-28, 28])
@@ -23,12 +25,12 @@ function Creator({ member, photo, index }) {
         className="mr-3 mb-3 max-w-[260px] sm:mr-4 sm:mb-4"
         imgClassName="aspect-[4/5] object-[48%_40%]"
       />
-      <div className="mt-5">
+      <Reveal delay={0.08 + (index % 4) * 0.08} className="mt-5">
         <h3 className="text-[clamp(24px,2vw,28px)] text-petrol dark:text-fg">{member.name}</h3>
         <p className="mt-2 font-bold text-fg">{member.role}</p>
         <p className="mt-2 max-w-[34ch] text-[15px] leading-[1.55] text-muted">{member.bio}</p>
         <p className="mt-3 text-sm leading-snug text-muted">{member.school}</p>
-      </div>
+      </Reveal>
     </li>
   )
 }

@@ -1,5 +1,6 @@
 import { useRef } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
+import { motion, useScroll, useTransform } from 'motion/react'
+import { useCalm } from '../lib/perf'
 
 // Three soft circles per sheet, carried over from the first landing: each one
 // drifts at its own rate, so the sheet reads as having depth behind its copy.
@@ -35,12 +36,12 @@ function Circle({ shape, progress, still }) {
 
 export default function BackdropShapes({ variant = 0 }) {
   const ref = useRef(null)
-  const still = useReducedMotion()
+  const still = useCalm()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const layout = LAYOUTS[variant % LAYOUTS.length]
 
   return (
-    <div ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-0">
       {layout.map((shape, i) => (
         <Circle key={i} shape={shape} progress={scrollYProgress} still={still} />
       ))}

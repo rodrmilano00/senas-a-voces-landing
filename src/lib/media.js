@@ -3,6 +3,9 @@ import glowMario from '../assets/IMG_9730-Enhanced-NR-optimized.jpg'
 import glowCastillo from '../assets/IMG_9726-Enhanced-NR-optimized.jpg'
 import glowLuna from '../assets/IMG_9738-Enhanced-NR-optimized.jpg'
 import logoHorizontal from '../assets/logo-horizontal-sm.png'
+import mockupPathWebm from '../assets/plataforma/mockup-ruta.webm'
+import mockupPathMp4 from '../assets/plataforma/mockup-ruta.mp4'
+import mockupPathPoster from '../assets/plataforma/mockup-ruta.webp'
 import logoHorizontalDark from '../assets/logo-horizontal-dark.png'
 import showcase from '../assets/evidencias/showcase-senas-del-desierto.jpg'
 import workshop from '../assets/evidencias/taller-comunidad.jpg'
@@ -16,12 +19,6 @@ import kickoff from '../assets/evidencias/conferencia-kickoff.jpg'
 import logoEnactus from '../assets/evidencias/logo-enactus.png'
 import logoSenasDelDesierto from '../assets/evidencias/logo-senas-del-desierto.png'
 import logoAyuntamiento from '../assets/evidencias/logo-ayuntamiento-hermosillo.png'
-import screenLesson from '../assets/plataforma/pantalla-leccion.mp4'
-import screenLessonPoster from '../assets/plataforma/pantalla-leccion.jpg'
-import screenPath from '../assets/plataforma/pantalla-ruta.mp4'
-import screenPathPoster from '../assets/plataforma/pantalla-ruta.jpg'
-import screenDashboard from '../assets/plataforma/pantalla-dashboard.mp4'
-import screenDashboardPoster from '../assets/plataforma/pantalla-dashboard.jpg'
 
 // The dark variant keeps the amber book and recolors the petroleum hands and wordmark.
 export const LOGO = { horizontal: logoHorizontal, horizontalDark: logoHorizontalDark }
@@ -37,12 +34,18 @@ export const PHOTOS = {
   kickoff,
 }
 
-// Screen recordings of Señas a Voces Academy (1724x1080 source)
-export const SCREENS = {
-  lesson: { src: screenLesson, poster: screenLessonPoster },
-  path: { src: screenPath, poster: screenPathPoster },
-  dashboard: { src: screenDashboard, poster: screenDashboardPoster },
+// Photoreal laptop shots from the mockup reel, with the Academy's real screen
+// recordings tracked onto their screens and the backdrop cut away (WebM with
+// alpha; MP4 baked on cream for Safari; WebP poster with alpha).
+export const MOCKUPS = {
+  path: { webm: mockupPathWebm, mp4: mockupPathMp4, poster: mockupPathPoster },
 }
+
+// The After Effects laptop opening (template pre-render, shot 01) with the
+// Academy lesson composited on its screen, one WebP with alpha per frame, for
+// scroll scrubbing. Ordered by file name.
+const laptopOpen = import.meta.glob('../assets/plataforma/laptop-abre/*.webp', { eager: true, query: '?url', import: 'default' })
+export const LAPTOP_OPEN_FRAMES = Object.keys(laptopOpen).sort().map((k) => laptopOpen[k])
 
 // Keyed by MILESTONES[].photo
 export const MILESTONE_PHOTOS = {

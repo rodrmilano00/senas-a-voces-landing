@@ -4,6 +4,7 @@ import { CONTACT, FINAL_MESSAGE, NAV_LINKS } from '../../lib/content'
 import { LOGO } from '../../lib/media'
 import BackdropShapes from '../BackdropShapes'
 import WaveLines from '../WaveLines'
+import { TitleReveal } from '../Reveal'
 
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT
 
@@ -69,7 +70,7 @@ export default function ContactSheet() {
     <section
       id="contacto"
       aria-labelledby="contacto-titulo"
-      className="relative mt-2 overflow-clip rounded-t-[22px] bg-band text-band-fg shadow-[0_-24px_48px_-28px_rgb(4_40_52/0.5)] sm:mt-3"
+      className="relative overflow-clip bg-band text-band-fg"
     >
       <BackdropShapes variant={0} />
       <WaveLines className="absolute -top-20 -right-24 w-[clamp(240px,30vw,440px)] text-cyan/45" />
@@ -81,9 +82,7 @@ export default function ContactSheet() {
 
         <div className="mt-[clamp(72px,9vw,120px)] grid items-start gap-14 lg:grid-cols-[1fr_minmax(0,32rem)] lg:gap-20">
           <div>
-            <h2 id="contacto-titulo" className="text-[clamp(36px,4.4vw,60px)]">
-              Contacto
-            </h2>
+            <TitleReveal id="contacto-titulo" text="Contacto" className="text-[clamp(36px,4.4vw,60px)]" />
             <p className="mt-5 max-w-[44ch] text-[clamp(17px,1.4vw,19px)] leading-[1.65] text-band-muted">
               Para conocer el proyecto, sumar una alianza o llevar el traductor a una escuela, empresa o
               institución, el equipo de Señas a Voces responde directamente.
@@ -163,7 +162,7 @@ export default function ContactSheet() {
           </form>
         </div>
 
-        <footer className="mt-[clamp(80px,10vw,128px)] border-t border-band-line py-10">
+        <footer className="mt-[clamp(96px,11vw,144px)] py-10">
           <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
             <div>
               <img src={LOGO.horizontalDark} alt="Señas a Voces Academy" width="600" height="242" className="h-12 w-auto" />

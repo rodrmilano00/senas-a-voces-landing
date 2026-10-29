@@ -7,7 +7,7 @@ import { motion } from 'motion/react'
  */
 export default function Portrait({ src, alt, tone, photoY, blockY, className = '', imgClassName = '', loading }) {
   return (
-    <div className={`relative ${className}`}>
+    <div className={`group relative transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:-rotate-1 ${className}`}>
       <motion.div
         aria-hidden="true"
         style={{ y: blockY, backgroundColor: tone }}
