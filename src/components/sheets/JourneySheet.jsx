@@ -6,8 +6,8 @@ import { MILESTONE_PHOTOS, PARTNER_LOGOS } from '../../lib/media'
 import Sheet from './Sheet'
 
 const PER_ROW = 3
-const ROW_HEIGHT = 440
-const NODE_Y = 250 // node position inside its row: media above, label below
+const ROW_HEIGHT = 470
+const NODE_Y = 280 // node position inside its row: media above, label below
 const SIDE = 120 // room at each side for the path to turn
 
 function useWide() {
@@ -70,12 +70,16 @@ function Media({ milestone, className = '' }) {
       </span>
     )
   }
+  const photo = MILESTONE_PHOTOS[milestone.photo]
+  // Each photo keeps its own proportions, so nobody loses their head to a crop.
   return (
     <img
-      src={MILESTONE_PHOTOS[milestone.photo]}
+      src={photo.src}
       alt={milestone.title}
+      width={photo.width}
+      height={photo.height}
       loading="lazy"
-      className={`aspect-[16/10] w-[260px] rounded-[16px] object-cover ${className}`}
+      className={`h-auto max-h-[196px] w-auto max-w-[min(100%,260px)] rounded-[16px] ${className}`}
     />
   )
 }
@@ -83,7 +87,7 @@ function Media({ milestone, className = '' }) {
 function Label({ milestone, align = 'center' }) {
   return (
     <>
-      <span className="inline-block rounded-[10px] bg-[#d9eef4] px-3.5 py-1.5 font-display text-[19px] leading-tight font-bold text-petrol">
+      <span className="inline-block rounded-[10px] bg-[#d9eef4] px-3.5 py-1.5 font-display text-[19px] leading-tight font-semibold tracking-[-0.01em] text-petrol">
         {milestone.title}
       </span>
       {/* Opaque backing so the trajectory line passes behind, never through, the text */}
@@ -148,9 +152,9 @@ export default function JourneySheet() {
               {MILESTONES.map((m, i) => {
                 const n = snake.nodes[i]
                 return (
-                  <li key={m.title} className="absolute w-[280px] -translate-x-1/2 text-center" style={{ left: n.x, top: n.y - 190 }}>
+                  <li key={m.title} className="absolute w-[280px] -translate-x-1/2 text-center" style={{ left: n.x, top: n.y - 220 }}>
                     <motion.span
-                      className="flex h-[166px] origin-bottom items-end justify-center"
+                      className="flex h-[196px] origin-bottom items-end justify-center"
                       initial={still ? false : { scale: 0.86, rotate: i % 2 ? 5 : -5, y: 22 }}
                       whileInView={{ scale: 1, rotate: 0, y: 0 }}
                       viewport={{ once: true, margin: '0px 0px -22% 0px' }}
@@ -199,7 +203,7 @@ function MobileTrack({ still }) {
         {MILESTONES.map((m) => (
           <li key={m.title} className="relative pl-14">
             <span aria-hidden="true" className="absolute top-0 left-[10px] h-5 w-5 rounded-full bg-cyan ring-4 ring-bg" />
-            <Media milestone={m} className="mb-4 max-w-full" />
+            <Media milestone={m} className="mb-4" />
             <Label milestone={m} align="start" />
           </li>
         ))}

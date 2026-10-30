@@ -76,7 +76,7 @@ export default function ContactSheet() {
       <WaveLines className="absolute -top-20 -right-24 w-[clamp(240px,30vw,440px)] text-cyan/45" />
 
       <div className="container-page relative pt-[clamp(80px,10vw,140px)]">
-        <p className="max-w-[22ch] font-display text-[clamp(36px,5vw,72px)] leading-[1.02] font-bold tracking-[-0.02em]">
+        <p className="max-w-[22ch] font-display text-[clamp(36px,5vw,72px)] leading-[1.06] font-medium tracking-[-0.02em]">
           “{FINAL_MESSAGE}”
         </p>
 
