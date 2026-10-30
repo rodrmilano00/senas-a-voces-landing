@@ -1,110 +1,136 @@
-import { useEffect, useRef } from 'react'
-import { motion, useMotionValueEvent, useScroll, useTransform } from 'motion/react'
+import { useLayoutEffect, useRef, useState } from 'react'
+import { easeInOut, motion, transform, useScroll, useTransform } from 'motion/react'
 import { useCalm } from '../../lib/perf'
+import { LAPTOP } from '../../lib/media'
+import ScreenVideo from './ScreenVideo'
 
-const W = 1120
-const H = 804
+const W = 2200
+const H = 1747
 
-// Loading order: ends first, then ever-finer strides, so a fast scroll still
-// has a nearby frame to show while the rest arrive.
-function loadOrder(n) {
-  const seen = new Set()
-  const order = []
-  const add = (i) => { if (!seen.has(i)) { seen.add(i); order.push(i) } }
-  add(0)
-  add(n - 1)
-  for (let s = 32; s >= 1; s /= 2) for (let i = 0; i < n; i += s) add(i)
-  return order
+// The screen inside the render, with a hair of bleed under its edges.
+const SCREEN = { left: '7.5%', top: '1.75%', width: '85%', height: '67.16%' }
+// The camera pivots on the screen's centre, this far down the render.
+const AIM = 35.3
+// Close up, the screen sits this far down so the header band doesn't crop it.
+const CLEAR_HEADER = 38
+
+// Scroll progress of each beat in the pinned scene.
+const BEATS = {
+  recede: [0.04, 0.36],
+  laptopCopy: [0.34, 0.42, 0.6, 0.66],
+  phone: [0.58, 0.72],
+  phoneCopy: [0.68, 0.76],
+}
+
+function Laptop() {
+  return (
+    <>
+      <div aria-hidden="true" className="absolute inset-x-[3%] -bottom-[4%] h-[9%] bg-[radial-gradient(closest-side,rgb(4_40_52/0.32),transparent)]" />
+      <div className="absolute bg-[#faf7ed]" style={SCREEN}>
+        <ScreenVideo src={LAPTOP.video} poster={LAPTOP.poster} className="block h-full w-full object-cover" />
+      </div>
+      <img src={LAPTOP.frame} alt="" width={W} height={H} className="relative block w-full" />
+    </>
+  )
 }
 
 /**
- * The After Effects laptop opening, scrubbed by scroll: the stage pins while
- * the lid opens, the screen wakes on the Academy lesson and lands on the
- * validated sign. Frames are fetched as the visitor nears it and drawn to a
- * canvas. Calm (lite or reduced motion) shows the final frame, unpinned.
- * `children` ride in front (the phone), revealed over the second half.
+ * The Academy in one pinned scene: it opens close up on the dashboard, pulls
+ * back to reveal the laptop and its explanation, then the phone comes in with
+ * its own. A render with a transparent screen sits over the live video, so the
+ * screen stays sharp at any distance. Calm (lite or reduced motion) stacks the
+ * same parts at rest, unpinned.
  */
-export default function ScrollLaptop({ frames, label, children }) {
+export default function ScrollLaptop({ label, laptopCopy, phoneCopy, children }) {
   const calm = useCalm()
   const trackRef = useRef(null)
-  const canvasRef = useRef(null)
-  const images = useRef([])
-  const wanted = useRef(0)
+  const figureRef = useRef(null)
+  const [far, setFar] = useState({ scale: 0.5, x: 0, y: 0 })
 
   const { scrollYProgress } = useScroll({ target: trackRef, offset: ['start start', 'end end'] })
-  // The last stretch holds on the validated sign before the stage lets go.
-  const frameAt = useTransform(scrollYProgress, [0, 0.82], [0, frames.length - 1], { clamp: true })
-  const frontY = useTransform(scrollYProgress, [0.35, 0.8], ['40%', '0%'])
-  const frontOpacity = useTransform(scrollYProgress, [0.35, 0.6], [0, 1])
-  const frontRotate = useTransform(scrollYProgress, [0.35, 0.9], [10, -3])
+  // Mappers, not ranges: a range goes to a native scroll timeline, which mistimes opacity.
+  const recede = useTransform(scrollYProgress, transform(BEATS.recede, [0, 1], { ease: easeInOut }))
+  // Geometric, so each stretch of scroll covers the same share of the distance.
+  const scale = useTransform(recede, (t) => far.scale ** t)
+  const x = useTransform(recede, (t) => far.x * t)
+  const y = useTransform(recede, (t) => CLEAR_HEADER + (far.y - CLEAR_HEADER) * t)
 
-  const draw = (target) => {
-    const ctx = canvasRef.current?.getContext('2d')
-    if (!ctx) return
-    const imgs = images.current
-    // nearest frame that has arrived
-    for (let d = 0; d < frames.length; d++) {
-      for (const i of [target - d, target + d]) {
-        const im = imgs[i]
-        if (im && im.complete && im.naturalWidth) {
-          ctx.clearRect(0, 0, W, H)
-          ctx.drawImage(im, 0, 0, W, H)
-          return
-        }
-      }
+  const laptopCopyOpacity = useTransform(scrollYProgress, transform(BEATS.laptopCopy, [0, 1, 1, 0]))
+  const laptopCopyY = useTransform(scrollYProgress, transform(BEATS.laptopCopy, [18, 0, 0, -18]))
+  const phoneOpacity = useTransform(scrollYProgress, transform(BEATS.phone, [0, 1]))
+  const phoneY = useTransform(scrollYProgress, transform(BEATS.phone, ['36%', '0%']))
+  const phoneRotate = useTransform(scrollYProgress, transform(BEATS.phone, [8, -3]))
+  const phoneCopyOpacity = useTransform(scrollYProgress, transform(BEATS.phoneCopy, [0, 1]))
+  const phoneCopyY = useTransform(scrollYProgress, transform(BEATS.phoneCopy, [18, 0]))
+
+  // Laid out at its closest size; `far` is where it ends up once it has pulled back.
+  useLayoutEffect(() => {
+    const el = figureRef.current
+    if (!el) return undefined
+    const fit = () => {
+      const wide = innerWidth >= 1024
+      const width = wide ? Math.min(innerWidth * 0.54, (innerHeight - 220) * (W / H)) : Math.min(innerWidth * 0.92, innerHeight * 0.4 * (W / H))
+      const scale = width / el.offsetWidth
+      const centre = innerHeight * (wide ? 0.52 : 0.3)
+      setFar({
+        scale,
+        x: wide ? innerWidth * -0.17 : 0,
+        y: centre - innerHeight / 2 - ((50 - AIM) / 100) * el.offsetHeight * scale,
+      })
     }
-  }
-
-  useMotionValueEvent(frameAt, 'change', (v) => {
-    wanted.current = Math.round(v)
-    draw(wanted.current)
-  })
-
-  useEffect(() => {
-    const el = trackRef.current
-    if (!el || calm) return undefined
-    let started = false
-    const start = () => {
-      if (started) return
-      started = true
-      for (const i of loadOrder(frames.length)) {
-        const im = new Image()
-        im.decoding = 'async'
-        im.onload = () => { if (Math.abs(i - wanted.current) <= 2 || i === 0) draw(wanted.current) }
-        im.src = frames[i]
-        images.current[i] = im
-      }
-    }
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { start(); io.disconnect() } }, { rootMargin: '1500px 0px' })
-    io.observe(el)
-    return () => io.disconnect()
-    // draw reads refs only
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [calm, frames])
+    const ro = new ResizeObserver(fit)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [calm])
 
   if (calm) {
     return (
-      <figure role="img" aria-label={label} className="relative mx-auto w-[min(100%,1080px)]">
-        <img src={frames[frames.length - 1]} alt="" width={W} height={H} className="block w-full" />
-        {children && <div className="absolute right-0 bottom-[4%] w-[clamp(96px,15vw,200px)] sm:right-[2%]">{children}</div>}
-      </figure>
+      <div className="mt-12 grid gap-10">
+        <figure role="img" aria-label={label} className="relative mx-auto w-[min(100%,960px)]">
+          <Laptop />
+        </figure>
+        <div className="max-w-[46ch]">{laptopCopy}</div>
+        <div className="grid items-center gap-8 sm:grid-cols-[180px_1fr]">
+          <div className="mx-auto w-[150px] sm:w-full">{children}</div>
+          <div className="max-w-[46ch]">{phoneCopy}</div>
+        </div>
+      </div>
     )
   }
 
   return (
-    <div ref={trackRef} className="relative h-[240svh]">
-      <div className="sticky top-0 flex h-[100svh] items-center">
-        <figure role="img" aria-label={label} className="relative mx-auto w-[min(100%,1080px,calc((100svh_-_96px)*1.393))]">
-          <canvas ref={canvasRef} width={W} height={H} className="block h-auto w-full" />
-          {children && (
-            <motion.div
-              style={{ y: frontY, opacity: frontOpacity, rotate: frontRotate }}
-              className="absolute right-0 bottom-[4%] w-[clamp(96px,15vw,200px)] drop-shadow-[0_30px_40px_rgb(4_40_52/0.35)] sm:right-[2%]"
-            >
-              {children}
-            </motion.div>
-          )}
-        </figure>
+    <div ref={trackRef} className="relative h-[520svh]">
+      <div className="sticky top-0 ml-[calc(50%-50vw)] h-[100svh] w-screen overflow-clip">
+        <motion.figure
+          ref={figureRef}
+          role="img"
+          aria-label={label}
+          style={{ x, y, scale, transformOrigin: `50% ${AIM}%` }}
+          className="absolute top-1/2 left-1/2 w-[calc(max(100vw,min(100svh*1.596,170vw))/0.848)] -translate-x-1/2 -translate-y-[35.3%]"
+        >
+          <Laptop />
+        </motion.figure>
+
+        <motion.div
+          style={{ opacity: laptopCopyOpacity, y: laptopCopyY }}
+          className="absolute inset-x-4 top-[56svh] lg:top-[32svh] lg:right-auto lg:left-[63vw] lg:w-[min(27vw,380px)]"
+        >
+          {laptopCopy}
+        </motion.div>
+
+        <motion.div
+          style={{ y: phoneY, opacity: phoneOpacity, rotate: phoneRotate }}
+          className="absolute right-4 bottom-[4svh] w-[112px] rounded-[16%/8%] shadow-[0_30px_40px_rgb(4_40_52/0.35)] lg:top-[24svh] lg:right-auto lg:bottom-auto lg:left-[46vw] lg:w-[clamp(120px,14vw,190px)]"
+        >
+          {children}
+        </motion.div>
+
+        <motion.div
+          style={{ opacity: phoneCopyOpacity, y: phoneCopyY }}
+          className="absolute top-[56svh] right-[144px] left-4 lg:top-[32svh] lg:right-auto lg:left-[63vw] lg:w-[min(27vw,380px)]"
+        >
+          {phoneCopy}
+        </motion.div>
       </div>
     </div>
   )

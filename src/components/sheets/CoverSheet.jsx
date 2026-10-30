@@ -1,49 +1,25 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { ArrowDown } from 'lucide-react'
-import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'motion/react'
+import { motion, useScroll, useSpring, useTransform } from 'motion/react'
 import { useCalm } from '../../lib/perf'
-import { HERO_PROOF, TEAM } from '../../lib/content'
-import { TEAM_PHOTOS } from '../../lib/media'
+import { HERO_PROOF } from '../../lib/content'
 import Button from '../Button'
-import Portrait from '../Portrait'
+import Logo from '../Logo'
 import BackdropShapes from '../BackdropShapes'
 import WaveLines from '../WaveLines'
 import { Reveal, TitleReveal } from '../Reveal'
-
-const LEAD = 0 // Emiliano, cyan
-const SECOND = 3 // César Luna, red
 
 export default function CoverSheet() {
   const ref = useRef(null)
   const still = useCalm()
   const { scrollYProgress: cover } = useScroll({ target: ref, offset: ['start start', 'end start'] })
 
-  // Scroll depth: as the cover scrolls away, each layer drifts at its own rate.
-  const leadY = useTransform(cover, [0, 1], [0, still ? 0 : -90])
-  const leadBlockY = useTransform(cover, [0, 1], [0, still ? 0 : -40])
-  const secondY = useTransform(cover, [0, 1], [0, still ? 0 : -170])
-  const secondBlockY = useTransform(cover, [0, 1], [0, still ? 0 : -110])
+  // The copy drifts; the logo lifts away ahead of it, sprung so it trails the wheel softly.
   const copyY = useTransform(cover, [0, 1], [0, still ? 0 : -50])
-
-  // Pointer depth on desktop, sprung so it has weight instead of tracking 1:1.
-  const px = useMotionValue(0)
-  const py = useMotionValue(0)
-  const sx = useSpring(px, { stiffness: 80, damping: 18 })
-  const sy = useSpring(py, { stiffness: 80, damping: 18 })
-  const farX = useTransform(sx, (v) => v * 10)
-  const farY = useTransform(sy, (v) => v * 10)
-  const nearX = useTransform(sx, (v) => v * -18)
-  const nearY = useTransform(sy, (v) => v * -18)
-
-  useEffect(() => {
-    if (still || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return undefined
-    const onMove = (e) => {
-      px.set(e.clientX / window.innerWidth - 0.5)
-      py.set(e.clientY / window.innerHeight - 0.5)
-    }
-    window.addEventListener('pointermove', onMove, { passive: true })
-    return () => window.removeEventListener('pointermove', onMove)
-  }, [still, px, py])
+  const lift = useSpring(cover, { stiffness: 120, damping: 30, restDelta: 0.001 })
+  const logoY = useTransform(lift, [0, 1], [0, still ? 0 : -260])
+  const logoScale = useTransform(lift, [0, 1], [1, still ? 1 : 0.94])
+  const logoOpacity = useTransform(lift, [0.3, 0.8], [1, still ? 1 : 0])
 
   return (
     <section
@@ -86,28 +62,11 @@ export default function CoverSheet() {
           </Reveal>
         </motion.div>
 
-        <div className="relative mx-auto w-full max-w-[460px] lg:max-w-none">
-          <motion.div style={{ x: farX, y: farY }} className="ml-auto w-[74%]">
-            <Portrait
-              src={TEAM_PHOTOS[LEAD]}
-              alt={`${TEAM[LEAD].name} haciendo una seña bajo luz cian`}
-              tone={TEAM[LEAD].tone}
-              photoY={leadY}
-              blockY={leadBlockY}
-              imgClassName="aspect-[4/5] object-[47%_45%]"
-            />
-          </motion.div>
-          <motion.div style={{ x: nearX, y: nearY }} className="absolute bottom-[-8%] left-0 w-[44%]">
-            <Portrait
-              src={TEAM_PHOTOS[SECOND]}
-              alt={`${TEAM[SECOND].name} haciendo la seña de paz bajo luz roja`}
-              tone={TEAM[SECOND].tone}
-              photoY={secondY}
-              blockY={secondBlockY}
-              imgClassName="aspect-[4/5] object-[50%_40%]"
-            />
-          </motion.div>
-        </div>
+        <motion.div style={{ y: logoY, scale: logoScale, opacity: logoOpacity }} className="mx-auto w-[clamp(200px,52vw,280px)] lg:w-full lg:max-w-[400px]">
+          <Reveal delay={0.35} y={16}>
+            <Logo iso className="h-auto w-full" />
+          </Reveal>
+        </motion.div>
       </div>
 
       <ul

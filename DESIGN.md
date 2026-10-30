@@ -235,8 +235,8 @@ The density is editorial. Secondary material is set as plain text (quotes in col
 - Concentric cyan wave lines in opposite section corners at 45% and 35% opacity, over three drifting backdrop circles at 6 to 12% opacity, all running uncut across chapter edges.
 - No hairline dividers between content blocks: space separates them.
 - Secondary content as plain type: the lead testimonial over its photograph, other quotes and press names in text columns, no card grids.
-- Devices are the team's own 3D renders: a scroll-scrubbed laptop that opens with a clip-path shutter, a played lesson render, and an iPhone 16 Pro SVG frame drawn over a real recording.
-- Motion is scroll-linked depth plus once-only entrances: Lenis inertial scroll, parallax, a word reveal, the trajectory drawing itself, the render scrub, chapter titles rising word by word from a mask, and copy blocks rising into place on first view. Lite mode and reduced motion turn all of it still.
+- Devices carry real recordings: a laptop we render ourselves that draws near on scroll over the live dashboard video, a parallax close-up of the lesson path, and an iPhone 16 Pro SVG frame drawn over a real recording.
+- Motion is scroll-linked depth plus once-only entrances: Lenis inertial scroll, parallax, a word reveal, the trajectory drawing itself, the laptop approach, chapter titles rising word by word from a mask, and copy blocks rising into place on first view. Lite mode and reduced motion turn all of it still.
 
 ## Colors
 
@@ -314,11 +314,11 @@ Chapter navigation measures each section's real top in the document (its boundin
 
 ## Elevation & Depth
 
-The page is flat paper. Sections carry no shadows and no edges; one section simply continues into the next. Depth is motion and imagery: backdrop circles and layers inside a section drift at their own scroll rates, photographs drift inside their frames, creator blocks trail their photos, and the laptop is a real 3D render whose camera moves with scroll. Only a few objects cast a shadow, each tinted with petroleum except on the band.
+The page is flat paper. Sections carry no shadows and no edges; one section simply continues into the next. Depth is motion and imagery: backdrop circles and layers inside a section drift at their own scroll rates, photographs drift inside their frames, creator blocks trail their photos, and the laptop draws nearer with scroll. Only a few objects cast a shadow, each tinted with petroleum except on the band.
 
 ### Shadow Vocabulary
 - **Amber glow** (`inset 0 1px 0 rgb(255 255 255 / 0.5), 0 6px 16px -6px rgb(255 164 49 / 0.7)`): primary buttons. On hover it widens to `0 10px 22px -8px` at 0.8. The contact submit button shows only the hover glow.
-- **Phone drop** (`drop-shadow(0 30px 40px rgb(4 40 52 / 0.35))`, a filter, so it follows the frame's silhouette): the phone over the laptop render.
+- **Phone drop** (`0 30px 40px rgb(4 40 52 / 0.35)`, a box-shadow on a radius matching the frame, not a filter, because the phone holds a playing video): the phone over the laptop.
 - **Active chapter tab** (`0 8px 18px -10px rgb(4 40 52 / 0.6)`): the petroleum tab of the current chapter.
 - **Card on band** (`0 2px 4px rgb(0 0 0 / 0.12), 0 30px 60px -30px rgb(0 0 0 / 0.5)`): the contact form.
 
@@ -366,7 +366,7 @@ The chapter container. Full bleed, no radius and no shadow. A cream chapter pain
 Three solid circles per section, one each in petroleum (6 to 7%), amber (10 to 12%) and cyan (8 to 10%), sized with clamps between roughly 100px and 620px, overhanging the section edge into the next chapter without a cut (the layer does not clip). Each drifts upward by its own amount (60 to 260px) as the section crosses the viewport. Three layouts exist, assigned so consecutive sections never repeat (0, 1, 2, 0, 1, 2, 0 down the page). They are non-interactive and hidden from assistive technology.
 
 ### Portrait on offset block (signature)
-Each creator's photo sits in a 20px frame over a block in that creator's tone, offset 12px right and down (16px from 640px up). On scroll the block trails the photo by ±28px, so the pair separates as it passes. On hover the pair lifts 6px and turns -1° over 500ms on the entrance ease, as feedback. In the creators grid, each portrait is capped at 260px and is followed by the name, a bold role line, a body-small bio (max 34ch) and the school; that text block rises in on first view, staggered 0.08s per column. On the cover, two portraits overlap at different depths, and on fine pointers they also respond to pointer position on a spring. The blocks are flat color, are used only behind creator portraits, and use only that creator's tone.
+Each creator's photo sits in a 20px frame over a block in that creator's tone, offset 12px right and down (16px from 640px up). On scroll the block trails the photo by ±6px, a slight shift as it passes. On hover the pair lifts 4px over 300ms, as feedback. In the creators grid, each portrait is capped at 260px and is followed by the name, a bold role line, a body-small bio (max 34ch) and the school; that text block rises in on first view, staggered 0.08s per column. The blocks are flat color, are used only behind creator portraits, and use only that creator's tone.
 
 ### Quotation over a photograph (signature)
 The lead testimonial is set straight on the photograph of that work. The photo is a full-width DepthImage with square corners, darkened to brightness 0.55. The quotation (an excerpt of the testimonial, quote-display, white, max 30ch) and its attribution (16px, name bold, role at 80% white) sit in the photo's lower edge with 24px padding (40px from 640px up, 56px from 1024px up); from 1024px up the attribution aligns right on the same baseline row.
@@ -393,22 +393,23 @@ Product status is a 15px bold amber-ink line with an 8px amber dot, set below th
 The milestones are joined by a dashed petroleum path. A solid stroke draws along it as you scroll, and the pen point rides the drawn tip. Nodes are 20px cyan dots. Each milestone has a photo (260px wide, 16:10, 16px corners) or a logo tile above its node; on first view the media settles from 0.86 scale, ±5° rotation and 22px lower to rest, on a spring from the bottom edge. Below the node sits the milestone label (League Spartan 19px petroleum on a pale cyan #d9eef4 chip, or cyan at 15% in dark mode) over a detail line on an opaque cream backing, so the path passes behind the text and never through it.
 
 ### Devices
-- **Render scrub (laptop):** the team's own 3D render of the laptop on the dashboard, encoded all-intra so every frame seeks cleanly. Scroll position maps to video time (progress 0.12 to 0.82 across the render's pass through the viewport), seeking at most once per animation frame. The picture opens with a clip-path shutter uncovering it from its bottom edge (progress 0.05 to 0.32) while the video settles from 1.12 to 1 scale (0.05 to 0.4); both are scroll-mapped. The render's white backdrop is multiplied into the page and its edge feathered by a radial mask (opaque to 62%, clear at 96%). The clip mounts only within 900px of the viewport; until then, and always in lite mode, the poster still is shown. In dark mode the mask is dropped and the render sits on a cream (#faf7ed) plate with 4px corners.
+- **Laptop approach:** a silver laptop modeled in three.js, rendered square-on to the lid with a transparent screen, sits over the live dashboard recording. The stage pins for 280svh while the camera closes in until the screen fills the view: scale runs geometrically on an ease-in-out across 86% of the pin, aimed at the screen's centre, using only transforms. Calm shows it at rest, unpinned, with the poster.
+- **Parallax close-up (lesson path):** a laptop close-up scrubbed by scroll on a canvas, with the lesson path on its screen. The laptop travels faster than the gradient and circles behind it, in a 16:9 frame with 20px corners. Calm shows the last frame at rest.
 - **Lesson render:** the second render plays muted and looped only while at least 15% is on screen, with the same multiply and feather (64% to 98%), beside three plain points (26px League Spartan title over 17px `muted` text, 32px apart). Calm shows the poster.
-- **Phone:** the 21st.dev "iPhone 16 Pro" frame (designali-in), an SVG with a titanium gradient (#5b6062 to #2c3032 to #474c4e), black bezel and Dynamic Island drawn over the screen. The screen is laid out at 240px and scaled to fit, cream-grounded, with a faint diagonal glass sheen, and runs the lesson UI over the real recording. It rides over the laptop render's lower right with its own parallax (y 140 to -120px, rotate 6° to -4°) and the phone drop shadow.
+- **Phone:** the 21st.dev "iPhone 16 Pro" frame (designali-in), an SVG with a titanium gradient (#5b6062 to #2c3032 to #474c4e), black bezel and Dynamic Island drawn over the screen. The screen is laid out at 240px and scaled to fit, cream-grounded, with a faint diagonal glass sheen, and runs the lesson UI over the real recording. It rides at the stage's lower right, over the approaching laptop, rising 40% of its height with rotate 10° to -3° and fading in between 35% and 60% of the pin, with the phone drop shadow.
 
 ### Motion
 - **Inertial scroll:** Lenis, duration 1.1s, quartic ease-out. Chapter jumps go through the section-top resolver and Lenis at 1.4s.
 - **Backdrop drift:** each circle moves 0 to between -60 and -260px as its section crosses the viewport.
-- **Cover depth:** the cover takes its parallax from its own scroll (start of cover at top to its end at top): the copy rises 50px, the lead portrait 90px (its block 40px), the second portrait 170px (its block 110px). On fine pointers a spring (stiffness 80, damping 18) moves the far portrait ×10 and the near one ×−18.
+- **Cover depth:** the cover takes its parallax from its own scroll (start of cover at top to its end at top): the copy rises 50px. The isotype lifts away 260px ahead of it, down to 0.94 scale, fading out between 30% and 80%, through a spring (stiffness 120, damping 30) so it trails the wheel softly.
 - **Title reveal:** each word of a heading sits in its own mask and rises from 105% to 0 over 0.9s on the entrance ease, 0.06s apart. Every chapter h2 built on the section plays it on first view (viewport margin -10% bottom); the cover h1 plays it on mount after 0.15s, with "encuentran voz." as the cyan line. Screen readers get the heading once, intact.
 - **Block reveal:** a block rises from 28px below with opacity 0 to 1 over 0.8s on the entrance ease (`cubic-bezier(0.16, 1, 0.3, 1)`), once, on first view (viewport margin -12% bottom). A delay staggers siblings: section intros at 0.2s; the cover paragraph at 0.55s and its actions at 0.7s; audience rows, creator text, community quotes and name columns at 0.08 to 0.12s per item; the glove text column at 0.1s and the translator text column at 0.
 - **Population count:** when the dot chart enters view (margin -20% bottom), the 13 LSM dots fill cyan one after another, 70ms apart, each scaling to 1.1 over 500ms.
-- **Portrait hover:** lift 6px and rotate -1° over 500ms on the entrance ease.
+- **Portrait hover:** lift 4px over 300ms on `cubic-bezier(0.23, 1, 0.32, 1)`. The creator block trails its photo by ±6px across the viewport.
 - **Word reveal:** the manifesto's words move from 14% opacity to full ink in reading order as it scrolls through the view (start 85% to end 40%). Screen readers get the intact sentence once.
 - **Trajectory draw:** the path length follows scroll from 75% to 92% of the viewport through a spring (stiffness 120, damping 30), and the pen point follows the drawn length.
 - **Milestone settle:** a spring once per page view, 0.7s, bounce 0.25, from 0.86 scale, ±5°, +22px.
-- **Render scrub, shutter and phone parallax:** as described under Devices.
+- **Laptop approach and phone parallax:** as described under Devices.
 - **Header band:** opacity 0 to 1 over 300ms once scrolled past 12px.
 - **Índice slide:** the dialog translates from -100% to rest over 500ms.
 - **Easing for UI state:** `cubic-bezier(0.25, 1, 0.5, 1)` (quart-out) at 200 to 300ms for buttons, links and fields. The theme color transition is 400ms.
@@ -440,6 +441,6 @@ The milestones are joined by a dashed petroleum path. A solid stroke draws along
 - **Don't** put a kicker or eyebrow label above a section title, or use tracked uppercase small labels.
 - **Don't** set body copy or small labels in cyan. It reaches only large-text contrast on cream.
 - **Don't** fill cards, bands or large areas with solid amber.
-- **Don't** build device mockups from CSS boxes; use the team's renders or the iPhone 16 Pro frame.
+- **Don't** build device mockups from CSS boxes; use a real 3D render or the iPhone 16 Pro frame, with the real recording under a transparent screen.
 - **Don't** use colored offset blocks anywhere except behind creator portraits, and don't use them as a generic card shadow.
 - **Don't** introduce purple SaaS gradients, emoji feature cards or a hero over a row of equal feature cards.

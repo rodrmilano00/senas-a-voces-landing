@@ -12,7 +12,7 @@ function Creator({ member, photo, index }) {
   const still = useCalm()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   // The colored block trails its photo, so the pair separates as it passes.
-  const blockY = useTransform(scrollYProgress, [0, 1], still ? [0, 0] : [-28, 28])
+  const blockY = useTransform(scrollYProgress, [0, 1], still ? [0, 0] : [-6, 6])
 
   return (
     <li ref={ref} className={index % 2 ? 'lg:mt-12' : ''}>

@@ -3,10 +3,12 @@ import glowMario from '../assets/IMG_9730-Enhanced-NR-optimized.jpg'
 import glowCastillo from '../assets/IMG_9726-Enhanced-NR-optimized.jpg'
 import glowLuna from '../assets/IMG_9738-Enhanced-NR-optimized.jpg'
 import logoHorizontal from '../assets/logo-horizontal-sm.png'
-import mockupPathWebm from '../assets/plataforma/mockup-ruta.webm'
-import mockupPathMp4 from '../assets/plataforma/mockup-ruta.mp4'
-import mockupPathPoster from '../assets/plataforma/mockup-ruta.webp'
 import logoHorizontalDark from '../assets/logo-horizontal-dark.png'
+import logoIso from '../assets/logo-iso.webp'
+import logoIsoDark from '../assets/logo-iso-dark.webp'
+import laptopFrame from '../assets/plataforma/laptop-frontal.webp'
+import panelVideo from '../assets/plataforma/panel.mp4'
+import panelPoster from '../assets/plataforma/panel.jpg'
 import showcase from '../assets/evidencias/showcase-senas-del-desierto.jpg'
 import workshop from '../assets/evidencias/taller-comunidad.jpg'
 import liveTest from '../assets/evidencias/prueba-traductor-en-vivo.jpg'
@@ -21,7 +23,7 @@ import logoSenasDelDesierto from '../assets/evidencias/logo-senas-del-desierto.p
 import logoAyuntamiento from '../assets/evidencias/logo-ayuntamiento-hermosillo.png'
 
 // The dark variant keeps the amber book and recolors the petroleum hands and wordmark.
-export const LOGO = { horizontal: logoHorizontal, horizontalDark: logoHorizontalDark }
+export const LOGO = { horizontal: logoHorizontal, horizontalDark: logoHorizontalDark, iso: logoIso, isoDark: logoIsoDark }
 
 // Same order as TEAM in content.js
 export const TEAM_PHOTOS = [glowEmiliano, glowMario, glowCastillo, glowLuna]
@@ -34,18 +36,13 @@ export const PHOTOS = {
   kickoff,
 }
 
-// Photoreal laptop shots from the mockup reel, with the Academy's real screen
-// recordings tracked onto their screens and the backdrop cut away (WebM with
-// alpha; MP4 baked on cream for Safari; WebP poster with alpha).
-export const MOCKUPS = {
-  path: { webm: mockupPathWebm, mp4: mockupPathMp4, poster: mockupPathPoster },
-}
+// Our own laptop render, its screen transparent, over the Academy dashboard recording.
+export const LAPTOP = { frame: laptopFrame, video: panelVideo, poster: panelPoster }
 
-// The After Effects laptop opening (template pre-render, shot 01) with the
-// Academy lesson composited on its screen, one WebP with alpha per frame, for
-// scroll scrubbing. Ordered by file name.
-const laptopOpen = import.meta.glob('../assets/plataforma/laptop-abre/*.webp', { eager: true, query: '?url', import: 'default' })
-export const LAPTOP_OPEN_FRAMES = Object.keys(laptopOpen).sort().map((k) => laptopOpen[k])
+// Close-up of the laptop reel with the lesson path tracked onto its screen, one
+// WebP with alpha per frame, for scroll scrubbing. Ordered by file name.
+const laptopPath = import.meta.glob('../assets/plataforma/laptop-ruta/*.webp', { eager: true, query: '?url', import: 'default' })
+export const LAPTOP_PATH_FRAMES = Object.keys(laptopPath).sort().map((k) => laptopPath[k])
 
 // Keyed by MILESTONES[].photo
 export const MILESTONE_PHOTOS = {
