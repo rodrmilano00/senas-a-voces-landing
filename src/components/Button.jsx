@@ -1,54 +1,19 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from '../lib/gsap'
-
 const VARIANTS = {
   primary:
-    'bg-accent text-white shadow-[0_4px_24px_rgba(236,153,96,0.35)] hover:scale-[1.04] hover:shadow-[0_8px_32px_rgba(236,153,96,0.45)]',
-  secondary:
-    'border-[1.5px] border-primary bg-transparent text-primary hover:bg-primary hover:text-white dark:border-primary-bright/80 dark:bg-white/[0.03] dark:text-[#d8f7ff] dark:hover:bg-primary-bright dark:hover:text-[#062b33]',
-  muted:
-    'bg-gray-300 text-gray-600 shadow-none hover:scale-100 hover:shadow-none disabled:cursor-not-allowed disabled:opacity-100 dark:border dark:border-accent/35 dark:bg-accent/18 dark:text-[#ffd9c2]',
+    'bg-amber text-amber-ink shadow-[0_1px_0_rgb(255_255_255/0.5)_inset,0_6px_16px_-6px_rgb(255_164_49/0.7)] hover:-translate-y-0.5 hover:shadow-[0_1px_0_rgb(255_255_255/0.5)_inset,0_10px_22px_-8px_rgb(255_164_49/0.8)]',
+  ghost:
+    'bg-transparent text-fg ring-1 ring-inset ring-line hover:bg-fg/[0.04] hover:ring-fg/30',
+  onBand:
+    'bg-band-fg text-[#04323f] hover:-translate-y-0.5 hover:bg-white',
 }
 
-export default function Button({
-  variant = 'primary',
-  magnetic = false,
-  className = '',
-  href,
-  children,
-  ...props
-}) {
-  const ref = useRef(null)
+export default function Button({ variant = 'primary', className = '', href, children, ...props }) {
   const Component = href ? 'a' : 'button'
-
-  useEffect(() => {
-    if (!magnetic) return
-    const el = ref.current
-    if (!el) return
-
-    const onMove = (e) => {
-      const rect = el.getBoundingClientRect()
-      const x = e.clientX - rect.left - rect.width / 2
-      const y = e.clientY - rect.top - rect.height / 2
-      gsap.to(el, { x: x * 0.3, y: y * 0.3, duration: 0.4, ease: 'power3.out' })
-    }
-    const onLeave = () => {
-      gsap.to(el, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1,0.4)' })
-    }
-
-    el.addEventListener('mousemove', onMove)
-    el.addEventListener('mouseleave', onLeave)
-    return () => {
-      el.removeEventListener('mousemove', onMove)
-      el.removeEventListener('mouseleave', onLeave)
-    }
-  }, [magnetic])
 
   return (
     <Component
-      ref={ref}
       href={href}
-      className={`inline-flex cursor-pointer items-center gap-2 rounded-full px-9 py-4 text-base font-semibold transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${VARIANTS[variant]} ${className}`}
+      className={`inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-full px-6 text-[15px] font-bold transition-[transform,box-shadow,background-color] duration-300 ease-out-quart active:translate-y-0 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60 ${VARIANTS[variant]} ${className}`}
       {...(!href ? { type: 'button' } : {})}
       {...props}
     >

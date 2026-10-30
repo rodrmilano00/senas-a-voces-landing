@@ -1,0 +1,62 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/cuaderno.html"
+        ],
+        "createdAt": "2026-10-28T23:10:59.003Z",
+        "reason": "user confirmed: asked for the page to stay 'igual que el portafolio', whose ground is cream #FAF7ED"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/trayectoria.html"
+        ],
+        "createdAt": "2026-10-28T23:10:59.297Z",
+        "reason": "user confirmed: asked for the page to stay 'igual que el portafolio', whose ground is cream #FAF7ED"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/prensa.html"
+        ],
+        "createdAt": "2026-10-28T23:10:59.512Z",
+        "reason": "user confirmed: asked for the page to stay 'igual que el portafolio', whose ground is cream #FAF7ED"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/cuaderno.html"
+        ],
+        "createdAt": "2026-10-28T23:10:59.723Z",
+        "reason": "false positive: radial-gradient draws a small logo placeholder dot in a throwaway sketch, not a background glow"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/prensa.html"
+        ],
+        "createdAt": "2026-10-28T23:10:59.926Z",
+        "reason": "display-size press clipping headlines (19px League Spartan, 2 lines) in a throwaway sketch; body copy is 1.5"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          "src/components/devices/LessonScreen.jsx"
+        ],
+        "createdAt": "2026-10-29T00:02:51.784Z",
+        "reason": "sanctioned exception: LessonScreen is a replica of the Academy app UI laid out at a fixed 240px design width and scaled to the phone; its sizes belong to that app, not the landing's type ramp"
+      }
+    ]
+  }
+}

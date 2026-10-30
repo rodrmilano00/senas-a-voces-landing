@@ -1,7 +1,7 @@
 # Señas a Voces Academy — Landing
 
 Landing page de Señas a Voces Academy (LSM + IA) migrada de un `index.html` estático a
-**Vite + React + Tailwind CSS v4**, con animaciones GSAP y tema claro/oscuro.
+**Vite + React + Tailwind CSS v4**, con animaciones GSAP.
 
 ## Stack
 
@@ -24,17 +24,15 @@ npm run lint     # ESLint
 ```
 src/
   components/     # Nav, Hero, Products, Community, Team, Contact, Footer, Button, Eyebrow, SectionHeading
-  hooks/          # useDarkMode
   lib/            # content.js (datos), gsap.js (registro de plugin)
-  index.css       # tokens de diseño (variables CSS), tema oscuro y base Tailwind
+  index.css       # tokens de diseño (variables CSS) y base Tailwind
   App.jsx
 ```
 
-## Tema (claro/oscuro)
+## Tema
 
-Los colores se definen como variables CSS en `src/index.css` bajo `:root` y `html.dark`,
+Los colores se definen como variables CSS en `src/index.css` bajo `:root`
 y se exponen a Tailwind con `@theme inline` (`bg-bg`, `text-fg`, `text-primary`, etc.).
-El toggle del nav alterna la clase `dark` en `<html>`.
 
 ## Logo
 
