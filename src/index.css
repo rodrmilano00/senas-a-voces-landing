@@ -41,8 +41,8 @@
   --color-band-muted: var(--band-muted);
 
 
-  --font-display: 'League Spartan', 'Atkinson Hyperlegible Next', system-ui, sans-serif;
-  --font-sans: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --font-display: 'DM Sans', system-ui, sans-serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
 
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -68,10 +68,15 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 700;
-    line-height: 1.02;
+    font-weight: 500;
+    line-height: 1.06;
     letter-spacing: -0.02em;
     text-wrap: balance;
+  }
+  h3,
+  h4 {
+    font-weight: 600;
+    letter-spacing: -0.015em;
   }
   p {
     text-wrap: pretty;

@@ -16,6 +16,12 @@ import hackathon from '../assets/evidencias/smartcity-hackathon.jpg'
 import gloveDrawing from '../assets/evidencias/guante-dibujo.png'
 import media from '../assets/evidencias/entrevista-medios.jpg'
 import kickoff from '../assets/evidencias/conferencia-kickoff.jpg'
+import noteConectaTec from '../assets/medios/conectatec.webp'
+import noteNoro from '../assets/medios/noro.webp'
+import noteElTiempo from '../assets/medios/el-tiempo.webp'
+import noteProyectoPuente from '../assets/medios/proyecto-puente.webp'
+import noteQuintaFuerza from '../assets/medios/quinta-fuerza.webp'
+import noteTijuanaInforma from '../assets/medios/tijuana-informa.webp'
 import logoEnactus from '../assets/evidencias/logo-enactus.png'
 import logoSenasDelDesierto from '../assets/evidencias/logo-senas-del-desierto.png'
 import logoAyuntamiento from '../assets/evidencias/logo-ayuntamiento-hermosillo.png'
@@ -24,7 +30,7 @@ import logoAyuntamiento from '../assets/evidencias/logo-ayuntamiento-hermosillo.
 export const LOGO = { horizontal: logoHorizontal, horizontalDark: logoHorizontalDark }
 
 // Same order as TEAM in content.js
-export const TEAM_PHOTOS = [glowEmiliano, glowMario, glowCastillo, glowLuna]
+export const TEAM_PHOTOS = [glowCastillo, glowEmiliano, glowLuna, glowMario]
 
 export const PHOTOS = {
   showcase,
@@ -42,14 +48,23 @@ export const LAPTOP = { frame: laptopFrame, video: panelVideo, poster: panelPost
 const laptopTurn = import.meta.glob('../assets/plataforma/laptop-giro/*.webp', { eager: true, query: '?url', import: 'default' })
 export const LAPTOP_TURN_FRAMES = Object.keys(laptopTurn).sort().map((k) => laptopTurn[k])
 
-// Keyed by MILESTONES[].photo
+// Keyed by MILESTONES[].photo. Sizes let each photo keep its own proportions.
 export const MILESTONE_PHOTOS = {
-  hackathon,
-  glove: gloveDrawing,
-  workshop,
-  enactusMx,
-  enactusPr,
-  media,
+  hackathon: { src: hackathon, width: 314, height: 189 },
+  glove: { src: gloveDrawing, width: 964, height: 496 },
+  enactusMx: { src: enactusMx, width: 480, height: 320 },
+  enactusPr: { src: enactusPr, width: 426, height: 426 },
+  media: { src: media, width: 641, height: 295 },
+}
+
+// Screenshots of the press notes, from the portfolio. Keyed by PRESS_HEADLINES[].outlet.
+export const PRESS_NOTES = {
+  ConectaTec: { src: noteConectaTec, width: 503, height: 284 },
+  Noro: { src: noteNoro, width: 428, height: 354 },
+  'El Tiempo': { src: noteElTiempo, width: 533, height: 327 },
+  'Proyecto Puente': { src: noteProyectoPuente, width: 614, height: 326 },
+  'Quinta Fuerza': { src: noteQuintaFuerza, width: 350, height: 348 },
+  'Tijuana Informa': { src: noteTijuanaInforma, width: 274, height: 339 },
 }
 
 // Keyed by MILESTONES[].logo; rendered from the portfolio's trajectory page.

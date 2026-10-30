@@ -27,7 +27,7 @@ export default function CoverSheet() {
       {/* Kept low and outside the copy column so it never crosses the intro or the CTA */}
       <WaveLines className="absolute -bottom-36 -left-36 w-[clamp(200px,20vw,300px)] rotate-180 text-cyan/35" />
 
-      <div className="container-page relative grid flex-1 items-center gap-x-10 gap-y-7 pt-[clamp(84px,10vw,128px)] pb-10 lg:grid-cols-[1.3fr_0.9fr] lg:gap-y-14">
+      <div className="container-page relative grid flex-1 items-center gap-x-10 gap-y-5 pt-[clamp(84px,10vw,128px)] pb-10 lg:grid-cols-[1.3fr_0.9fr] lg:gap-y-14">
         <motion.div style={{ y: copyY }}>
           <TitleReveal
             as="h1"
@@ -36,19 +36,19 @@ export default function CoverSheet() {
             delay={0.15}
             text="Donde las manos"
             accent="encuentran voz."
-            className="text-[clamp(38px,12.6vw,50px)] leading-[0.92] text-petrol lg:text-[clamp(50px,6.4vw,96px)]"
+            className="text-[clamp(38px,12.6vw,50px)] leading-[1.02] tracking-[-0.025em] text-petrol lg:text-[clamp(50px,6.4vw,96px)]"
           />
-          <Reveal as="p" delay={0.55} className="mt-8 max-w-[34rem] text-[clamp(17px,1.5vw,21px)] leading-[1.6] text-muted">
+          <Reveal as="p" delay={0.55} className="mt-6 max-w-[34rem] lg:mt-8 text-[clamp(17px,1.5vw,21px)] leading-[1.6] text-muted">
             Cuatro estudiantes de ingeniería de Hermosillo que, junto con la comunidad sorda, desarrollan
             un guante que traduce señas a voz, un intérprete en vivo y una nueva forma de aprender
             Lengua de Señas Mexicana.
           </Reveal>
           {/* No viewport margin: on short phones the actions sit in the bottom 12% and must still appear */}
-          <Reveal delay={0.7} viewport={{ once: true }} className="mt-8 flex flex-wrap items-center gap-3 lg:mt-10">
-            <Button href="#problema">
+          <Reveal delay={0.7} viewport={{ once: true }} className="mt-6 flex flex-wrap items-center gap-3 lg:mt-10">
+            <Button href="#problema" className="px-5! max-[359px]:px-4! sm:px-6!">
               Saber más <ArrowDown size={18} strokeWidth={2.4} aria-hidden="true" />
             </Button>
-            <Button variant="ghost" disabled className="text-muted! disabled:opacity-100">
+            <Button variant="ghost" disabled className="px-5! text-muted! disabled:opacity-100 max-[359px]:px-4! sm:px-6!">
               Próximamente
             </Button>
           </Reveal>

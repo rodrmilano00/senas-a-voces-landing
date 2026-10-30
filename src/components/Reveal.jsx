@@ -44,7 +44,7 @@ export function TitleReveal({ as = 'h2', text, accent, id, className = '', onMou
         {words.map(({ w, accent: isAccent }, i) => (
           <span key={i}>
             {isAccent && i === text.split(' ').length && <br />}
-            <span className="inline-block overflow-hidden pb-[0.08em] align-bottom">
+            <span className="-mb-[0.14em] inline-block overflow-hidden pb-[0.22em] align-bottom">
               <motion.span
                 className={`inline-block ${isAccent ? 'text-cyan' : ''}`}
                 initial={calm ? false : { y: '105%' }}

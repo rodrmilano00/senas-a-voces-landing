@@ -33,6 +33,7 @@ export const PRESS_HEADLINES = [
     outlet: 'Quinta Fuerza',
     title: 'Estudiantes de mecatrónica crean guante que traduce lengua de señas a voz en Sonora',
   },
+  { outlet: 'Tijuana Informa', title: 'Estudiantes mexicanos crean guante que traduce la lengua de señas en tiempo real' },
 ]
 
 export const SOCIAL_REACH = [
@@ -66,7 +67,7 @@ export const PRODUCTS = [
     kind: 'Plataforma educativa',
     desc: 'Aprende LSM con reconocimiento de señas en tiempo real: tu cámara valida cada seña y mide tu precisión. Misiones diarias y rachas, desde el abecedario y los números hasta expresiones cotidianas.',
     points: ['Validación de señas con cámara', 'Misiones diarias y rachas', 'Del abecedario a frases cotidianas'],
-    status: 'En espera de patente',
+    status: 'En fase de desarrollo',
   },
   {
     id: 'guante',
@@ -101,11 +102,9 @@ export const GLOVE_STEPS = [
 
 export const TESTIMONIALS = [
   {
-    text: 'Voy a una cita psicológica y tengo que estar acompañado de mi familia o de un intérprete del cual no tengo la confianza suficiente […] Puede ser algo complejo que preferiría escribir, pero igual es una barrera.',
-    // Shorter cut of the same quote, for the line set over the photograph.
-    excerpt: 'Voy a una cita psicológica y tengo que estar acompañado de mi familia o de un intérprete del cual no tengo la confianza suficiente.',
-    name: 'Jesús Enrique',
-    role: 'Maestro de la comunidad sorda, persona sorda',
+    text: 'Mi hijo es muy inteligente en lo tecnológico […] se necesita mucho este proyecto. Para toda la comunidad sorda va a ser muy beneficioso.',
+    name: 'Padre de familia',
+    role: 'Hogar con sordera profunda',
   },
   {
     text: 'Tengo que estar con ellos en todos los trámites de citas médicas, de algún documento […] Si llevo a otra persona ajena a nosotros, es como ventilar la privacidad de los chicos.',
@@ -113,9 +112,9 @@ export const TESTIMONIALS = [
     role: 'Hogar con jóvenes sordos',
   },
   {
-    text: 'Mi hijo es muy inteligente en lo tecnológico […] se necesita mucho este proyecto. Para toda la comunidad sorda va a ser muy beneficioso.',
-    name: 'Padre de familia',
-    role: 'Hogar con sordera profunda',
+    text: 'Voy a una cita psicológica y tengo que estar acompañado de mi familia o de un intérprete del cual no tengo la confianza suficiente […] Puede ser algo complejo que preferiría escribir, pero igual es una barrera.',
+    name: 'Jesús Enrique',
+    role: 'Cofundador de Señas del Desierto. Maestro de la comunidad sorda, persona sorda',
   },
 ]
 
@@ -124,7 +123,7 @@ export const MILESTONES = [
   { title: 'SmartCity Hackathon', detail: 'Primer lugar, organizado por la Agencia de Desarrollo Económico.', photo: 'hackathon' },
   { title: 'Primer prototipo del guante', detail: 'Sensores de flexión y salida de texto y voz.', photo: 'glove' },
   { title: 'Red Enactus México', detail: 'Ingreso a la red de emprendimiento social.', logo: 'enactus' },
-  { title: 'Señas del Desierto', detail: 'Validación de cada producto con el colectivo y su líder, Roberto Labrada.', logo: 'senasDelDesierto' },
+  { title: 'Señas del Desierto', detail: 'Validación de cada producto con el colectivo, Roberto Labrada y Jesús Enrique.', logo: 'senasDelDesierto' },
   { title: 'Convenio con DIF', detail: 'Y con la Agencia de Desarrollo Económico de Hermosillo.', logo: 'ayuntamiento' },
   { title: 'Campeones nacionales', detail: 'Enactus México, categoría Mentoractus.', photo: 'enactusMx' },
   { title: 'Copa Enactus', detail: 'Representación de México en Puerto Rico.', photo: 'enactusPr' },
@@ -133,20 +132,6 @@ export const MILESTONES = [
 
 export const TEAM = [
   {
-    name: 'Emiliano Acuña',
-    role: 'Representante · Diseño y producción',
-    school: 'Ing. en Tecnologías Computacionales, Tec de Monterrey',
-    bio: 'Productor y artista audiovisual. Da identidad visual y narrativa al proyecto.',
-    tone: '#0d9ac5',
-  },
-  {
-    name: 'Mario Chaidez',
-    role: 'Software y alianzas',
-    school: 'Ing. en Tecnologías Computacionales, Tec de Monterrey',
-    bio: 'Construye la plataforma y valida cada funcionalidad antes de lanzarla.',
-    tone: '#4b4fd6',
-  },
-  {
     name: 'César Castillo',
     role: 'Pruebas y prototipado',
     school: 'Ing. Mecatrónica, Tec de Monterrey',
@@ -154,11 +139,25 @@ export const TEAM = [
     tone: '#3fae6a',
   },
   {
+    name: 'Emiliano Acuña',
+    role: 'Diseño y producción',
+    school: 'Ing. en Tecnologías Computacionales, Tec de Monterrey',
+    bio: 'Productor y artista audiovisual. Da identidad visual y narrativa al proyecto.',
+    tone: '#0d9ac5',
+  },
+  {
     name: 'César Luna',
     role: 'Diseño físico del guante',
     school: 'Ing. Mecatrónica, Universidad de Sonora',
     bio: 'Conceptualiza, diseña y fabrica los prototipos del guante traductor.',
     tone: '#e5484d',
+  },
+  {
+    name: 'Mario Chaidez',
+    role: 'Software y alianzas',
+    school: 'Ing. en Tecnologías Computacionales, Tec de Monterrey',
+    bio: 'Construye la plataforma y valida cada funcionalidad antes de lanzarla.',
+    tone: '#4b4fd6',
   },
 ]
 

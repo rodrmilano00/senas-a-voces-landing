@@ -43,11 +43,11 @@ export default function BuildSheet() {
           <ol className="mt-8 grid gap-5">
             {GLOVE_STEPS.map((step, i) => (
               <li key={step.title} className="grid grid-cols-[3rem_1fr] items-baseline gap-x-2">
-                <span className="tabular font-display text-[40px] leading-none font-bold text-amber-ink/80">
+                <span className="tabular font-display text-[40px] leading-none font-medium tracking-[-0.02em] text-amber-ink/80">
                   {i + 1}
                 </span>
                 <span>
-                  <span className="block font-display text-[22px] font-bold text-fg">{step.title}</span>
+                  <span className="block font-display text-[22px] font-semibold tracking-[-0.01em] text-fg">{step.title}</span>
                   <span className="mt-1 block max-w-[42ch] leading-[1.6] text-muted">{step.desc}</span>
                 </span>
               </li>

@@ -22,84 +22,75 @@ colors:
   tone-green: "#3fae6a"
   tone-red: "#e5484d"
 typography:
-  index-title:
-    fontFamily: "League Spartan, Atkinson Hyperlegible Next, system-ui, sans-serif"
-    fontSize: "clamp(56px, 9vw, 128px)"
-    fontWeight: 700
-    lineHeight: 1.02
-    letterSpacing: "-0.02em"
   display:
-    fontFamily: "League Spartan, Atkinson Hyperlegible Next, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "clamp(50px, 6.4vw, 96px)"
-    fontWeight: 700
-    lineHeight: 0.92
-    letterSpacing: "-0.02em"
+    fontWeight: 500
+    lineHeight: 1.02
+    letterSpacing: "-0.025em"
   statement:
-    fontFamily: "League Spartan, Atkinson Hyperlegible Next, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "clamp(44px, 6.4vw, 96px)"
-    fontWeight: 700
-    lineHeight: 0.98
+    fontWeight: 500
+    lineHeight: 1.04
     letterSpacing: "-0.02em"
   headline:
-    fontFamily: "League Spartan, Atkinson Hyperlegible Next, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "clamp(40px, 5.6vw, 80px)"
-    fontWeight: 700
-    lineHeight: 1.02
+    fontWeight: 500
+    lineHeight: 1.06
     letterSpacing: "-0.02em"
   title:
-    fontFamily: "League Spartan, Atkinson Hyperlegible Next, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "clamp(32px, 3.6vw, 52px)"
-    fontWeight: 700
-    lineHeight: 1.02
+    fontWeight: 500
+    lineHeight: 1.06
     letterSpacing: "-0.02em"
-  index-entry:
-    fontFamily: "League Spartan, Atkinson Hyperlegible Next, system-ui, sans-serif"
-    fontSize: "clamp(24px, 3.2vw, 40px)"
-    fontWeight: 700
-    lineHeight: 1.02
   quote-display:
-    fontFamily: "League Spartan, Atkinson Hyperlegible Next, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "clamp(24px, 2.6vw, 36px)"
-    fontWeight: 700
-    lineHeight: 1.15
-    letterSpacing: "-0.02em"
-  subtitle:
-    fontFamily: "League Spartan, Atkinson Hyperlegible Next, system-ui, sans-serif"
-    fontSize: "24px"
-    fontWeight: 700
-    lineHeight: 1.15
-  subtitle-sm:
-    fontFamily: "League Spartan, Atkinson Hyperlegible Next, system-ui, sans-serif"
-    fontSize: "22px"
-    fontWeight: 700
+    fontWeight: 500
     lineHeight: 1.18
+    letterSpacing: "-0.015em"
+  subtitle:
+    fontFamily: "DM Sans, system-ui, sans-serif"
+    fontSize: "24px"
+    fontWeight: 600
+    lineHeight: 1.15
+    letterSpacing: "-0.01em"
+  subtitle-sm:
+    fontFamily: "DM Sans, system-ui, sans-serif"
+    fontSize: "22px"
+    fontWeight: 600
+    lineHeight: 1.18
+    letterSpacing: "-0.01em"
   body-lead:
-    fontFamily: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "clamp(17px, 1.4vw, 20px)"
     fontWeight: 400
     lineHeight: 1.65
   body-list:
-    fontFamily: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "20px"
     fontWeight: 400
     lineHeight: 1.55
   body:
-    fontFamily: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "17px"
     fontWeight: 400
     lineHeight: 1.65
   body-sm:
-    fontFamily: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "15px"
     fontWeight: 400
     lineHeight: 1.55
   label:
-    fontFamily: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "15px"
     fontWeight: 700
     lineHeight: 1.4
   caption:
-    fontFamily: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
+    fontFamily: "DM Sans, system-ui, sans-serif"
     fontSize: "14px"
     fontWeight: 400
     lineHeight: 1.5
@@ -159,14 +150,6 @@ components:
     textColor: "{colors.surface}"
     rounded: "{rounded.chip}"
     padding: "14px 8px"
-  index-sheet:
-    backgroundColor: "{colors.bg}"
-    textColor: "{colors.fg}"
-  index-entry:
-    textColor: "{colors.fg}"
-    typography: "{typography.index-entry}"
-    rounded: "{rounded.field}"
-    padding: "10px 0"
   section:
     backgroundColor: "{colors.bg}"
     textColor: "{colors.fg}"
@@ -223,18 +206,18 @@ components:
 
 The site is the team's evidence portfolio opened flat. Every chapter is a full-bleed section on one shared cream ground, and the chapters flow into each other with no cards, no rounded sheets, no gutters between them and no stacking. Cream chapters paint no ground of their own and clip nothing, so the decoration belongs to the page rather than to a chapter. The brand repeats through the portfolio cover's concentric cyan wave lines, which sit in two opposite corners of every section, and through three soft solid circles in petroleum, amber and cyan that drift behind each section's copy at their own scroll rates; both run across chapter edges with no visible cut. The page closes on one full-bleed petroleum band for contact, the only chapter with its own ground and its own clip.
 
-Petroleum carries the voice: League Spartan titles, set heavy and tight. Cyan appears at display size, in the wave lines and as the data and trajectory marks, including the pen point that draws the trajectory. Amber is reserved for actions and small markers. Body text is Atkinson Hyperlegible Next, a face built for legibility, because the audience includes deaf and hard-of-hearing readers and accessibility-focused institutions. Imagery is real and set at uneven sizes: the four creators photographed under colored light on offset blocks in their own color, the team's own drawing of the glove, a community testimonial set straight over the photograph of that work, and the team's own 3D laptop renders, whose white studio backdrop multiplies into the cream so the laptop sits on the page itself.
+Petroleum carries the voice: DM Sans titles, set medium and gently tight. Cyan appears at display size, in the wave lines and as the data and trajectory marks, including the pen point that draws the trajectory. Amber is reserved for actions and small markers. Text is DM Sans, the same family as the Academy product, kept at generous sizes and leading because the audience includes deaf and hard-of-hearing readers and accessibility-focused institutions. Imagery is real and set at uneven sizes: the four creators photographed under colored light on offset blocks in their own color, the team's own drawing of the glove, a community testimonial set straight over the photograph of that work, and the team's own 3D laptop renders, whose white studio backdrop multiplies into the cream so the laptop sits on the page itself.
 
 The density is editorial. Secondary material is set as plain text (quotes in columns, names in columns) and the column edges and the space between blocks do the organising; there are no hairline dividers between content. The header owns no box: the logo and controls sit straight on the page, and a solid band in the page's own colour appears behind them only once the page has scrolled. The page moves: chapter titles rise word by word out of a mask, and copy blocks rise into place once as they arrive, on top of the scroll-linked depth. Slow devices and reduced-motion visitors get the same page at rest, with all of that motion switched off.
 
 **Key Characteristics:**
 - Full-bleed sections on one cream ground (`bg`), each padded clamp(88px, 10vw, 144px), with no section cards, radii, gutters or stacking. Cream chapters paint no background and do not clip; horizontal overflow is clipped once, at page level. Contact is a full-bleed petroleum band with its own ground and clip.
 - A chrome-free header: logo left, controls right, straight on the page. Once scrolled, a translucent band in the page's own colour (cream at 70%, or petroleum at 75% over contact) with a medium backdrop blur fades in behind them, so content softens under it instead of cutting off at a line. Never a gradient.
-- Petroleum League Spartan display type (700, -0.02em, line-height 0.92 to 1.02). Cyan is used only for the second line of the cover headline and for marks.
+- Petroleum DM Sans display type (500 for large titles, 600 for small ones, -0.02em, line-height 1.02 to 1.06). Cyan is used only for the second line of the cover headline and for marks.
 - Amber pill actions; the main button carries a warm amber glow. Amber dots mark status.
 - Concentric cyan wave lines in opposite section corners at 45% and 35% opacity, over three drifting backdrop circles at 6 to 12% opacity, all running uncut across chapter edges.
 - No hairline dividers between content blocks: space separates them.
-- Secondary content as plain type: the lead testimonial over its photograph, other quotes and press names in text columns, no card grids.
+- Secondary content as plain type: the lead testimonial over its photograph, other quotes and press names in text columns, no card grids. Press notes are the one image wall: real screenshots of the coverage, proof rather than decoration.
 - Devices carry real recordings: a laptop we render ourselves that pulls back on scroll from a close-up of the live dashboard and later turns onto the lesson path, and an iPhone 16 Pro SVG frame drawn over a real recording.
 - Motion is scroll-linked depth plus once-only entrances: Lenis inertial scroll, parallax, a word reveal, the trajectory drawing itself, the Academy's pinned scene, the logo flying to the header, chapter titles rising word by word from a mask, and copy blocks rising into place on first view. Lite mode and reduced motion turn all of it still.
 
@@ -270,20 +253,19 @@ The palette is a warm cream world inked in deep petroleum, with cyan for marks a
 
 ## Typography
 
-**Display Font:** League Spartan (weights 500 to 800 loaded, 700 used), with Atkinson Hyperlegible Next and system-ui as fallbacks
-**Body Font:** Atkinson Hyperlegible Next (400 to 700), with Atkinson Hyperlegible and system-ui as fallbacks
+**Font:** DM Sans (variable, 400 to 700, with optical sizing), for titles and text alike, with system-ui as fallback
 
-**Character:** League Spartan is a geometric, heavy and tightly tracked title voice, the way the portfolio sets its page titles. Atkinson Hyperlegible Next is a humanist body face chosen for letterform clarity. Every h1 to h4 uses League Spartan 700 with line-height 1.02, -0.02em tracking and balanced wrapping. Paragraphs use pretty wrapping.
+**Character:** one friendly geometric family, matching the Academy product. Titles are medium weight rather than heavy: h1 and h2 are 500 at -0.02em, h3 and h4 are 600 at -0.015em, all with line-height 1.06 and balanced wrapping. DM Sans tightens itself at large sizes through its optical axis, so tracking stays gentle. Paragraphs use pretty wrapping.
 
 ### Hierarchy
 - **Display** (cover h1 only): petroleum, with the second line ("encuentran voz.") in cyan on its own line. Its words rise from a mask on load.
 - **Statement** (the manifesto WordReveal, and the closing quote on the band at clamp(36px, 5vw, 72px)): petroleum or band-fg, max 18 to 22ch.
 - **Headline** (each section's h2): petroleum on cream, max 760px, its words rising from a mask on first view. The contact h2 runs smaller, at clamp(36px, 4.4vw, 60px), and is set still.
 - **Title** (product names, h3): `fg`. Smaller subheads use clamp(26px, 2.4vw, 32px) ("¿Y a quién afecta?") and clamp(30px, 3vw, 40px) ("Visibilidad en medios", petroleum).
-- **Quote display** (the lead testimonial over its photograph, white, max 30ch; the featured press headline at clamp(26px, 2.8vw, 36px) with 1.18 leading, `fg`, max 30ch): League Spartan 700, set as a quotation in typographic quote marks.
-- **Subtitle** (24px audience terms; Academy points at 26px; creator names at clamp(24px, 2vw, 28px); milestone labels at 19px as their own chip step): League Spartan 700.
+- **Quote display** (the lead testimonial over its photograph, white, max 30ch; the featured press headline at clamp(26px, 2.8vw, 36px) with 1.18 leading, `fg`, max 30ch): DM Sans 500, set as a quotation in typographic quote marks.
+- **Subtitle** (24px audience terms; route points at 26px; creator names at clamp(24px, 2vw, 28px); milestone labels at 19px as their own chip step): DM Sans 600.
 - **Subtitle small** (22px): glove step titles.
-- **Figures** (statistics at clamp(30px, 2.8vw, 40px), step numerals at 40px with tabular figures): League Spartan 700, line-height 1.
+- **Figures** (statistics at clamp(30px, 2.8vw, 40px), step numerals at 40px with tabular figures): DM Sans 600 and 500, line-height 1.
 - **Body lead** (the intro under each section title): `muted`, max 56ch.
 - **Body list** (20px, 1.55): the press and partner names in columns, `fg`, each column headed by its category in `muted` at the same size. Secondary quotes run at 19px/1.6 in `fg`, max 46ch.
 - **Body** (17px, line-height 1.65; the base is 16px at 1.6): `muted`, held to 36 to 48ch measures.
@@ -292,9 +274,9 @@ The palette is a warm cream world inked in deep petroleum, with cyan for marks a
 - **Caption** (14px): figure captions, roles, and the chart legend.
 
 ### Named Rules
-**The No-Uppercase Rule.** Labels are sentence case in bold Atkinson. The system has no tracked-out uppercase small labels and no kickers above titles. A section's title is the first thing in the section. Column headings ("Medios", "Aliados", "Reconocimientos") are set at the list's own size in `muted`, not as small caps.
+**The No-Uppercase Rule.** Labels are sentence case in bold DM Sans. The system has no tracked-out uppercase small labels and no kickers above titles. A section's title is the first thing in the section. Column headings ("Medios", "Aliados", "Reconocimientos") are set at the list's own size in `muted`, not as small caps.
 
-**The Cyan Is Display-Size Rule.** Cyan text appears only at display, figure or index-entry size (24px and up). Running text stays in `fg` or `muted`.
+**The Cyan Is Display-Size Rule.** Cyan text appears only at display or figure size (24px and up). Running text stays in `fg` or `muted`.
 
 ## Layout
 
@@ -365,7 +347,7 @@ Three solid circles per section, one each in petroleum (6 to 7%), amber (10 to 1
 Each creator's photo sits in a 20px frame over a block in that creator's tone, offset 12px right and down (16px from 640px up). On scroll the block trails the photo by ±6px, a slight shift as it passes. On hover the pair lifts 4px over 300ms, as feedback. In the creators grid, each portrait is capped at 260px and is followed by the name, a bold role line, a body-small bio (max 34ch) and the school; that text block rises in on first view, staggered 0.08s per column. The blocks are flat color, are used only behind creator portraits, and use only that creator's tone.
 
 ### Quotation over a photograph (signature)
-The lead testimonial is set straight on the photograph of that work. The photo is a full-width DepthImage with square corners, darkened to brightness 0.55. The quotation (an excerpt of the testimonial, quote-display, white, max 30ch) and its attribution (16px, name bold, role at 80% white) sit in the photo's lower edge with 24px padding (40px from 640px up, 56px from 1024px up); from 1024px up the attribution aligns right on the same baseline row.
+The lead testimonial is set straight on the photograph of that work. The photo is a full-width DepthImage with square corners, darkened to brightness 0.55. The quotation (quote-display, white, max 30ch) and its attribution (16px, name bold, role at 80% white) sit in the photo's lower edge with 24px padding (40px from 640px up, 56px from 1024px up); from 1024px up the attribution aligns right on the same baseline row.
 
 ### Plain text columns
 Secondary material carries no box. Secondary quotes are 19px `fg` with a bold name and a 14px `muted` role below. Press and partner names are set as plain lists in body-list size, one column per category, headed by the category name in `muted`. One press headline is then set large as a quotation, with the outlet and the Instagram reach as one sentence beneath it in 17px `muted`.
@@ -382,16 +364,19 @@ Overflow clipped; 20px corners where the frame is a held photo (the live transla
 - **Focus:** the ring thickens to 2px cyan over 200ms.
 - **Status:** a polite live region below the fields. Success is 14px bold petroleum. Errors are 14px bold red.
 
+### Press notes
+Under the "Visibilidad en medios" columns, screenshots of the coverage sit in rows of equal height: each note's flex-grow and basis follow its own ratio, so a row fills the container and no note is cropped. 12px corners, a hairline ring, the outlet in 15px bold below. The row height is 170px below 1024px and 220px from there up.
+
 ### Status line
 Product status is a 15px bold amber-ink line with an 8px amber dot, set below the product name, never above it.
 
 ### Trajectory
-The milestones are joined by a dashed petroleum path. A solid stroke draws along it as you scroll, and the pen point rides the drawn tip. Nodes are 20px cyan dots. Each milestone has a photo (260px wide, 16:10, 16px corners) or a logo tile above its node; on first view the media settles from 0.86 scale, ±5° rotation and 22px lower to rest, on a spring from the bottom edge. Below the node sits the milestone label (League Spartan 19px petroleum on a pale cyan #d9eef4 chip) over a detail line on an opaque cream backing, so the path passes behind the text and never through it.
+The milestones are joined by a dashed petroleum path. A solid stroke draws along it as you scroll, and the pen point rides the drawn tip. Nodes are 20px cyan dots. Each milestone has a photo (at most 260px wide and 196px tall, in its own proportions so nothing is cropped, 16px corners) or a logo tile above its node; on first view the media settles from 0.86 scale, ±5° rotation and 22px lower to rest, on a spring from the bottom edge. Below the node sits the milestone label (DM Sans 600 at 19px, petroleum, on a pale cyan #d9eef4 chip) over a detail line on an opaque cream backing, so the path passes behind the text and never through it.
 
 ### Devices
-- **Academy scene (pinned):** a silver laptop modeled in three.js, rendered square-on to the lid with a transparent screen, sits over the live dashboard recording. The stage pins for 780svh and plays seven beats: the dashboard close up, filling the view; the camera pulling back (3% to 24% of the pin, scale geometric on an ease-in-out, pivoting on the screen's centre) with the laptop settling left; its explanation rising in on the right (23% to 29%) and out (40% to 44%); the phone coming in over the laptop's right corner (39% to 48%) with its explanation (46% to 52%), both leaving by 68%; the take change; and the Academy points (84% to 90%), held to the end. Below 1024px the scene pins for 640svh and stacks: the laptop under the header with the text right beneath it, and during the phone's beat the laptop dims to 10% while the phone takes the centre with its text below, centred. Calm stacks the same parts at rest, unpinned, with posters.
+- **Academy scene (pinned):** a silver laptop modeled in three.js, rendered square-on to the lid with a transparent screen, sits over the live dashboard recording. The stage pins for 780svh and plays seven beats: the dashboard close up, filling the view; the camera pulling back (3% to 24% of the pin, scale geometric on an ease-in-out, pivoting on the screen's centre) with the laptop settling left; its explanation rising in on the right (23% to 29%) and out (40% to 44%); the phone coming in over the laptop's right corner (39% to 48%) with its explanation (46% to 52%), both leaving by 68%; the take change; and the route points (84% to 90%), held to the end. Below 1024px the scene pins for 640svh and stacks: the laptop under the header with the text right beneath it, and during the phone's beat the laptop dims to 10% while the phone takes the centre with its text below, centred. Calm stacks the same parts at rest, unpinned, with posters.
 - **Take change:** 60 alpha frames of the camera turning around the same laptop to a three-quarter view, rendered in three.js with the lesson path as the screen's texture and scrubbed on a canvas (68% to 86% of the pin), so the path advances with the scroll. Their first frame is the frontal render's exact camera, so the canvas fades in over it (64% to 68%) and only the screen appears to change.
-- **Lesson render:** the second render plays muted and looped only while at least 15% is on screen, with the same multiply and feather (64% to 98%), beside three plain points (26px League Spartan title over 17px `muted` text, 32px apart). Calm shows the poster.
+- **Lesson render:** the second render plays muted and looped only while at least 15% is on screen, with the same multiply and feather (64% to 98%), beside three plain points (26px DM Sans title over 17px `muted` text, 32px apart). Calm shows the poster.
 - **Phone:** the 21st.dev "iPhone 16 Pro" frame (designali-in), an SVG with a titanium gradient (#5b6062 to #2c3032 to #474c4e), black bezel and Dynamic Island drawn over the screen. The screen is laid out at 240px and scaled to fit, cream-grounded, with a faint diagonal glass sheen, and runs the lesson UI over the real recording. It enters the Academy scene over the laptop's right corner, rising 36% of its height with rotate 8° to -3° as it fades in, with the phone drop shadow.
 
 ### Motion
@@ -417,7 +402,7 @@ The milestones are joined by a dashed petroleum path. A solid stroke draws along
 ### Do:
 - **Do** build every new chapter as a full-bleed section on the shared ground: clamp(88px, 10vw, 144px) padding, a backdrop-circle layout different from its neighbors, wave lines in opposite corners, and a headline-plus-intro header.
 - **Do** register every new chapter in the chapter list so it gets a divider tab, and route its in-page links through the section-top resolver.
-- **Do** set titles in petroleum League Spartan 700 at -0.02em. Keep running text in Atkinson Hyperlegible Next, at 17px with 1.65 leading, in `muted`, within 36 to 56ch.
+- **Do** set titles in petroleum DM Sans at 500 or 600 at -0.02em. Keep running text in DM Sans 400, at 17px with 1.65 leading, in `muted`, within 36 to 56ch.
 - **Do** fill actions with amber and amber-ink in full pills that are at least 48px tall (44px in the header), and pair a primary button with an underlined text link rather than a second filled button.
 - **Do** set secondary material as plain type in columns and let photographs carry the weight, at uneven sizes; put a quotation over its photograph rather than in a card.
 - **Do** show real people, the team's own renders and drawings, and real platform recordings, shown whole. Multiply white-backdrop renders into the ground and feather their edges. Put creators on their own tone's offset block.
