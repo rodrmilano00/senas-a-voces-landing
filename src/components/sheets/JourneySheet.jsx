@@ -65,7 +65,7 @@ function Media({ milestone, className = '' }) {
   if (milestone.logo) {
     const logo = PARTNER_LOGOS[milestone.logo]
     return (
-      <span className={`flex h-[132px] w-[200px] shrink-0 items-center justify-center bg-surface-2 dark:bg-[#faf7ed] ${className}`}>
+      <span className={`flex h-[132px] w-[200px] shrink-0 items-center justify-center bg-surface-2 ${className}`}>
         <img src={logo.src} alt={logo.alt} loading="lazy" className="h-[104px] w-[168px] object-contain" />
       </span>
     )
@@ -83,7 +83,7 @@ function Media({ milestone, className = '' }) {
 function Label({ milestone, align = 'center' }) {
   return (
     <>
-      <span className="inline-block rounded-[10px] bg-[#d9eef4] px-3.5 py-1.5 font-display text-[19px] leading-tight font-bold text-petrol dark:bg-cyan/15 dark:text-fg">
+      <span className="inline-block rounded-[10px] bg-[#d9eef4] px-3.5 py-1.5 font-display text-[19px] leading-tight font-bold text-petrol">
         {milestone.title}
       </span>
       {/* Opaque backing so the trajectory line passes behind, never through, the text */}

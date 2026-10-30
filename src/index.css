@@ -1,11 +1,8 @@
 @import 'tailwindcss';
 
-/* Class-based dark mode driven by `html.dark` */
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* ─── Design tokens (sampled from the logo and the portfolio) ─── */
 :root {
-  /* A deeper sand: scrollbar track and the Índice backdrop */
+  /* A deeper sand: the scrollbar track */
   --desk: #e6dfcb;
   --bg: #faf7ed;
   --surface: #ffffff;
@@ -22,26 +19,6 @@
   --band: #044c62;
   --band-fg: #eef7f8;
   --band-muted: #b5d3da;
-
-
-}
-
-html.dark {
-  --desk: #01161d;
-  --bg: #04232d;
-  --surface: #072f3b;
-  --surface-2: #062935;
-  --fg: #eaf3f4;
-  --muted: #a3bfc6;
-  --line: rgb(234 243 244 / 0.12);
-  --petrol: #7fd0e6;
-  --cyan: #46bfe6;
-  --amber: #ffa431;
-  --amber-ink: #3a2405;
-
-  --band: #073a48;
-  --band-fg: #eef7f8;
-  --band-muted: #a9cbd3;
 
 
 }
@@ -145,28 +122,8 @@ html.lite *::after {
   transition-duration: 0.01ms !important;
 }
 
-/* Índice: the index page slides down over the page */
-.index-sheet {
-  transform: translateY(-100%);
-  transition:
-    transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
-    overlay 0.5s allow-discrete,
-    display 0.5s allow-discrete;
-}
-.index-sheet[open] {
-  transform: none;
-}
-@starting-style {
-  .index-sheet[open] {
-    transform: translateY(-100%);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .index-sheet {
-    transition: none;
   }
 }

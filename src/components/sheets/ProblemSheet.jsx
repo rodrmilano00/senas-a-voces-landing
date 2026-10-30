@@ -50,7 +50,7 @@ export default function ProblemSheet() {
             <span className="text-sm">Cada punto representa unas 23,000 personas.</span>
           </figcaption>
           <p className="mt-14 text-[17px] leading-[1.65] text-muted">
-            <strong className="block font-display text-[clamp(30px,2.8vw,40px)] leading-none font-bold text-petrol dark:text-cyan">
+            <strong className="block font-display text-[clamp(30px,2.8vw,40px)] leading-none font-bold text-petrol">
               145,000 en Sonora
             </strong>
             <span className="mt-3 block max-w-[44ch]">
@@ -66,7 +66,7 @@ export default function ProblemSheet() {
           <dl className="mt-4">
             {AUDIENCES.map((a, i) => (
               <Reveal key={a.title} delay={i * 0.08} className="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
-                <dt className="font-display text-[24px] leading-tight font-bold text-petrol dark:text-cyan">{a.title}</dt>
+                <dt className="font-display text-[24px] leading-tight font-bold text-petrol">{a.title}</dt>
                 <dd className="max-w-[42ch] leading-[1.6] text-muted sm:pt-1">{a.desc}</dd>
               </Reveal>
             ))}
@@ -77,7 +77,7 @@ export default function ProblemSheet() {
       <div className="mt-[clamp(120px,14vw,200px)]">
         <WordReveal
           text={MANIFESTO}
-          className="max-w-[18ch] font-display text-[clamp(44px,6.4vw,96px)] leading-[0.98] font-bold tracking-[-0.02em] text-petrol dark:text-fg"
+          className="max-w-[18ch] font-display text-[clamp(44px,6.4vw,96px)] leading-[0.98] font-bold tracking-[-0.02em] text-petrol"
         />
       </div>
     </Sheet>

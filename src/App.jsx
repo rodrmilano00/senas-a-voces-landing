@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { useDarkMode } from './hooks/useDarkMode'
 import { startSmoothScroll } from './lib/smoothScroll'
 import { goToSheet } from './lib/sheetNav'
 import { probeFrameRate, useLite } from './lib/perf'
@@ -13,7 +12,6 @@ import CommunitySheet from './components/sheets/CommunitySheet'
 import ContactSheet from './components/sheets/ContactSheet'
 
 export default function App() {
-  const [dark, setDark] = useDarkMode()
   const lite = useLite()
 
   useEffect(() => probeFrameRate(), [])
@@ -41,7 +39,7 @@ export default function App() {
       >
         Saltar al contenido
       </a>
-      <Header dark={dark} setDark={setDark} />
+      <Header />
       <main id="contenido" className="overflow-x-clip">
         <CoverSheet />
         <ProblemSheet />

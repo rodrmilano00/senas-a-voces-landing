@@ -30,7 +30,7 @@ export default function Sheet({ id, title, intro, tone = 'cream', variant = 0, c
       <div className="container-page relative py-[clamp(88px,10vw,144px)]">
         {title && (
           <header className="max-w-[760px]">
-            <TitleReveal id={headingId} text={title} className="text-[clamp(40px,5.6vw,80px)] text-petrol dark:text-fg" />
+            <TitleReveal id={headingId} text={title} className="text-[clamp(40px,5.6vw,80px)] text-petrol" />
             {intro && (
               <Reveal as="p" delay={0.2} className="mt-6 max-w-[56ch] text-[clamp(17px,1.4vw,20px)] leading-[1.65] text-muted">
                 {intro}

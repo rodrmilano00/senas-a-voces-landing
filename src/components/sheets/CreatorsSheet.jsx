@@ -26,7 +26,7 @@ function Creator({ member, photo, index }) {
         imgClassName="aspect-[4/5] object-[48%_40%]"
       />
       <Reveal delay={0.08 + (index % 4) * 0.08} className="mt-5">
-        <h3 className="text-[clamp(24px,2vw,28px)] text-petrol dark:text-fg">{member.name}</h3>
+        <h3 className="text-[clamp(24px,2vw,28px)] text-petrol">{member.name}</h3>
         <p className="mt-2 font-bold text-fg">{member.role}</p>
         <p className="mt-2 max-w-[34ch] text-[15px] leading-[1.55] text-muted">{member.bio}</p>
         <p className="mt-3 text-sm leading-snug text-muted">{member.school}</p>

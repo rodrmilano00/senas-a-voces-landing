@@ -9,13 +9,6 @@ export const NAV_LINKS = [
   { href: '#comunidad', label: 'Comunidad' },
 ]
 
-export const HERO_PROOF = [
-  '1er lugar, SmartCity Hackathon',
-  'Campeones nacionales Enactus México',
-  'Copa Enactus, Puerto Rico',
-  'Validado con Señas del Desierto',
-]
-
 export const MANIFESTO = 'La tecnología está diseñada para ellos y no a pesar de ellos.'
 
 export const FINAL_MESSAGE =

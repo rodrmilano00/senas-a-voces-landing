@@ -145,8 +145,8 @@ export default function ContactSheet() {
             </div>
 
             <div className="min-h-7 pt-4" aria-live="polite">
-              {status === 'sent' && <p className="text-sm font-bold text-petrol dark:text-cyan">Mensaje enviado. El equipo responderá pronto.</p>}
-              {status === 'error' && <p className="text-sm font-bold text-[#b42318] dark:text-[#ff8a80]">{error}</p>}
+              {status === 'sent' && <p className="text-sm font-bold text-petrol">Mensaje enviado. El equipo responderá pronto.</p>}
+              {status === 'error' && <p className="text-sm font-bold text-[#b42318]">{error}</p>}
             </div>
 
             <button
@@ -165,7 +165,7 @@ export default function ContactSheet() {
         <footer className="mt-[clamp(96px,11vw,144px)] py-10">
           <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
             <div>
-              <img src={LOGO.horizontalDark} alt="Señas a Voces Academy" width="600" height="242" className="h-12 w-auto" />
+              <img src={LOGO.horizontalDark} alt="Señas a Voces Academy" width="1100" height="436" className="h-12 w-auto" />
               <p className="mt-4 max-w-[32ch] text-band-muted">Hecho en Hermosillo, Sonora.</p>
             </div>
             <nav aria-label="Pie de página" className="grid grid-cols-2 gap-x-12 gap-y-3 text-[15px] font-semibold sm:grid-cols-3">

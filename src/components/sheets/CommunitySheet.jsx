@@ -65,7 +65,7 @@ export default function CommunitySheet() {
       </div>
 
       <div className="mt-[clamp(120px,12vw,200px)] grid gap-10 lg:grid-cols-12">
-        <h3 className="text-[clamp(30px,3vw,40px)] text-petrol lg:col-span-3 dark:text-fg">Visibilidad en medios</h3>
+        <h3 className="text-[clamp(30px,3vw,40px)] text-petrol lg:col-span-3">Visibilidad en medios</h3>
         <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:col-span-9 lg:grid-cols-3">
           {NAME_COLUMNS.map((col, i) => (
             <Reveal as="ul" key={col.kind} delay={i * 0.1} className="text-[20px] leading-[1.55]">

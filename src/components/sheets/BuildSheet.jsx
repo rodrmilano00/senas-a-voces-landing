@@ -10,7 +10,7 @@ const [ACADEMY, GLOVE, LIVE] = PRODUCTS
 // Development status, set as a trailing line under the product name.
 function Status({ children }) {
   return (
-    <p className="mt-3 inline-flex items-center gap-2 text-[15px] font-bold text-amber-ink dark:text-amber">
+    <p className="mt-3 inline-flex items-center gap-2 text-[15px] font-bold text-amber-ink">
       <span className="h-2 w-2 rounded-full bg-amber" aria-hidden="true" />
       {children}
     </p>
@@ -43,7 +43,7 @@ export default function BuildSheet() {
           <ol className="mt-8 grid gap-5">
             {GLOVE_STEPS.map((step, i) => (
               <li key={step.title} className="grid grid-cols-[3rem_1fr] items-baseline gap-x-2">
-                <span className="tabular font-display text-[40px] leading-none font-bold text-amber-ink/80 dark:text-amber">
+                <span className="tabular font-display text-[40px] leading-none font-bold text-amber-ink/80">
                   {i + 1}
                 </span>
                 <span>
